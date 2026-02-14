@@ -244,6 +244,10 @@
             border-top: 2px solid #ddd;
         }
 
+        #bg-music {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .name { font-size: 42px; letter-spacing: 3px; }
             .photo { max-width: 90%; max-height: none; }
@@ -266,6 +270,12 @@
     </style>
 </head>
 <body>
+
+    <!-- Hidden background music -->
+    <audio id="bg-music" loop>
+        <source src="https://image2url.com/r2/default/audio/1771078644500-15b79dac-91d4-47b8-aa06-6348bd433fca.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <!-- Interpol Click-to-Enter Gate -->
     <div id="entry-gate">
@@ -327,10 +337,18 @@
         </div>
     </div>
 
-    <!-- Simple JS to remove entry gate on click -->
+    <!-- JavaScript: hide gate + start music on button click -->
     <script>
         document.getElementById('enter-btn').addEventListener('click', function() {
+            // Hide entry screen
             document.body.classList.add('entered');
+
+            // Start music (browsers allow this after user click)
+            const audio = document.getElementById('bg-music');
+            audio.play().catch(function(error) {
+                console.log("Audio playback failed:", error);
+                // If it fails (e.g. file gone or blocked), it just stays silent – no crash
+            });
         });
     </script>
 
