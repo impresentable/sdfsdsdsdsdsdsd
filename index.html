@@ -204,10 +204,7 @@
             border: 2px solid #ffb300;
             transition: all 0.3s ease;
         }
-        .url:hover {
-            background: #ffb300;
-            color: white;
-        }
+        .url:hover { background: #ffb300; color: white; }
         .danger {
             background: #ffebee;
             border-top: 5px solid #d32f2f;
@@ -228,7 +225,7 @@
             font-size: 15px;
             border-top: 2px solid #ddd;
         }
-        #bg-music { display: none; }
+        #music-lucas, #music-amaan { display: none; }
         @media (max-width: 768px) {
             .name { font-size: 42px; letter-spacing: 3px; }
             .photo { max-width: 90%; max-height: none; }
@@ -241,8 +238,15 @@
 </head>
 <body>
 
-    <audio id="bg-music" loop>
+    <!-- Music for Lucas Tiger -->
+    <audio id="music-lucas" loop>
         <source src="https://image2url.com/r2/default/audio/1771078644500-15b79dac-91d4-47b8-aa06-6348bd433fca.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music for Amaan Muhammad -->
+    <audio id="music-amaan" loop>
+        <source src="https://image2url.com/r2/default/audio/1771121248905-f0cb8b37-c069-4975-b53c-85b06ce7244a.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -291,7 +295,6 @@
                             <div class="offense">Known to harbor intense hatred toward Benjamin Netanyahu and is believed to be actively plotting an imminent operation or action</div>
                         </div>
 
-                        <!-- Yellow notice box for Lucas Tiger -->
                         <div class="website-notice">
                             <h4>Associated Website</h4>
                             <p>This subject operates <a href="https://mossad.club" target="_blank" class="url">https://mossad.club</a> which contains false claims intended to justify criminal activity. All content on this site should be considered propaganda.</p>
@@ -349,20 +352,46 @@
     </div>
 
     <script>
+        const musicLucas = document.getElementById('music-lucas');
+        const musicAmaan = document.getElementById('music-amaan');
+
+        // Set initial volumes (adjust if too loud/soft)
+        musicLucas.volume = 0.4;
+        musicAmaan.volume = 0.4;
+
+        // Entry: start Lucas music
         document.getElementById('enter-btn').addEventListener('click', function() {
             document.body.classList.add('entered');
             document.getElementById('main-content').style.display = 'block';
-            const audio = document.getElementById('bg-music');
-            audio.play().catch(function(error) { console.log("Audio playback failed:", error); });
+
+            musicLucas.play().catch(err => console.log("Lucas music failed:", err));
         });
+
+        // Tab switching with music control
         const tabButtons = document.querySelectorAll('.tab-button');
         const tabContents = document.querySelectorAll('.tab-content');
+
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
+                // Remove active classes
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active to clicked tab
                 button.classList.add('active');
-                document.getElementById(button.dataset.tab).classList.add('active');
+                const targetTab = document.getElementById(button.dataset.tab);
+                targetTab.classList.add('active');
+
+                // Music logic
+                if (button.dataset.tab === 'lucas-tiger') {
+                    musicAmaan.pause();
+                    musicAmaan.currentTime = 0; // optional: reset to start
+                    musicLucas.play().catch(err => console.log("Lucas music resume failed:", err));
+                } else if (button.dataset.tab === 'amaan-muhammad') {
+                    musicLucas.pause();
+                    musicLucas.currentTime = 0; // optional: reset
+                    musicAmaan.play().catch(err => console.log("Amaan music failed:", err));
+                }
             });
         });
     </script>
