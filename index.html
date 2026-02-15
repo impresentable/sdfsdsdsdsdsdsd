@@ -67,6 +67,36 @@
       font-weight: 400;
     }
 
+    .team-section {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .team-label {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .team-directors {
+      font-size: 13px;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .director {
+      color: #ffffff;
+    }
+
+    .director-separator {
+      margin: 0 8px;
+      opacity: 0.6;
+    }
+
     .tip-line {
       text-align: right;
       background: #bf0a30;
@@ -992,6 +1022,19 @@
         font-size: 13px;
       }
 
+      .team-section {
+        margin-top: 10px;
+        padding-top: 8px;
+      }
+
+      .team-label {
+        font-size: 9px;
+      }
+
+      .team-directors {
+        font-size: 12px;
+      }
+
       .tip-line {
         text-align: center;
         width: 100%;
@@ -1418,6 +1461,23 @@
         font-size: 12px;
       }
 
+      .team-section {
+        margin-top: 8px;
+        padding-top: 6px;
+      }
+
+      .team-label {
+        font-size: 8px;
+      }
+
+      .team-directors {
+        font-size: 11px;
+      }
+
+      .director-separator {
+        margin: 0 6px;
+      }
+
       .fbi-seal {
         width: 60px;
         height: 60px;
@@ -1520,6 +1580,14 @@
         <div class="header-title">
           <h1>The Coms Most Wanted</h1>
           <p>U.S. Department of Justice</p>
+          <div class="team-section">
+            <div class="team-label">The Team</div>
+            <div class="team-directors">
+              <span class="director">Director Cunch</span>
+              <span class="director-separator">•</span>
+              <span class="director">Director David</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="tip-line">
@@ -1554,7 +1622,7 @@
         <!-- Amaan Muhammad - TOP PRIORITY -->
         <div class="fugitive-card" style="order: -1;">
           <div class="fugitive-photo-container">
-            <img src="https://i.ibb.co/4g7jS2y6/image.jpg" alt="Amaan Muhammad" class="fugitive-photo">
+            <img src="https://i.ibb.co/tPTdvx7J/image.jpg" alt="Amaan Muhammad" class="fugitive-photo">
           </div>
           <div class="fugitive-info">
             <div class="fugitive-name">Amaan Muhammad</div>
@@ -1593,7 +1661,26 @@
           </div>
         </div>
 
-        <!-- Coming Soon -->
+        <!-- Fakemodeen - Coming Soon -->
+        <div class="fugitive-card" style="opacity: 0.6;">
+          <div class="fugitive-photo-container">
+            <img src="https://i.ibb.co/7XqQ8Zf/black-placeholder.jpg" alt="Fakemodeen" class="fugitive-photo" style="filter: blur(8px) brightness(0.3);">
+          </div>
+          <div class="fugitive-info">
+            <div class="fugitive-name">Fakemodeen</div>
+            <div class="case-number">CASE #2026-IMW-[PENDING]</div>
+            <div class="fugitive-details">
+              <strong>Status:</strong> Investigation In Progress<br>
+              <strong>Information:</strong> Coming Soon
+            </div>
+            <div class="charges-summary">
+              <strong>Details:</strong> Full profile and charges to be released pending ongoing investigation.
+            </div>
+            <button class="view-profile-btn" style="background: #6c757d; cursor: not-allowed;" disabled>Coming Soon</button>
+          </div>
+        </div>
+
+        <!-- Additional Classified -->
         <div class="fugitive-card" style="opacity: 0.6;">
           <div class="fugitive-photo-container">
             <img src="https://i.ibb.co/7XqQ8Zf/black-placeholder.jpg" alt="Classified" class="fugitive-photo" style="filter: blur(8px) brightness(0.3);">
@@ -1623,7 +1710,7 @@
         </div>
         <div class="profile-content">
           <div class="profile-photo-section">
-            <img src="https://i.ibb.co/4g7jS2y6/image.jpg" alt="Amaan Muhammad" class="profile-photo">
+            <img src="https://i.ibb.co/tPTdvx7J/image.jpg" alt="Amaan Muhammad" class="profile-photo">
             
             <div class="reward-amount">
               <strong>REWARD</strong>
