@@ -252,12 +252,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
 
     .fugitive-photo {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .reward-badge {
@@ -975,8 +976,8 @@
       .profile-photo-section {
         border-right: none;
         border-bottom: 2px solid #d0d0d0;
-        background: #1a1a1a !important;
-        padding: 40px 20px !important;
+        background: #000000 !important;
+        padding: 30px !important;
       }
 
       .info-grid {
@@ -990,166 +991,153 @@
 
     @media (max-width: 768px) {
       body {
-        font-size: 15px;
-      }
-
-      .header {
-        padding: 25px 0 15px;
-      }
-
-      .header-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-        padding: 0 15px;
-      }
-
-      .header-left {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .fbi-seal {
-        width: 70px;
-        height: 70px;
-      }
-
-      .header-title h1 {
-        font-size: 24px;
-      }
-
-      .header-title p {
-        font-size: 13px;
-      }
-
-      .team-section {
-        margin-top: 10px;
-        padding-top: 8px;
-      }
-
-      .team-label {
-        font-size: 9px;
-      }
-
-      .team-directors {
-        font-size: 12px;
-      }
-
-      .tip-line {
-        text-align: center;
-        width: 100%;
-      }
-
-      .tip-line strong {
         font-size: 16px;
       }
 
-      .tip-line span {
-        font-size: 12px;
+      .header {
+        padding: 20px 0;
       }
 
-      .live-clock {
-        width: 100%;
-        order: -1;
-        text-align: center;
+      .header-container {
+        flex-direction: row;
+        text-align: left;
+        gap: 15px;
+        padding: 0 20px;
+        flex-wrap: wrap;
       }
 
-      .live-clock .clock-time {
-        font-size: 18px;
+      .header-left {
+        flex-direction: row;
+        gap: 20px;
       }
 
-      .live-clock .clock-date {
-        font-size: 9px;
+      .fbi-seal {
+        width: 80px;
+        height: 80px;
       }
 
-      .nav-container {
-        flex-direction: column;
+      .header-title h1 {
+        font-size: 26px;
       }
 
-      .nav-tab {
-        border-bottom: 1px solid #d0d0d0;
-        padding: 15px 20px;
+      .header-title p {
         font-size: 14px;
       }
 
+      .team-section {
+        margin-top: 12px;
+        padding-top: 10px;
+      }
+
+      .team-label {
+        font-size: 10px;
+      }
+
+      .team-directors {
+        font-size: 13px;
+      }
+
+      .tip-line {
+        text-align: right;
+        width: auto;
+      }
+
+      .tip-line strong {
+        font-size: 18px;
+      }
+
+      .tip-line span {
+        font-size: 13px;
+      }
+
+      .nav-container {
+        flex-direction: row;
+      }
+
+      .nav-tab {
+        border-bottom: none;
+        padding: 15px 20px;
+        font-size: 15px;
+      }
+
       .main-container {
-        padding: 0 15px;
-        margin: 25px auto;
+        padding: 0 20px;
+        margin: 30px auto;
       }
 
       .fugitive-grid {
         grid-template-columns: 1fr;
         gap: 25px;
-        margin-top: 25px;
+        margin-top: 30px;
       }
 
       .fugitive-card {
-        margin-bottom: 10px;
+        margin-bottom: 0;
       }
 
       .fugitive-photo-container {
-        height: 350px;
+        height: 380px;
       }
 
       .fugitive-info {
-        padding: 20px 18px;
+        padding: 20px;
       }
 
       .fugitive-name {
-        font-size: 22px;
-        margin-bottom: 12px;
+        font-size: 24px;
+        margin-bottom: 10px;
       }
 
       .case-number {
-        font-size: 12px;
-        margin-bottom: 12px;
+        font-size: 13px;
+        margin-bottom: 15px;
       }
 
       .fugitive-details {
         font-size: 14px;
-        margin-bottom: 14px;
-        line-height: 1.9;
+        margin-bottom: 15px;
+        line-height: 1.8;
       }
 
       .charges-summary {
-        font-size: 13px;
-        padding: 14px;
-        margin-bottom: 16px;
+        font-size: 14px;
+        padding: 12px;
+        margin-bottom: 15px;
       }
 
       .view-profile-btn {
-        font-size: 14px;
-        padding: 13px;
+        font-size: 15px;
+        padding: 12px;
       }
 
       .profile-container {
-        margin-bottom: 25px;
+        margin-bottom: 30px;
       }
 
       .profile-name {
-        font-size: 28px;
-        letter-spacing: 2px;
-        margin-bottom: 12px;
-        padding-bottom: 12px;
+        font-size: 32px;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
       }
 
       .profile-case-number {
-        font-size: 13px;
-        margin-bottom: 18px;
+        font-size: 14px;
+        margin-bottom: 20px;
       }
 
       .profile-header h2 {
-        font-size: 16px;
-        margin-bottom: 6px;
+        font-size: 18px;
+        margin-bottom: 5px;
       }
 
       .profile-header p {
-        font-size: 13px;
+        font-size: 14px;
       }
 
       .profile-photo-section {
-        padding: 35px 20px !important;
-        background: #1a1a1a !important;
+        padding: 30px !important;
+        background: #000000 !important;
       }
 
       .profile-photo {
@@ -1158,15 +1146,15 @@
       }
 
       .reward-amount {
-        padding: 14px 22px;
+        padding: 15px 25px;
       }
 
       .reward-amount strong {
-        font-size: 13px;
+        font-size: 14px;
       }
 
       .reward-amount .amount {
-        font-size: 24px;
+        font-size: 28px;
       }
 
       .side-info-box {
@@ -1174,14 +1162,14 @@
       }
 
       .side-info-box h4 {
-        font-size: 13px;
+        font-size: 14px;
         margin-bottom: 12px;
-        padding-bottom: 8px;
+        padding-bottom: 6px;
       }
 
       .side-info-item {
         font-size: 13px;
-        padding: 7px 0;
+        padding: 6px 0;
       }
 
       .caution-badge {
@@ -1189,23 +1177,23 @@
       }
 
       .caution-badge strong {
-        font-size: 14px;
+        font-size: 16px;
       }
 
       .caution-badge p {
-        font-size: 11px;
+        font-size: 12px;
       }
 
       .wanted-since {
-        padding: 10px 14px;
+        padding: 10px 15px;
       }
 
       .wanted-since .label {
-        font-size: 10px;
+        font-size: 11px;
       }
 
       .wanted-since .date {
-        font-size: 15px;
+        font-size: 16px;
       }
 
       .map-section {
@@ -1213,9 +1201,9 @@
       }
 
       .map-section h4 {
-        font-size: 13px;
+        font-size: 14px;
         margin-bottom: 12px;
-        padding-bottom: 8px;
+        padding-bottom: 6px;
       }
 
       .map-container {
@@ -1229,38 +1217,38 @@
 
       .map-label strong {
         font-size: 13px;
-        margin-bottom: 4px;
+        margin-bottom: 3px;
       }
 
       .profile-details {
-        padding: 25px 18px;
+        padding: 30px;
       }
 
       .info-section {
-        margin-bottom: 22px;
+        margin-bottom: 25px;
       }
 
       .info-section h3 {
-        font-size: 17px;
+        font-size: 18px;
         margin-bottom: 12px;
-        padding-bottom: 10px;
+        padding-bottom: 8px;
       }
 
       .info-grid {
-        gap: 14px;
+        gap: 12px;
       }
 
       .info-item {
-        font-size: 13px;
+        font-size: 14px;
       }
 
       .info-label {
-        min-width: 110px;
-        font-size: 13px;
+        min-width: 120px;
+        font-size: 14px;
       }
 
       .info-value {
-        font-size: 13px;
+        font-size: 14px;
       }
 
       .charges-list {
@@ -1268,75 +1256,75 @@
       }
 
       .charge-item {
-        font-size: 13px;
-        padding: 10px 0 10px 22px;
-        margin-bottom: 4px;
-        line-height: 1.7;
+        font-size: 14px;
+        padding: 10px 0 10px 20px;
+        margin-bottom: 0;
+        line-height: 1.6;
       }
 
       .charge-item:before {
-        font-size: 18px;
+        font-size: 20px;
       }
 
       .warning-box {
-        padding: 18px;
-        margin: 22px 0;
+        padding: 20px;
+        margin: 25px 0;
       }
 
       .warning-box h4 {
-        font-size: 15px;
+        font-size: 16px;
         margin-bottom: 10px;
       }
 
       .warning-box p {
         font-size: 14px;
-        line-height: 1.7;
+        line-height: 1.6;
       }
 
       .caution-box {
-        padding: 18px;
+        padding: 20px;
         margin-top: 20px;
       }
 
       .caution-box strong {
-        font-size: 16px;
+        font-size: 18px;
         margin-bottom: 8px;
       }
 
       .caution-box p {
-        font-size: 13px;
+        font-size: 14px;
         line-height: 1.6;
       }
 
       .interpol-notice {
-        padding: 18px;
-        margin: 22px 0;
+        padding: 25px;
+        margin: 30px 0;
       }
 
       .interpol-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        margin-bottom: 18px;
-        padding-bottom: 14px;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
       }
 
       .interpol-logo-text {
-        padding: 9px 18px;
-        font-size: 16px;
-      }
-
-      .interpol-title h4 {
+        padding: 10px 20px;
         font-size: 18px;
       }
 
+      .interpol-title h4 {
+        font-size: 20px;
+      }
+
       .interpol-title p {
-        font-size: 12px;
+        font-size: 13px;
       }
 
       .interpol-content {
-        gap: 12px;
-        margin-bottom: 12px;
+        gap: 15px;
+        margin-bottom: 15px;
       }
 
       .interpol-field {
@@ -1344,63 +1332,63 @@
       }
 
       .interpol-field-label {
-        font-size: 10px;
+        font-size: 11px;
         margin-bottom: 5px;
       }
 
       .interpol-field-value {
-        font-size: 14px;
+        font-size: 15px;
       }
 
       .interpol-footer {
         padding: 12px;
-        margin-top: 12px;
+        margin-top: 15px;
       }
 
       .interpol-footer p {
-        font-size: 12px;
+        font-size: 13px;
         line-height: 1.6;
       }
 
       .back-button {
-        padding: 12px 28px;
+        padding: 12px 30px;
         font-size: 15px;
         margin-top: 20px;
       }
 
       .contact-container {
-        padding: 30px 20px;
-        margin: 25px auto;
+        padding: 40px;
+        margin: 0 auto;
       }
 
       .contact-container h2 {
-        font-size: 26px;
-        margin-bottom: 18px;
+        font-size: 28px;
+        margin-bottom: 20px;
         padding-bottom: 12px;
       }
 
       .contact-container p {
         font-size: 15px;
-        margin-bottom: 14px;
+        margin-bottom: 15px;
         line-height: 1.7;
       }
 
       .contact-methods {
-        margin: 25px 0;
+        margin: 30px 0;
       }
 
       .contact-method {
-        padding: 18px;
-        margin-bottom: 18px;
+        padding: 20px;
+        margin-bottom: 20px;
       }
 
       .contact-method h3 {
-        font-size: 17px;
+        font-size: 18px;
         margin-bottom: 10px;
       }
 
       .contact-method .contact-detail {
-        font-size: 19px;
+        font-size: 20px;
         margin-bottom: 8px;
       }
 
@@ -1410,95 +1398,86 @@
       }
 
       .alert-banner {
-        padding: 18px;
-        margin-bottom: 28px;
+        padding: 20px;
+        margin-bottom: 30px;
       }
 
       .alert-banner h2 {
-        font-size: 19px;
+        font-size: 20px;
         margin-bottom: 10px;
       }
 
       .alert-banner p {
-        font-size: 14px;
-        margin-bottom: 6px;
+        font-size: 15px;
+        margin-bottom: 5px;
         line-height: 1.6;
       }
 
       .footer {
-        padding: 35px 18px;
-        margin-top: 40px;
+        padding: 30px 20px;
+        margin-top: 50px;
       }
 
       .footer p {
-        font-size: 12px;
+        font-size: 13px;
         margin-bottom: 8px;
       }
 
       .footer-links {
-        font-size: 11px;
-        margin-top: 14px;
+        font-size: 12px;
+        margin-top: 15px;
       }
 
       .footer-links a {
-        margin: 0 8px;
+        margin: 0 10px;
         display: inline-block;
-        margin-bottom: 8px;
+        margin-bottom: 5px;
       }
     }
 
     @media (max-width: 480px) {
       body {
-        font-size: 14px;
-      }
-
-      .header-title h1 {
-        font-size: 21px;
-        letter-spacing: 1px;
-      }
-
-      .header-title p {
-        font-size: 12px;
-      }
-
-      .team-section {
-        margin-top: 8px;
-        padding-top: 6px;
-      }
-
-      .team-label {
-        font-size: 8px;
-      }
-
-      .team-directors {
-        font-size: 11px;
-      }
-
-      .director-separator {
-        margin: 0 6px;
-      }
-
-      .fbi-seal {
-        width: 60px;
-        height: 60px;
-      }
-
-      .tip-line strong {
         font-size: 15px;
       }
 
-      .nav-tab {
-        padding: 13px 15px;
+      .header-title h1 {
+        font-size: 22px;
+        letter-spacing: 0.5px;
+      }
+
+      .header-title p {
         font-size: 13px;
       }
 
+      .team-label {
+        font-size: 9px;
+      }
+
+      .team-directors {
+        font-size: 12px;
+      }
+
+      .fbi-seal {
+        width: 70px;
+        height: 70px;
+      }
+
+      .tip-line strong {
+        font-size: 16px;
+      }
+
+      .nav-tab {
+        padding: 14px 15px;
+        font-size: 14px;
+      }
+
       .fugitive-name {
-        font-size: 20px;
-        letter-spacing: 1px;
+        font-size: 22px;
+        letter-spacing: 0.5px;
       }
 
       .case-number {
-        font-size: 11px;
+        font-size: 12px;
       }
 
       .fugitive-details {
@@ -1513,47 +1492,51 @@
       }
 
       .profile-name {
-        font-size: 24px;
-        letter-spacing: 1px;
+        font-size: 28px;
+        letter-spacing: 0.5px;
       }
 
       .reward-amount .amount {
-        font-size: 22px;
+        font-size: 24px;
       }
 
       .reward-badge {
-        font-size: 11px;
-        padding: 5px 10px;
+        font-size: 12px;
+        padding: 6px 12px;
         top: 10px;
         right: 10px;
       }
 
       .updated-badge {
-        font-size: 10px;
-        padding: 4px 8px;
+        font-size: 11px;
+        padding: 5px 10px;
         top: 10px;
         left: 10px;
       }
 
       .profile-details {
-        padding: 20px 15px;
+        padding: 25px 20px;
       }
 
       .interpol-logo-text {
-        font-size: 15px;
-        padding: 8px 14px;
+        font-size: 16px;
+        padding: 9px 18px;
       }
 
       .interpol-title h4 {
-        font-size: 17px;
+        font-size: 18px;
       }
 
       .contact-container h2 {
-        font-size: 23px;
+        font-size: 24px;
+      }
+
+      .contact-container {
+        padding: 30px 20px;
       }
 
       .contact-method .contact-detail {
-        font-size: 17px;
+        font-size: 18px;
         word-break: break-all;
       }
     }
@@ -1568,6 +1551,30 @@
 
   <audio id="music-amaan" loop>
     <source src="https://image2url.com/r2/default/audio/1771121248905-f0cb8b37-c069-4975-b53c-85b06ce7244a.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="music-kyle" loop>
+    <source src="https://image2url.com/r2/default/audio/1771144607172-10fcb55c-d776-4df8-8a5d-671fd699d6ee.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="music-cbtv" loop>
+    <source src="https://image2url.com/r2/default/audio/1771145458907-6b1cc348-c41e-4e3d-a6bf-9e28db205398.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="music-james" loop>
+    <source src="https://image2url.com/r2/default/audio/1771146119170-37e0cdfb-d9b5-4bb8-9425-8119997870a9.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="music-bmontana" loop>
+    <source src="https://image2url.com/r2/default/audio/1771146525025-62740c50-335b-4c86-ac9b-dab65cc1a402.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="music-joshlee" loop>
+    <source src="https://image2url.com/r2/default/audio/1771146984559-93f08a5f-1749-495e-9a60-23141f1b83d0.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="music-thetruthuk" loop>
+    <source src="https://image2url.com/r2/default/audio/1771148568791-0f7c3168-2a3f-4972-825f-a70706b93a3c.mp3" type="audio/mpeg">
   </audio>
 
   <!-- Header -->
@@ -1601,6 +1608,7 @@
   <nav class="nav-tabs">
     <div class="nav-container">
       <button class="nav-tab active" data-tab="most-wanted">Most Wanted</button>
+      <button class="nav-tab" data-tab="missing-people">Missing People</button>
       <button class="nav-tab" data-tab="submit-tip">Submit a Tip</button>
     </div>
   </nav>
@@ -1629,7 +1637,7 @@
             <div class="case-number">CASE #2026-IMW-063 • TOP PRIORITY</div>
             <div class="fugitive-details">
               <strong>Nationality:</strong> British<br>
-              <strong>Age:</strong> 28-32 (Estimated)<br>
+              <strong>Age:</strong> 21-24 (Estimated)<br>
               <strong>Known Alias:</strong> "cleaning"<br>
               <strong>Last Known Location:</strong> Manchester, England
             </div>
@@ -1661,22 +1669,63 @@
           </div>
         </div>
 
-        <!-- Fakemodeen - Coming Soon -->
-        <div class="fugitive-card" style="opacity: 0.6;">
+        <!-- Fakemodeen - Kyle Barry -->
+        <div class="fugitive-card">
           <div class="fugitive-photo-container">
-            <img src="https://i.ibb.co/7XqQ8Zf/black-placeholder.jpg" alt="Fakemodeen" class="fugitive-photo" style="filter: blur(8px) brightness(0.3);">
+            <img src="https://i.ibb.co/20bC8Rk6/image.jpg" alt="Fakemodeen - Kyle Barry" class="fugitive-photo">
           </div>
           <div class="fugitive-info">
-            <div class="fugitive-name">Fakemodeen</div>
-            <div class="case-number">CASE #2026-IMW-[PENDING]</div>
+            <div class="fugitive-name">Kyle Barry</div>
+            <div class="case-number">CASE #2026-IMW-078</div>
             <div class="fugitive-details">
-              <strong>Status:</strong> Investigation In Progress<br>
-              <strong>Information:</strong> Coming Soon
+              <strong>Known Alias:</strong> "Fakemodeen"<br>
+              <strong>Nationality:</strong> British<br>
+              <strong>Age:</strong> 29-31 (Estimated)<br>
+              <strong>Last Known Location:</strong> Manchester, England
             </div>
             <div class="charges-summary">
-              <strong>Details:</strong> Full profile and charges to be released pending ongoing investigation.
+              <strong>Charged With:</strong> Identity Fraud; Impersonation of a Public Official; Treason Against the Crown; Conspiracy to Defraud
             </div>
-            <button class="view-profile-btn" style="background: #6c757d; cursor: not-allowed;" disabled>Coming Soon</button>
+            <button class="view-profile-btn" onclick="showProfile('fakemodeen')">View Full Profile</button>
+          </div>
+        </div>
+
+        <!-- Josh Lee -->
+        <div class="fugitive-card">
+          <div class="fugitive-photo-container">
+            <img src="https://i.ibb.co/B2YBXkWp/image.jpg" alt="Josh Lee" class="fugitive-photo">
+          </div>
+          <div class="fugitive-info">
+            <div class="fugitive-name">Josh Lee</div>
+            <div class="case-number">CASE #2026-IMW-089</div>
+            <div class="fugitive-details">
+              <strong>Age:</strong> 23-27 (Estimated)<br>
+              <strong>Last Known Location:</strong> [Information Pending]
+            </div>
+            <div class="charges-summary">
+              <strong>Charged With:</strong> Assault; Threatening Communications; Solicitation; Accessory to Murder; Illegal Possession of Hand Grenades
+            </div>
+            <button class="view-profile-btn" onclick="showProfile('josh-lee')">View Full Profile</button>
+          </div>
+        </div>
+
+        <!-- TheTruthUk - William George Gray -->
+        <div class="fugitive-card">
+          <div class="fugitive-photo-container">
+            <img src="https://i.ibb.co/HDJ58Wyn/image.jpg" alt="William George Gray - TheTruthUk" class="fugitive-photo">
+          </div>
+          <div class="fugitive-info">
+            <div class="fugitive-name">William George Gray</div>
+            <div class="case-number">CASE #2026-IMW-093 • REPEAT OFFENDER</div>
+            <div class="fugitive-details">
+              <strong>Known Alias:</strong> "TheTruthUk"<br>
+              <strong>Age:</strong> [Information Pending]<br>
+              <strong>Status:</strong> Previous Offender
+            </div>
+            <div class="charges-summary">
+              <strong>Charged With:</strong> Blackmail; Deception; Conspiracy; Fraud; Employment Fraud
+            </div>
+            <button class="view-profile-btn" onclick="showProfile('thetruthuk')">View Full Profile</button>
           </div>
         </div>
 
@@ -1767,7 +1816,7 @@
                 </div>
                 <div class="info-item">
                   <span class="info-label">Age:</span>
-                  <span class="info-value">28-32 (Estimated)</span>
+                  <span class="info-value">21-24 (Estimated)</span>
                 </div>
                 <div class="info-item">
                   <span class="info-label">Sex:</span>
@@ -1809,6 +1858,125 @@
             <div class="caution-box">
               <strong>⚠ CAUTION - KNOWN SEX OFFENDER - TARGETS VULNERABLE INDIVIDUALS</strong>
               <p>This individual poses a significant threat to public safety, particularly to minors. If you have any information concerning this person, please contact your local FBI office immediately. Do not attempt to confront this individual.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="back-button" onclick="showTab('most-wanted')">← Return to Most Wanted List</button>
+    </div>
+
+    <!-- Fakemodeen (Kyle Barry) Profile -->
+    <div id="fakemodeen" class="tab-content">
+      <div class="profile-container">
+        <div class="profile-header">
+          <h2>FBI Most Wanted</h2>
+          <p>Identity Fraud, Impersonation, Treason Against the Crown</p>
+        </div>
+        <div class="profile-content">
+          <div class="profile-photo-section">
+            <img src="https://i.ibb.co/20bC8Rk6/image.jpg" alt="Kyle Barry (Fakemodeen)" class="profile-photo">
+            
+            <div class="reward-amount">
+              <strong>REWARD</strong>
+              <div class="amount">$75,000</div>
+            </div>
+
+            <div class="caution-badge">
+              <strong>⚠ IMPERSONATOR</strong>
+              <p>IDENTITY FRAUD</p>
+            </div>
+
+            <div class="wanted-since">
+              <div class="label">Wanted Since</div>
+              <div class="date">November 2025</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Known Aliases</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Primary Alias:</span>
+                <span class="side-info-value">"Fakemodeen"</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Real Name:</span>
+                <span class="side-info-value">Kyle Barry</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Languages:</span>
+                <span class="side-info-value">English</span>
+              </div>
+            </div>
+
+            <div class="map-section">
+              <h4>Last Known Location</h4>
+              <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d76039.82503518378!2d-2.2743975773925785!3d53.48095799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a4d4c5226f5db%3A0xd9be143804fe6baa!2sManchester%2C%20UK!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+              <div class="map-label">
+                <strong>Manchester, England, UK</strong>
+                Last confirmed sighting
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="profile-name">Kyle Barry</div>
+            <div class="profile-case-number">FBI CASE #2026-IMW-078</div>
+
+            <div class="info-section">
+              <h3>Subject Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Real Name:</span>
+                  <span class="info-value">Kyle Barry</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Known Aliases:</span>
+                  <span class="info-value">"Fakemodeen"</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Nationality:</span>
+                  <span class="info-value">British</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Age:</span>
+                  <span class="info-value">29-31 (Estimated)</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Sex:</span>
+                  <span class="info-value">Male</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Last Known Location:</span>
+                  <span class="info-value">Manchester, England</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Languages:</span>
+                  <span class="info-value">English</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h3>Charges</h3>
+              <ul class="charges-list">
+                <li class="charge-item">Identity Fraud - Systematic impersonation of multiple individuals using falsified documents and credentials</li>
+                <li class="charge-item">Impersonation of a Public Official - Fraudulently representing himself as government officials and law enforcement personnel</li>
+                <li class="charge-item">Treason Against the Crown - Engaging in activities undermining the security and sovereignty of the United Kingdom</li>
+                <li class="charge-item">Conspiracy to Defraud - Organized scheme to deceive government agencies and private institutions</li>
+                <li class="charge-item">Forgery - Creation and distribution of false identification documents, credentials, and official papers</li>
+                <li class="charge-item">Wire Fraud - Use of electronic communications to perpetrate fraudulent schemes</li>
+                <li class="charge-item">Unlawful Flight to Avoid Prosecution</li>
+              </ul>
+            </div>
+
+            <div class="warning-box">
+              <h4>Operational Profile</h4>
+              <p>Subject operates under the alias "Fakemodeen" and has demonstrated sophisticated capability in assuming false identities. Known to create elaborate backstories and falsified documentation to support impersonations. Subject has impersonated government officials, law enforcement officers, and other positions of authority. Investigation revealed connections to activities threatening national security, resulting in treason charges under UK law.</p>
+            </div>
+
+            <div class="caution-box">
+              <strong>⚠ CAUTION - SKILLED IMPERSONATOR - VERIFY ALL CREDENTIALS</strong>
+              <p>This individual is highly skilled at deception and identity fraud. He may present convincing false credentials. If you have any information concerning this person, please contact your local FBI office or UK authorities immediately. Do not attempt to confront this individual.</p>
             </div>
           </div>
         </div>
@@ -1919,6 +2087,695 @@
       <button class="back-button" onclick="showTab('most-wanted')">← Return to Most Wanted List</button>
     </div>
 
+    <!-- Josh Lee Profile -->
+    <div id="josh-lee" class="tab-content">
+      <div class="profile-container">
+        <div class="profile-header">
+          <h2>FBI Most Wanted</h2>
+          <p>Assault, Threatening, Solicitation, Accessory to Murder, Illegal Weapons</p>
+        </div>
+        <div class="profile-content">
+          <div class="profile-photo-section">
+            <img src="https://i.ibb.co/B2YBXkWp/image.jpg" alt="Josh Lee" class="profile-photo">
+            
+            <div class="reward-amount">
+              <strong>REWARD</strong>
+              <div class="amount">$50,000</div>
+            </div>
+
+            <div class="caution-badge">
+              <strong>⚠ ARMED & DANGEROUS</strong>
+              <p>VIOLENT OFFENDER</p>
+            </div>
+
+            <div class="wanted-since">
+              <div class="label">Wanted Since</div>
+              <div class="date">December 2025</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Known Information</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Age:</span>
+                <span class="side-info-value">23-27</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Status:</span>
+                <span class="side-info-value">Armed & Dangerous</span>
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="profile-name">Josh Lee</div>
+            <div class="profile-case-number">FBI CASE #2026-IMW-089</div>
+
+            <div class="info-section">
+              <h3>Subject Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Name:</span>
+                  <span class="info-value">Josh Lee</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Age:</span>
+                  <span class="info-value">23-27 (Estimated)</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Sex:</span>
+                  <span class="info-value">Male</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Last Known Location:</span>
+                  <span class="info-value">[Information Pending]</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h3>Charges</h3>
+              <ul class="charges-list">
+                <li class="charge-item">Assault on the Naarn Slayer - Physical attack resulting in serious bodily harm</li>
+                <li class="charge-item">Threatening Communications Against The Com - Pattern of intimidating and threatening messages directed at The Com organization</li>
+                <li class="charge-item">Solicitation - Repeated attempts to solicit and coerce individuals associated with The Com</li>
+                <li class="charge-item">Accessory to Murder - Knowingly assisted an offender in the commission of murder</li>
+                <li class="charge-item">Illegal Possession of Hand Grenades - Unlawful possession of military-grade explosive devices</li>
+                <li class="charge-item">Conspiracy - Organized criminal activity with intent to commit violent acts</li>
+                <li class="charge-item">Unlawful Flight to Avoid Prosecution</li>
+              </ul>
+            </div>
+
+            <div class="warning-box">
+              <h4>Threat Assessment</h4>
+              <p>Subject is considered armed and extremely dangerous. Known to possess military-grade explosive devices including hand grenades. Has demonstrated willingness to engage in violent behavior and has assaulted individuals. Subject has connections to organized criminal activity and has assisted in the commission of murder. Exercise extreme caution.</p>
+            </div>
+
+            <div class="caution-box">
+              <strong>⚠ CAUTION - ARMED AND DANGEROUS - DO NOT APPROACH</strong>
+              <p>This individual is armed with explosive devices and has a history of violence. If you have any information concerning this person, please contact your local FBI office immediately. Under no circumstances should you attempt to confront this individual.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="back-button" onclick="showTab('most-wanted')">← Return to Most Wanted List</button>
+    </div>
+
+    <!-- TheTruthUk (William George Gray) Profile -->
+    <div id="thetruthuk" class="tab-content">
+      <div class="profile-container">
+        <div class="profile-header">
+          <h2>FBI Most Wanted</h2>
+          <p>Blackmail, Deception, Conspiracy, Fraud - Repeat Offender</p>
+        </div>
+        <div class="profile-content">
+          <div class="profile-photo-section">
+            <img src="https://i.ibb.co/HDJ58Wyn/image.jpg" alt="William George Gray (TheTruthUk)" class="profile-photo">
+            
+            <div class="reward-amount">
+              <strong>REWARD</strong>
+              <div class="amount">$60,000</div>
+            </div>
+
+            <div class="caution-badge">
+              <strong>⚠ REPEAT OFFENDER</strong>
+              <p>KNOWN FRAUDSTER</p>
+            </div>
+
+            <div class="wanted-since">
+              <div class="label">Wanted Since</div>
+              <div class="date">January 2026</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Known Aliases</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Primary Alias:</span>
+                <span class="side-info-value">"TheTruthUk"</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Real Name:</span>
+                <span class="side-info-value">William George Gray</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Status:</span>
+                <span class="side-info-value">Previous Offender</span>
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="profile-name">William George Gray</div>
+            <div class="profile-case-number">FBI CASE #2026-IMW-093</div>
+
+            <div class="info-section">
+              <h3>Subject Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Real Name:</span>
+                  <span class="info-value">William George Gray</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Known Aliases:</span>
+                  <span class="info-value">"TheTruthUk"</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Sex:</span>
+                  <span class="info-value">Male</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Status:</span>
+                  <span class="info-value">Repeat Offender</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Last Known Location:</span>
+                  <span class="info-value">[Information Pending]</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h3>Charges</h3>
+              <ul class="charges-list">
+                <li class="charge-item">Blackmail - Extortion and coercion of individuals through threats and intimidation</li>
+                <li class="charge-item">Deception of Ed Matthews - Fraudulent misrepresentation and deliberate deception targeting Ed Matthews</li>
+                <li class="charge-item">Conspiracy to Take Down Hog - Organized scheme to remove Hog from position of authority and strip role</li>
+                <li class="charge-item">Conspiracy to Remove Role - Systematic efforts to undermine and eliminate an individual's position</li>
+                <li class="charge-item">Employment Application Fraud - Falsification of employment documents and credentials in job application process</li>
+                <li class="charge-item">Wire Fraud - Use of electronic communications to perpetrate fraudulent schemes</li>
+                <li class="charge-item">Unlawful Flight to Avoid Prosecution</li>
+              </ul>
+            </div>
+
+            <div class="warning-box">
+              <h4>Criminal History</h4>
+              <p>Subject is a repeat offender with prior criminal convictions. Operating under the alias "TheTruthUk," subject has demonstrated a pattern of deceptive behavior including blackmail, fraud, and conspiracy. Subject has targeted specific individuals including Ed Matthews and an individual known as "Hog" in organized schemes to damage reputations and remove individuals from positions. Subject has history of falsifying employment applications and credentials. Considered highly manipulative and skilled in deception.</p>
+            </div>
+
+            <div class="caution-box">
+              <strong>⚠ CAUTION - REPEAT OFFENDER - SKILLED IN DECEPTION</strong>
+              <p>This individual has a documented history of fraud and deception. Subject may attempt to manipulate or deceive law enforcement and witnesses. If you have any information concerning this person, please contact your local FBI office immediately. Do not attempt to confront this individual.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="back-button" onclick="showTab('most-wanted')">← Return to Most Wanted List</button>
+    </div>
+
+    <!-- Missing People Tab -->
+    <div id="missing-people" class="tab-content">
+      <div class="alert-banner">
+        <h2>MISSING PERSONS</h2>
+        <p><strong>NOTICE:</strong> The following individuals are reported missing and may require urgent assistance.</p>
+        <p>If you have information regarding any of these individuals, please contact your local field office or call 1-800-CALL-FBI (1-800-225-5324).</p>
+      </div>
+
+      <div class="fugitive-grid">
+
+        <!-- CBTV - Missing Person -->
+        <div class="fugitive-card">
+          <div class="fugitive-photo-container">
+            <img src="https://i.ibb.co/b5Qk2Tnv/image.jpg" alt="CBTV" class="fugitive-photo">
+          </div>
+          <div class="fugitive-info">
+            <div class="fugitive-name">CBTV</div>
+            <div class="case-number">CASE #[PENDING] • MISSING PERSON</div>
+            <div class="fugitive-details">
+              <strong>Status:</strong> Missing<br>
+              <strong>Age:</strong> 21-24 (Estimated)<br>
+              <strong>Last Seen:</strong> Ibiza, Spain
+            </div>
+            <div class="charges-summary">
+              <strong>Details:</strong> Information being compiled. Please provide any details you have about this individual.
+            </div>
+            <button class="view-profile-btn" onclick="showProfile('cbtv-missing')">View Details</button>
+          </div>
+        </div>
+
+        <!-- JamesJan25 - Missing Person -->
+        <div class="fugitive-card">
+          <div class="fugitive-photo-container">
+            <img src="https://i.ibb.co/Pvq7ND8W/image.jpg" alt="JamesJan25" class="fugitive-photo">
+          </div>
+          <div class="fugitive-info">
+            <div class="fugitive-name">JamesJan25</div>
+            <div class="case-number">CASE #[PENDING] • MISSING PERSON</div>
+            <div class="fugitive-details">
+              <strong>Status:</strong> Missing<br>
+              <strong>Age:</strong> 25-35 (Estimated)<br>
+              <strong>Nationality:</strong> Scottish<br>
+              <strong>Last Seen:</strong> [Information Pending]
+            </div>
+            <div class="charges-summary">
+              <strong>Details:</strong> Information being compiled. Please provide any details you have about this individual.
+            </div>
+            <button class="view-profile-btn" onclick="showProfile('jamesjan25-missing')">View Details</button>
+          </div>
+        </div>
+
+        <!-- B Montana - Missing Person -->
+        <div class="fugitive-card">
+          <div class="fugitive-photo-container">
+            <img src="https://i.ibb.co/BHv1TKPJ/image.jpg" alt="B Montana" class="fugitive-photo">
+          </div>
+          <div class="fugitive-info">
+            <div class="fugitive-name">B Montana</div>
+            <div class="case-number">CASE #[PENDING] • MISSING PERSON</div>
+            <div class="fugitive-details">
+              <strong>Status:</strong> Missing<br>
+              <strong>Age:</strong> 35-41 (Estimated)<br>
+              <strong>Nationality:</strong> Surinamese<br>
+              <strong>Last Seen:</strong> Birmingham, UK
+            </div>
+            <div class="charges-summary">
+              <strong>Details:</strong> Information being compiled. Please provide any details you have about this individual.
+            </div>
+            <button class="view-profile-btn" onclick="showProfile('bmontana-missing')">View Details</button>
+          </div>
+        </div>
+
+        <!-- FATCUNT0 - Missing Person -->
+        <div class="fugitive-card">
+          <div class="fugitive-photo-container">
+            <img src="https://i.ibb.co/vvx2wpY5/image.jpg" alt="FATCUNT0" class="fugitive-photo">
+          </div>
+          <div class="fugitive-info">
+            <div class="fugitive-name">FATCUNT0</div>
+            <div class="case-number">CASE #[PENDING] • MISSING PERSON</div>
+            <div class="fugitive-details">
+              <strong>Status:</strong> Missing<br>
+              <strong>Information:</strong> Unknown<br>
+              <strong>Last Seen:</strong> [Information Pending]
+            </div>
+            <div class="charges-summary">
+              <strong>Details:</strong> No information currently available. Any details about this individual would be critical.
+            </div>
+            <button class="view-profile-btn" onclick="showProfile('fatcunt0-missing')">View Details</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CBTV Missing Person Profile -->
+    <div id="cbtv-missing" class="tab-content">
+      <div class="profile-container">
+        <div class="profile-header" style="background: #ff8c00;">
+          <h2>Missing Person</h2>
+          <p>Last Known Information</p>
+        </div>
+        <div class="profile-content">
+          <div class="profile-photo-section">
+            <img src="https://i.ibb.co/b5Qk2Tnv/image.jpg" alt="CBTV" class="profile-photo">
+            
+            <div class="reward-amount" style="background: #ff8c00;">
+              <strong>INFORMATION NEEDED</strong>
+              <div class="amount" style="font-size: 20px;">Missing Person</div>
+            </div>
+
+            <div class="caution-badge" style="background: #ff8c00; border-color: #ff6b00;">
+              <strong>⚠ MISSING</strong>
+              <p>ASSISTANCE NEEDED</p>
+            </div>
+
+            <div class="wanted-since">
+              <div class="label">Reported Missing</div>
+              <div class="date">[Pending Info]</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Known Information</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Name:</span>
+                <span class="side-info-value">CBTV</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Age:</span>
+                <span class="side-info-value">21-24</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Status:</span>
+                <span class="side-info-value">Missing</span>
+              </div>
+            </div>
+
+            <div class="map-section">
+              <h4>Last Known Location</h4>
+              <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99448.04785287593!2d1.3621!3d38.9067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1299569e0c80b8a1%3A0x8e88c1e97f4c51c8!2sIbiza%2C%20Spain!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+              <div class="map-label">
+                <strong>Ibiza, Spain</strong>
+                Last confirmed sighting
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="profile-name">CBTV</div>
+            <div class="profile-case-number">MISSING PERSON CASE #[PENDING]</div>
+
+            <div class="info-section">
+              <h3>Subject Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Name:</span>
+                  <span class="info-value">CBTV</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Age:</span>
+                  <span class="info-value">21-24 (Estimated)</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Status:</span>
+                  <span class="info-value">Missing</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Last Seen:</span>
+                  <span class="info-value">Ibiza, Spain</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h3>Circumstances</h3>
+              <p style="font-size: 14px; color: #333333; line-height: 1.8;">
+                [Additional information to be provided]
+              </p>
+            </div>
+
+            <div class="warning-box">
+              <h4>If You Have Information</h4>
+              <p>If you have seen this individual or have any information about their whereabouts, please contact us immediately using the secure email address: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="422b2624022f232b2e372f6c212d2f">[email&#160;protected]</a></p>
+              <p>All information will be treated with the utmost urgency and confidentiality.</p>
+            </div>
+
+            <div class="caution-box" style="background: #fff3cd; border-color: #ff8c00;">
+              <strong style="color: #856404;">⚠ MISSING PERSON - TIME IS CRITICAL</strong>
+              <p style="color: #856404;">Any information, no matter how small, could be vital. Please contact authorities if you have any details.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="back-button" onclick="showTab('missing-people')">← Return to Missing People</button>
+    </div>
+
+    <!-- JamesJan25 Missing Person Profile -->
+    <div id="jamesjan25-missing" class="tab-content">
+      <div class="profile-container">
+        <div class="profile-header" style="background: #ff8c00;">
+          <h2>Missing Person</h2>
+          <p>Last Known Information</p>
+        </div>
+        <div class="profile-content">
+          <div class="profile-photo-section">
+            <img src="https://i.ibb.co/Pvq7ND8W/image.jpg" alt="JamesJan25" class="profile-photo">
+            
+            <div class="reward-amount" style="background: #ff8c00;">
+              <strong>INFORMATION NEEDED</strong>
+              <div class="amount" style="font-size: 20px;">Missing Person</div>
+            </div>
+
+            <div class="caution-badge" style="background: #ff8c00; border-color: #ff6b00;">
+              <strong>⚠ MISSING</strong>
+              <p>ASSISTANCE NEEDED</p>
+            </div>
+
+            <div class="wanted-since">
+              <div class="label">Reported Missing</div>
+              <div class="date">[Pending Info]</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Known Information</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Name:</span>
+                <span class="side-info-value">JamesJan25</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Age:</span>
+                <span class="side-info-value">25-35</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Nationality:</span>
+                <span class="side-info-value">Scottish</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Status:</span>
+                <span class="side-info-value">Missing</span>
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="profile-name">JamesJan25</div>
+            <div class="profile-case-number">MISSING PERSON CASE #[PENDING]</div>
+
+            <div class="info-section">
+              <h3>Subject Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Name:</span>
+                  <span class="info-value">JamesJan25</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Age:</span>
+                  <span class="info-value">25-35 (Estimated)</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Nationality:</span>
+                  <span class="info-value">Scottish</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Status:</span>
+                  <span class="info-value">Missing</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Last Seen:</span>
+                  <span class="info-value">[Information Pending]</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h3>Circumstances</h3>
+              <p style="font-size: 14px; color: #333333; line-height: 1.8;">
+                [Additional information to be provided]
+              </p>
+            </div>
+
+            <div class="warning-box">
+              <h4>If You Have Information</h4>
+              <p>If you have seen this individual or have any information about their whereabouts, please contact us immediately using the secure email address: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c15181a3c111d15100911521f1311">[email&#160;protected]</a></p>
+              <p>All information will be treated with the utmost urgency and confidentiality.</p>
+            </div>
+
+            <div class="caution-box" style="background: #fff3cd; border-color: #ff8c00;">
+              <strong style="color: #856404;">⚠ MISSING PERSON - TIME IS CRITICAL</strong>
+              <p style="color: #856404;">Any information, no matter how small, could be vital. Please contact authorities if you have any details.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="back-button" onclick="showTab('missing-people')">← Return to Missing People</button>
+    </div>
+
+    <!-- B Montana Missing Person Profile -->
+    <div id="bmontana-missing" class="tab-content">
+      <div class="profile-container">
+        <div class="profile-header" style="background: #ff8c00;">
+          <h2>Missing Person</h2>
+          <p>Last Known Information</p>
+        </div>
+        <div class="profile-content">
+          <div class="profile-photo-section">
+            <img src="https://i.ibb.co/BHv1TKPJ/image.jpg" alt="B Montana" class="profile-photo">
+            
+            <div class="reward-amount" style="background: #ff8c00;">
+              <strong>INFORMATION NEEDED</strong>
+              <div class="amount" style="font-size: 20px;">Missing Person</div>
+            </div>
+
+            <div class="caution-badge" style="background: #ff8c00; border-color: #ff6b00;">
+              <strong>⚠ MISSING</strong>
+              <p>ASSISTANCE NEEDED</p>
+            </div>
+
+            <div class="wanted-since">
+              <div class="label">Reported Missing</div>
+              <div class="date">[Pending Info]</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Known Information</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Name:</span>
+                <span class="side-info-value">B Montana</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Age:</span>
+                <span class="side-info-value">35-41</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Nationality:</span>
+                <span class="side-info-value">Surinamese</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Status:</span>
+                <span class="side-info-value">Missing</span>
+              </div>
+            </div>
+
+            <div class="map-section">
+              <h4>Last Known Location</h4>
+              <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d155373.7190463733!2d-1.9999999!3d52.4862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870942d1b417173%3A0xca81fef0aeee7998!2sBirmingham%2C%20UK!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+              <div class="map-label">
+                <strong>Birmingham, UK</strong>
+                Last confirmed sighting
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="profile-name">B Montana</div>
+            <div class="profile-case-number">MISSING PERSON CASE #[PENDING]</div>
+
+            <div class="info-section">
+              <h3>Subject Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Name:</span>
+                  <span class="info-value">B Montana</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Age:</span>
+                  <span class="info-value">35-41 (Estimated)</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Nationality:</span>
+                  <span class="info-value">Surinamese</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Status:</span>
+                  <span class="info-value">Missing</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Last Seen:</span>
+                  <span class="info-value">Birmingham, UK</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h3>Circumstances</h3>
+              <p style="font-size: 14px; color: #333333; line-height: 1.8;">
+                [Additional information to be provided]
+              </p>
+            </div>
+
+            <div class="warning-box">
+              <h4>If You Have Information</h4>
+              <p>If you have seen this individual or have any information about their whereabouts, please contact us immediately using the secure email address: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c45484a6c414d45405941024f4341">[email&#160;protected]</a></p>
+              <p>All information will be treated with the utmost urgency and confidentiality.</p>
+            </div>
+
+            <div class="caution-box" style="background: #fff3cd; border-color: #ff8c00;">
+              <strong style="color: #856404;">⚠ MISSING PERSON - TIME IS CRITICAL</strong>
+              <p style="color: #856404;">Any information, no matter how small, could be vital. Please contact authorities if you have any details.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="back-button" onclick="showTab('missing-people')">← Return to Missing People</button>
+    </div>
+
+    <!-- FATCUNT0 Missing Person Profile -->
+    <div id="fatcunt0-missing" class="tab-content">
+      <div class="profile-container">
+        <div class="profile-header" style="background: #ff8c00;">
+          <h2>Missing Person</h2>
+          <p>Information Unknown</p>
+        </div>
+        <div class="profile-content">
+          <div class="profile-photo-section">
+            <img src="https://i.ibb.co/vvx2wpY5/image.jpg" alt="FATCUNT0" class="profile-photo">
+            
+            <div class="reward-amount" style="background: #ff8c00;">
+              <strong>INFORMATION NEEDED</strong>
+              <div class="amount" style="font-size: 20px;">Missing Person</div>
+            </div>
+
+            <div class="caution-badge" style="background: #ff8c00; border-color: #ff6b00;">
+              <strong>⚠ MISSING</strong>
+              <p>ASSISTANCE NEEDED</p>
+            </div>
+
+            <div class="wanted-since">
+              <div class="label">Reported Missing</div>
+              <div class="date">[Unknown]</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Known Information</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Name:</span>
+                <span class="side-info-value">FATCUNT0</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Status:</span>
+                <span class="side-info-value">Missing</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Information:</span>
+                <span class="side-info-value">Unknown</span>
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="profile-name">FATCUNT0</div>
+            <div class="profile-case-number">MISSING PERSON CASE #[PENDING]</div>
+
+            <div class="info-section">
+              <h3>Subject Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Name:</span>
+                  <span class="info-value">FATCUNT0</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Age:</span>
+                  <span class="info-value">[Unknown]</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Status:</span>
+                  <span class="info-value">Missing</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Last Seen:</span>
+                  <span class="info-value">[Unknown]</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h3>Circumstances</h3>
+              <p style="font-size: 14px; color: #333333; line-height: 1.8;">
+                No information is currently available about this individual. Any details regarding identity, location, physical description, or circumstances would be extremely valuable to the investigation.
+              </p>
+            </div>
+
+            <div class="warning-box">
+              <h4>If You Have Information</h4>
+              <p>If you have ANY information about this individual - including real name, physical description, age, location, or circumstances - please contact us immediately using the secure email address: idf@mailum.com</p>
+              <p>All information will be treated with the utmost urgency and confidentiality. Even the smallest detail could be critical.</p>
+            </div>
+
+            <div class="caution-box" style="background: #fff3cd; border-color: #ff8c00;">
+              <strong style="color: #856404;">⚠ MISSING PERSON - ANY INFORMATION CRITICAL</strong>
+              <p style="color: #856404;">We have no information about this individual. Any details you can provide would be extremely valuable. Please contact authorities immediately if you have any knowledge of this person.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="back-button" onclick="showTab('missing-people')">← Return to Missing People</button>
+    </div>
+
     <!-- Submit Tip Tab -->
     <div id="submit-tip" class="tab-content">
       <div class="alert-banner">
@@ -1935,7 +2792,7 @@
         <div class="contact-methods">
           <div class="contact-method">
             <h3>📧 Secure Contact</h3>
-            <div class="contact-detail">idf@mailum.com</div>
+            <div class="contact-detail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dcb5b8ba9cb1bdb5b0a9b1f2bfb3b1">[email&#160;protected]</a></div>
             <p>Send detailed information including case number, photos, dates, and locations if available.</p>
           </div>
         </div>
@@ -1975,13 +2832,25 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Music elements
     const musicLucas = document.getElementById('music-lucas');
     const musicAmaan = document.getElementById('music-amaan');
+    const musicKyle = document.getElementById('music-kyle');
+    const musicCbtv = document.getElementById('music-cbtv');
+    const musicJames = document.getElementById('music-james');
+    const musicBmontana = document.getElementById('music-bmontana');
+    const musicJoshlee = document.getElementById('music-joshlee');
+    const musicThetruthuk = document.getElementById('music-thetruthuk');
     
     if (musicLucas) musicLucas.volume = 0.4;
     if (musicAmaan) musicAmaan.volume = 0.4;
+    if (musicKyle) musicKyle.volume = 0.4;
+    if (musicCbtv) musicCbtv.volume = 0.4;
+    if (musicJames) musicJames.volume = 0.4;
+    if (musicBmontana) musicBmontana.volume = 0.4;
+    if (musicJoshlee) musicJoshlee.volume = 0.4;
+    if (musicThetruthuk) musicThetruthuk.volume = 0.4;
 
     function showTab(tabId) {
       // Hide all tabs
@@ -2008,10 +2877,34 @@
 
       // Handle music based on which profile is shown
       if (tabId === 'lucas-tiger') {
-        // Stop Amaan's music
+        // Stop other music
         if (musicAmaan) {
           musicAmaan.pause();
           musicAmaan.currentTime = 0;
+        }
+        if (musicKyle) {
+          musicKyle.pause();
+          musicKyle.currentTime = 0;
+        }
+        if (musicCbtv) {
+          musicCbtv.pause();
+          musicCbtv.currentTime = 0;
+        }
+        if (musicJames) {
+          musicJames.pause();
+          musicJames.currentTime = 0;
+        }
+        if (musicBmontana) {
+          musicBmontana.pause();
+          musicBmontana.currentTime = 0;
+        }
+        if (musicJoshlee) {
+        }
+        if (musicThetruthuk) {
+          musicThetruthuk.pause();
+          musicThetruthuk.currentTime = 0;
+          musicJoshlee.pause();
+          musicJoshlee.currentTime = 0;
         }
         // Play Lucas's music
         if (musicLucas) {
@@ -2019,18 +2912,42 @@
           musicLucas.play().catch(() => {});
         }
       } else if (tabId === 'amaan-muhammad') {
-        // Stop Lucas's music
+        // Stop other music
         if (musicLucas) {
           musicLucas.pause();
           musicLucas.currentTime = 0;
+        }
+        if (musicKyle) {
+          musicKyle.pause();
+          musicKyle.currentTime = 0;
+        }
+        if (musicCbtv) {
+          musicCbtv.pause();
+          musicCbtv.currentTime = 0;
+        }
+        if (musicJames) {
+          musicJames.pause();
+          musicJames.currentTime = 0;
+        }
+        if (musicBmontana) {
+          musicBmontana.pause();
+          musicBmontana.currentTime = 0;
+        }
+        if (musicJoshlee) {
+        }
+        if (musicThetruthuk) {
+          musicThetruthuk.pause();
+          musicThetruthuk.currentTime = 0;
+          musicJoshlee.pause();
+          musicJoshlee.currentTime = 0;
         }
         // Play Amaan's music
         if (musicAmaan) {
           musicAmaan.currentTime = 0;
           musicAmaan.play().catch(() => {});
         }
-      } else {
-        // Stop both when not on a profile page
+      } else if (tabId === 'fakemodeen') {
+        // Stop other music
         if (musicLucas) {
           musicLucas.pause();
           musicLucas.currentTime = 0;
@@ -2038,6 +2955,248 @@
         if (musicAmaan) {
           musicAmaan.pause();
           musicAmaan.currentTime = 0;
+        }
+        if (musicCbtv) {
+          musicCbtv.pause();
+          musicCbtv.currentTime = 0;
+        }
+        if (musicJames) {
+          musicJames.pause();
+          musicJames.currentTime = 0;
+        }
+        if (musicBmontana) {
+          musicBmontana.pause();
+          musicBmontana.currentTime = 0;
+        }
+        if (musicJoshlee) {
+        }
+        if (musicThetruthuk) {
+          musicThetruthuk.pause();
+          musicThetruthuk.currentTime = 0;
+          musicJoshlee.pause();
+          musicJoshlee.currentTime = 0;
+        }
+        // Play Kyle's music
+        if (musicKyle) {
+          musicKyle.currentTime = 0;
+          musicKyle.play().catch(() => {});
+        }
+      } else if (tabId === 'cbtv-missing') {
+        // Stop other music
+        if (musicLucas) {
+          musicLucas.pause();
+          musicLucas.currentTime = 0;
+        }
+        if (musicAmaan) {
+          musicAmaan.pause();
+          musicAmaan.currentTime = 0;
+        }
+        if (musicKyle) {
+          musicKyle.pause();
+          musicKyle.currentTime = 0;
+        }
+        if (musicJames) {
+          musicJames.pause();
+          musicJames.currentTime = 0;
+        }
+        if (musicBmontana) {
+          musicBmontana.pause();
+          musicBmontana.currentTime = 0;
+        }
+        if (musicJoshlee) {
+        }
+        if (musicThetruthuk) {
+          musicThetruthuk.pause();
+          musicThetruthuk.currentTime = 0;
+          musicJoshlee.pause();
+          musicJoshlee.currentTime = 0;
+        }
+        // Play CBTV's music
+        if (musicCbtv) {
+          musicCbtv.currentTime = 0;
+          musicCbtv.play().catch(() => {});
+        }
+      } else if (tabId === 'jamesjan25-missing') {
+        // Stop other music
+        if (musicLucas) {
+          musicLucas.pause();
+          musicLucas.currentTime = 0;
+        }
+        if (musicAmaan) {
+          musicAmaan.pause();
+          musicAmaan.currentTime = 0;
+        }
+        if (musicKyle) {
+          musicKyle.pause();
+          musicKyle.currentTime = 0;
+        }
+        if (musicCbtv) {
+          musicCbtv.pause();
+          musicCbtv.currentTime = 0;
+        }
+        if (musicBmontana) {
+          musicBmontana.pause();
+          musicBmontana.currentTime = 0;
+        }
+        if (musicJoshlee) {
+        }
+        if (musicThetruthuk) {
+          musicThetruthuk.pause();
+          musicThetruthuk.currentTime = 0;
+          musicJoshlee.pause();
+          musicJoshlee.currentTime = 0;
+        }
+        // Play JamesJan25's music
+        if (musicJames) {
+          musicJames.currentTime = 0;
+          musicJames.play().catch(() => {});
+        }
+      } else if (tabId === 'bmontana-missing') {
+        // Stop other music
+        if (musicLucas) {
+          musicLucas.pause();
+          musicLucas.currentTime = 0;
+        }
+        if (musicAmaan) {
+          musicAmaan.pause();
+          musicAmaan.currentTime = 0;
+        }
+        if (musicKyle) {
+          musicKyle.pause();
+          musicKyle.currentTime = 0;
+        }
+        if (musicCbtv) {
+          musicCbtv.pause();
+          musicCbtv.currentTime = 0;
+        }
+        if (musicJames) {
+          musicJames.pause();
+          musicJames.currentTime = 0;
+        }
+        if (musicJoshlee) {
+        }
+        if (musicThetruthuk) {
+          musicThetruthuk.pause();
+          musicThetruthuk.currentTime = 0;
+          musicJoshlee.pause();
+          musicJoshlee.currentTime = 0;
+        }
+        // Play B Montana's music
+        if (musicBmontana) {
+          musicBmontana.currentTime = 0;
+          musicBmontana.play().catch(() => {});
+        }
+      } else if (tabId === 'josh-lee') {
+        // Stop other music
+        if (musicLucas) {
+          musicLucas.pause();
+          musicLucas.currentTime = 0;
+        }
+        if (musicAmaan) {
+          musicAmaan.pause();
+          musicAmaan.currentTime = 0;
+        }
+        if (musicKyle) {
+          musicKyle.pause();
+          musicKyle.currentTime = 0;
+        }
+        if (musicCbtv) {
+          musicCbtv.pause();
+          musicCbtv.currentTime = 0;
+        }
+        if (musicJames) {
+          musicJames.pause();
+          musicJames.currentTime = 0;
+        }
+        if (musicBmontana) {
+          musicBmontana.pause();
+          musicBmontana.currentTime = 0;
+        }
+        if (musicThetruthuk) {
+          musicThetruthuk.pause();
+          musicThetruthuk.currentTime = 0;
+        }
+        // Play Josh Lee's music
+        if (musicJoshlee) {
+        }
+        if (musicThetruthuk) {
+          musicThetruthuk.pause();
+          musicThetruthuk.currentTime = 0;
+          musicJoshlee.currentTime = 0;
+          musicJoshlee.play().catch(() => {});
+        }
+      } else if (tabId === 'thetruthuk') {
+        // Stop other music
+        if (musicLucas) {
+          musicLucas.pause();
+          musicLucas.currentTime = 0;
+        }
+        if (musicAmaan) {
+          musicAmaan.pause();
+          musicAmaan.currentTime = 0;
+        }
+        if (musicKyle) {
+          musicKyle.pause();
+          musicKyle.currentTime = 0;
+        }
+        if (musicCbtv) {
+          musicCbtv.pause();
+          musicCbtv.currentTime = 0;
+        }
+        if (musicJames) {
+          musicJames.pause();
+          musicJames.currentTime = 0;
+        }
+        if (musicBmontana) {
+          musicBmontana.pause();
+          musicBmontana.currentTime = 0;
+        }
+        if (musicJoshlee) {
+        }
+        if (musicThetruthuk) {
+          musicThetruthuk.pause();
+          musicThetruthuk.currentTime = 0;
+          musicJoshlee.pause();
+          musicJoshlee.currentTime = 0;
+        }
+        // Play TheTruthUk's music
+        if (musicThetruthuk) {
+          musicThetruthuk.currentTime = 0;
+          musicThetruthuk.play().catch(() => {});
+        }
+      } else {
+        // Stop all music when not on a profile page
+        if (musicLucas) {
+          musicLucas.pause();
+          musicLucas.currentTime = 0;
+        }
+        if (musicAmaan) {
+          musicAmaan.pause();
+          musicAmaan.currentTime = 0;
+        }
+        if (musicKyle) {
+          musicKyle.pause();
+          musicKyle.currentTime = 0;
+        }
+        if (musicCbtv) {
+          musicCbtv.pause();
+          musicCbtv.currentTime = 0;
+        }
+        if (musicJames) {
+          musicJames.pause();
+          musicJames.currentTime = 0;
+        }
+        if (musicBmontana) {
+          musicBmontana.pause();
+          musicBmontana.currentTime = 0;
+        }
+        if (musicJoshlee) {
+        }
+        if (musicThetruthuk) {
+          musicThetruthuk.pause();
+          musicThetruthuk.currentTime = 0;
+          musicJoshlee.pause();
+          musicJoshlee.currentTime = 0;
         }
       }
 
