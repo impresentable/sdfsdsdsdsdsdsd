@@ -21,7 +21,7 @@
     .logo{height:80px;width:auto}
     .header h1{font-family:'Roboto Condensed',sans-serif;font-size:36px;font-weight:700;letter-spacing:3px;margin:0 0 20px;text-transform:uppercase}
 
-    .tabs{display:flex;justify-content:center;background:#111;border-bottom:4px solid #d32f2f}
+    .tabs{display:flex;justify-content:center;background:#111;border-bottom:4px solid #d32f2f;flex-wrap:wrap}
     .tab-button{background:#222;color:#ddd;border:none;padding:18px 40px;font-size:1.3rem;font-family:'Roboto Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:2px;cursor:pointer;transition:all .3s;margin:0 5px}
     .tab-button:hover{background:#333;color:#fff}
     .tab-button.active{background:#d32f2f;color:#fff;border-bottom:4px solid #fff}
@@ -62,6 +62,81 @@
 
     .danger{background:#ffebee;border-top:5px solid #d32f2f;padding:22px;text-align:center;font-size:22px;font-weight:700;color:#b71c1c;margin-top:20px;text-transform:uppercase;letter-spacing:1px;font-family:'Roboto Condensed',sans-serif}
 
+    /* Catalogue Styles */
+    .catalogue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .catalog-item {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .catalog-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    }
+    .catalog-photo {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-bottom: 4px solid #d32f2f;
+    }
+    .catalog-info {
+      padding: 20px;
+      text-align: center;
+    }
+    .catalog-name {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .catalog-summary {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    .catalog-link {
+      display: inline-block;
+      background: #d32f2f;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .catalog-link:hover {
+      background: #b71c1c;
+    }
+
+    .back-to-catalog {
+      display: inline-block;
+      margin: 30px auto 0;
+      background: #333;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 17px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .back-to-catalog:hover {
+      background: #555;
+    }
+
     .footer{text-align:center;padding:40px 0;color:#555;font-size:15px;border-top:2px solid #ddd}
 
     #music-lucas,#music-amaan{display:none}
@@ -72,11 +147,8 @@
       .photo-section{padding:40px 15px}
       .logo{height:70px}
       .header h1{font-size:28px}
+      .catalogue-grid {grid-template-columns: 1fr;}
       .tab-button{padding:14px 25px;font-size:1.1rem}
-      #entry-gate{padding:15px}
-      #entry-gate h1{font-size:2.4rem;margin-bottom:1rem}
-      #entry-gate p{font-size:1.1rem;margin-bottom:1.8rem;max-width:90%}
-      #enter-btn{padding:16px 50px;font-size:1.35rem;min-width:260px}
     }
 
     @media (max-width:480px){
@@ -111,12 +183,56 @@
     </header>
 
     <div class="tabs">
-      <button class="tab-button active" data-tab="lucas-tiger">Lucas Tiger</button>
-      <button class="tab-button" data-tab="amaan-muhammad">Amaan Muhammad</button>
+      <button class="tab-button active" data-tab="catalogue">Catalogue</button>
     </div>
 
     <div class="container">
-      <div id="lucas-tiger" class="tab-content active">
+
+      <!-- Catalogue (default view) -->
+      <div id="catalogue" class="tab-content active">
+        <div class="alert">
+          <strong>INTERNATIONAL FUGITIVES CATALOGUE</strong>
+          All listed individuals are wanted internationally.<br>
+          Click any profile for full details and offenses.
+          <br><br>
+          <strong>Warning:</strong> All subjects are considered extremely dangerous. Do not approach — contact authorities immediately if sighted.
+        </div>
+
+        <div class="catalogue-grid">
+
+          <!-- Lucas Tiger Card -->
+          <div class="catalog-item">
+            <img src="https://i.ibb.co/tTcrzpP4/image.png" alt="Lucas Tiger" class="catalog-photo">
+            <div class="catalog-info">
+              <div class="catalog-name">Lucas Tiger</div>
+              <div class="catalog-summary">
+                Israeli national, approx. 35–40 years old.<br>
+                Wanted for war crimes, crimes against humanity, targeting civilians.
+              </div>
+              <div class="catalog-link" data-target="lucas-tiger">View Full Profile</div>
+            </div>
+          </div>
+
+          <!-- Amaan Muhammad Card -->
+          <div class="catalog-item">
+            <img src="https://i.ibb.co/4g7jS2y6/image.jpg" alt="Amaan Muhammad" class="catalog-photo">
+            <div class="catalog-info">
+              <div class="catalog-name">Amaan Muhammad</div>
+              <div class="catalog-summary">
+                British national, approx. 28–32 years old.<br>
+                Wanted for serial sexual offenses, grooming, exploitation.
+              </div>
+              <div class="catalog-link" data-target="amaan-muhammad">View Full Profile</div>
+            </div>
+          </div>
+
+          <!-- Add more cards here in the same format -->
+
+        </div>
+      </div>
+
+      <!-- Lucas Tiger Detailed View -->
+      <div id="lucas-tiger" class="tab-content">
         <div class="alert">
           <strong>DO NOT APPROACH</strong>
           Contact local authorities immediately if sighted
@@ -147,8 +263,12 @@
             <div class="danger">Subject is considered extremely dangerous</div>
           </div>
         </div>
+        <div style="text-align:center">
+          <div class="back-to-catalog" onclick="switchToTab('catalogue')">← Back to Catalogue</div>
+        </div>
       </div>
 
+      <!-- Amaan Muhammad Detailed View -->
       <div id="amaan-muhammad" class="tab-content">
         <div class="alert">
           <strong>DO NOT APPROACH</strong>
@@ -185,6 +305,9 @@
             <div class="danger">Subject is considered extremely dangerous – known to target, exploit, and abuse vulnerable young people online and in person</div>
           </div>
         </div>
+        <div style="text-align:center">
+          <div class="back-to-catalog" onclick="switchToTab('catalogue')">← Back to Catalogue</div>
+        </div>
       </div>
 
       <div class="footer">
@@ -196,45 +319,62 @@
   <script>
     const musicL = document.getElementById('music-lucas');
     const musicA = document.getElementById('music-amaan');
-    musicL.volume = musicA.volume = .4;
+    musicL.volume = musicA.volume = 0.4;
 
+    // Enter button
     document.getElementById('enter-btn').onclick = () => {
       document.body.classList.add('entered');
       document.getElementById('main-content').style.display = 'block';
-      musicL.play().catch(console.log);
+      musicL.play().catch(() => {});
     };
 
-    const buttons = document.querySelectorAll('.tab-button');
-    const contents = document.querySelectorAll('.tab-content');
+    // Tab switching function
+    function switchToTab(tabId) {
+      const prevContent = document.querySelector('.tab-content.active');
+      const dir = (tabId === 'lucas-tiger') ? 'right' : (tabId === 'amaan-muhammad' ? 'left' : 'right');
 
-    buttons.forEach(btn => {
-      btn.onclick = () => {
-        const prev = document.querySelector('.tab-content.active');
-        const dir = btn.dataset.tab === 'lucas-tiger' ? 'right' : 'left';
+      if (prevContent) prevContent.classList.remove('active');
 
-        if (prev) prev.classList.remove('active');
+      // Update active tab button (only catalogue exists now, but kept for future)
+      document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+      if (activeBtn) activeBtn.classList.add('active');
 
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+      const targetContent = document.getElementById(tabId);
+      if (!targetContent) return;
 
-        const target = document.getElementById(btn.dataset.tab);
-        target.style.transform = `translateX(${dir === 'right' ? '-40px' : '40px'})`;
-        target.style.opacity = '0';
-        target.classList.add('active');
+      targetContent.style.transform = `translateX(${dir === 'right' ? '-40px' : '40px'})`;
+      targetContent.style.opacity = '0';
+      targetContent.classList.add('active');
 
-        setTimeout(() => {
-          target.style.transform = 'translateX(0)';
-          target.style.opacity = '1';
-        }, 30);
+      setTimeout(() => {
+        targetContent.style.transform = 'translateX(0)';
+        targetContent.style.opacity = '1';
+      }, 30);
 
-        if (btn.dataset.tab === 'lucas-tiger') {
-          musicA.pause(); musicA.currentTime = 0;
-          musicL.play().catch(console.log);
-        } else {
-          musicL.pause(); musicL.currentTime = 0;
-          musicA.play().catch(console.log);
-        }
+      // Music
+      if (tabId === 'lucas-tiger') {
+        musicA.pause(); musicA.currentTime = 0;
+        musicL.play().catch(() => {});
+      } else if (tabId === 'amaan-muhammad') {
+        musicL.pause(); musicL.currentTime = 0;
+        musicA.play().catch(() => {});
+      } else {
+        musicL.pause(); musicA.pause();
+      }
+    }
+
+    // Catalogue card clicks
+    document.querySelectorAll('.catalog-link').forEach(link => {
+      link.onclick = () => {
+        const target = link.getAttribute('data-target');
+        if (target) switchToTab(target);
       };
+    });
+
+    // Back to catalogue buttons (added in detailed views)
+    document.querySelectorAll('.back-to-catalog').forEach(btn => {
+      btn.onclick = () => switchToTab('catalogue');
     });
   </script>
 </body>
