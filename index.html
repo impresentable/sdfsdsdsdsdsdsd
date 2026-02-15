@@ -164,29 +164,6 @@
       gap: 2px;
     }
 
-    .nav-tab {
-      flex: 1;
-      background: #e8e8e8;
-      border: none;
-      padding: 15px 20px;
-      font-size: 15px;
-      font-weight: 600;
-      color: #003366;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .nav-tab:hover {
-      background: #d0d0d0;
-    }
-
-    .nav-tab.active {
-      background: #003366;
-      color: #ffffff;
-    }
-
     /* Main Content */
     .main-container {
       max-width: 1200px;
@@ -232,19 +209,6 @@
       margin-top: 30px;
     }
 
-    .fugitive-card {
-      background: #ffffff;
-      border: 2px solid #d0d0d0;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: box-shadow 0.3s;
-    }
-
-    .fugitive-card:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    }
-
     .fugitive-photo-container {
       position: relative;
       background: #000000;
@@ -253,12 +217,6 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-    }
-
-    .fugitive-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
     }
 
     .reward-badge {
@@ -299,8 +257,267 @@
       }
     }
 
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
     .fugitive-info {
       padding: 20px;
+    }
+
+    .fugitive-card {
+      background: #ffffff;
+      border: 2px solid #d0d0d0;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .fugitive-card:nth-child(1) { animation-delay: 0.1s; }
+    .fugitive-card:nth-child(2) { animation-delay: 0.2s; }
+    .fugitive-card:nth-child(3) { animation-delay: 0.3s; }
+    .fugitive-card:nth-child(4) { animation-delay: 0.4s; }
+    .fugitive-card:nth-child(5) { animation-delay: 0.5s; }
+    .fugitive-card:nth-child(6) { animation-delay: 0.6s; }
+
+    .fugitive-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transform: translateY(-5px);
+    }
+
+    .fugitive-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .fugitive-card:hover .fugitive-photo {
+      transform: scale(1.05);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease-in;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .header {
+      background: #003366;
+      color: #ffffff;
+      padding: 20px 0;
+      border-bottom: 4px solid #bf0a30;
+      animation: slideInLeft 0.6s ease-out;
+    }
+
+    .alert-banner {
+      background: #fff3cd;
+      border-left: 5px solid #ffc107;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 4px;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    .profile-container {
+      background: #ffffff;
+      border: 2px solid #d0d0d0;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      animation: scaleIn 0.5s ease-out;
+    }
+
+    .nav-tab {
+      flex: 1;
+      background: #e8e8e8;
+      border: none;
+      padding: 15px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #003366;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-tab::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: #bf0a30;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-tab:hover::before {
+      width: 100%;
+    }
+
+    .nav-tab:hover {
+      background: #d0d0d0;
+      transform: translateY(-2px);
+    }
+
+    .nav-tab.active {
+      background: #003366;
+      color: #ffffff;
+    }
+
+    .nav-tab.active::before {
+      width: 100%;
+      background: #bf0a30;
+    }
+
+    .view-profile-btn {
+      display: block;
+      width: 100%;
+      background: #003366;
+      color: #ffffff;
+      border: none;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .view-profile-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .view-profile-btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .view-profile-btn:hover {
+      background: #004080;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 51, 102, 0.3);
+    }
+
+    .view-profile-btn:active {
+      transform: translateY(0);
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      background: #6c757d;
+      color: #ffffff;
+      padding: 12px 30px;
+      border-radius: 3px;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      font-size: 15px;
+    }
+
+    .back-button:hover {
+      background: #5a6268;
+      transform: translateX(-5px);
+      box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+    }
+
+    .reward-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #bf0a30;
+      color: #ffffff;
+      padding: 8px 16px;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 3px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    .info-section {
+      margin-bottom: 25px;
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    .info-section:nth-child(1) { animation-delay: 0.1s; }
+    .info-section:nth-child(2) { animation-delay: 0.2s; }
+    .info-section:nth-child(3) { animation-delay: 0.3s; }
+    .info-section:nth-child(4) { animation-delay: 0.4s; }
+
+    .fbi-seal {
+      width: 80px;
+      height: 80px;
+      transition: transform 0.3s ease;
+    }
+
+    .fbi-seal:hover {
+      transform: rotate(360deg);
     }
 
     .fugitive-name {
@@ -338,26 +555,6 @@
       font-size: 14px;
       color: #333333;
       min-height: 60px;
-    }
-
-    .view-profile-btn {
-      display: block;
-      width: 100%;
-      background: #003366;
-      color: #ffffff;
-      border: none;
-      padding: 12px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      border-radius: 3px;
-      transition: background 0.3s;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .view-profile-btn:hover {
-      background: #004080;
     }
 
     /* Profile Page */
@@ -1739,7 +1936,10 @@
             <div class="fugitive-name">CLASSIFIED</div>
             <div class="case-number">CASE #[REDACTED]</div>
             <div class="fugitive-details">
-              <strong>Status:</strong> Information Sealed by Court Order
+              <strong>Status:</strong> Information Sealed by Court Order<br>
+              <strong></strong><br>
+              <strong></strong><br>
+              <strong></strong>
             </div>
             <div class="charges-summary">
               <strong>Details:</strong> Case information restricted. Additional fugitive profiles forthcoming.
@@ -2300,8 +2500,10 @@
             <div class="case-number">CASE #[PENDING] • MISSING PERSON</div>
             <div class="fugitive-details">
               <strong>Status:</strong> Missing<br>
+              <strong>Nationality:</strong> British<br>
               <strong>Age:</strong> 21-24 (Estimated)<br>
-              <strong>Last Seen:</strong> Ibiza, Spain
+              <strong>Last Seen:</strong> Ibiza, Spain<br>
+              <strong></strong>
             </div>
             <div class="charges-summary">
               <strong>Details:</strong> Information being compiled. Please provide any details you have about this individual.
@@ -2412,6 +2614,10 @@
                 <span class="side-info-value">21-24</span>
               </div>
               <div class="side-info-item">
+                <span class="side-info-label">Nationality:</span>
+                <span class="side-info-value">British</span>
+              </div>
+              <div class="side-info-item">
                 <span class="side-info-label">Status:</span>
                 <span class="side-info-value">Missing</span>
               </div>
@@ -2442,6 +2648,10 @@
                 <div class="info-item">
                   <span class="info-label">Age:</span>
                   <span class="info-value">21-24 (Estimated)</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Nationality:</span>
+                  <span class="info-value">British</span>
                 </div>
                 <div class="info-item">
                   <span class="info-label">Status:</span>
@@ -2775,6 +2985,159 @@
         </div>
       </div>
       <button class="back-button" onclick="showTab('missing-people')">← Return to Missing People</button>
+    </div>
+
+    <!-- Hall of Shame Tab -->
+    <div id="hall-of-shame" class="tab-content">
+      <div class="alert-banner">
+        <h2>HALL OF SHAME</h2>
+        <p><strong>NOTICE:</strong> The following individuals have been inducted into the Hall of Shame for exceptional misconduct.</p>
+        <p>These entries represent individuals whose actions have warranted permanent recognition and public acknowledgment.</p>
+        <p>If you have additional information regarding any Hall of Shame inductee, please contact your local field office or call 1-800-CALL-FBI (1-800-225-5324).</p>
+      </div>
+
+      <div class="fugitive-grid">
+
+        <!-- Nigerian Prince A/K/A hstikkytokky -->
+        <div class="fugitive-card">
+          <div class="fugitive-photo-container">
+            <img src="https://i.postimg.cc/pr0m7Fq4/HSTikky-Tokky-jail-pleads-guilty-crashing-mclaren-4093471161.jpg" alt="hstikkytokky" class="fugitive-photo">
+          </div>
+          <div class="fugitive-info">
+            <div class="fugitive-name">hstikkytokky</div>
+            <div class="case-number">HALL OF SHAME INDUCTEE #001</div>
+            <div class="fugitive-details">
+              <strong>Real Name:</strong> Nigerian Prince<br>
+              <strong>Age:</strong> 24<br>
+              <strong>Nationality:</strong> Nigerian<br>
+              <strong>Origin:</strong> Essex, England
+            </div>
+            <div class="charges-summary">
+              <strong>Inducted For:</strong> Forex Scammer; Degenerate Gambling; Chronic Loser Behavior; Community Menace
+            </div>
+            <button class="view-profile-btn" onclick="showProfile('nigerian-prince-shame')">View Full Profile</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="warning-box" style="margin-top: 30px;">
+        <h4>HALL OF SHAME CRITERIA</h4>
+        <p>To be inducted into the Hall of Shame, an individual must demonstrate patterns of serious misconduct including:</p>
+        <p>• Fraudulent financial schemes and scam operations</p>
+        <p>• Chronic gambling behavior and degenerate activity</p>
+        <p>• Repeated violations despite warnings and interventions</p>
+        <p>• Causing significant disruption to the community</p>
+        <p>• Pattern of dishonest and unethical behavior</p>
+        <p><br><strong>Notice:</strong> Hall of Shame inductions are permanent and subject to public record.</p>
+      </div>
+    </div>
+
+    <!-- hstikkytokky Hall of Shame Profile -->
+    <div id="nigerian-prince-shame" class="tab-content">
+      <div class="profile-container">
+        <div class="profile-header">
+          <h2>Hall of Shame</h2>
+          <p>Forex Scammer, Degenerate Gambling, Chronic Loser Behavior</p>
+        </div>
+        <div class="profile-content">
+          <div class="profile-photo-section">
+            <img src="https://i.postimg.cc/pr0m7Fq4/HSTikky-Tokky-jail-pleads-guilty-crashing-mclaren-4093471161.jpg" alt="hstikkytokky" class="profile-photo">
+            
+            <div class="reward-amount">
+              <strong>HALL OF SHAME</strong>
+              <div class="amount" style="font-size: 22px;">Inductee #001</div>
+            </div>
+
+            <div class="caution-badge">
+              <strong>⚠ SCAMMER</strong>
+              <p>FOREX FRAUD</p>
+            </div>
+
+            <div class="wanted-since">
+              <div class="label">Inducted</div>
+              <div class="date">February 2026</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Known Information</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Known As:</span>
+                <span class="side-info-value">hstikkytokky</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Real Name:</span>
+                <span class="side-info-value">Nigerian Prince</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Age:</span>
+                <span class="side-info-value">24</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Nationality:</span>
+                <span class="side-info-value">Nigerian</span>
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="profile-name">hstikkytokky</div>
+            <div class="profile-case-number">HALL OF SHAME INDUCTEE #001</div>
+
+            <div class="info-section">
+              <h3>Subject Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Known As:</span>
+                  <span class="info-value">hstikkytokky</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Real Name:</span>
+                  <span class="info-value">Nigerian Prince</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Age:</span>
+                  <span class="info-value">24</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Nationality:</span>
+                  <span class="info-value">Nigerian</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Origin:</span>
+                  <span class="info-value">Essex, England</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Inductee Number:</span>
+                  <span class="info-value">#001</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h3>Hall of Shame Offenses</h3>
+              <ul class="charges-list">
+                <li class="charge-item">Forex Scamming - Operation of fraudulent foreign exchange trading schemes targeting unsuspecting victims</li>
+                <li class="charge-item">Degenerate Gambling - Chronic and excessive gambling behavior demonstrating complete lack of self-control</li>
+                <li class="charge-item">Chronic Loser Behavior - Repeated pattern of taking L's and making poor life decisions</li>
+                <li class="charge-item">Community Menace - Ongoing disruption and negative influence on community members</li>
+                <li class="charge-item">Fraudulent Financial Schemes - Multiple instances of dishonest financial practices</li>
+                <li class="charge-item">Failure to Maintain Basic Standards - Consistent inability to meet minimum behavioral expectations</li>
+              </ul>
+            </div>
+
+            <div class="warning-box">
+              <h4>Behavioral Assessment</h4>
+              <p>Subject operates forex scam operations while maintaining degenerate gambling habits. Raised in Essex, England despite Nigerian nationality. Subject demonstrates chronic loser behavior with repeated poor decision-making. Known for taking L's on a consistent basis. Pattern of fraudulent activity combined with gambling addiction creates significant risk to community members. Subject shows no signs of reform or improvement.</p>
+            </div>
+
+            <div class="caution-box">
+              <strong>⚠ CAUTION - KNOWN SCAMMER - DEGENERATE GAMBLER</strong>
+              <p>This individual has been inducted into the Hall of Shame for forex scamming, degenerate gambling, and chronic loser behavior. Exercise extreme caution when interacting. Do not engage in any financial transactions. If you have information about this individual's activities, please contact authorities.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="back-button" onclick="showTab('hall-of-shame')">← Return to Hall of Shame</button>
     </div>
 
     <!-- Submit Tip Tab -->
