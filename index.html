@@ -3,467 +3,1315 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>International Most Wanted</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+  <title>FBI Most Wanted - Fugitives</title>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:Roboto,Arial,sans-serif;background:#0a0a0a;color:#ddd;line-height:1.65;font-size:18px;zoom:80%}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-#entry-gate{position:fixed;inset:0;background:linear-gradient(135deg,#000,#1a1a1a);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;text-align:center;min-height:100vh;padding:20px;overflow:hidden}
-#entry-gate h1{font-family:'Roboto Condensed',sans-serif;font-size:3.5rem;margin:0 0 1.5rem;letter-spacing:4px;text-transform:uppercase;text-shadow:0 0 15px #d32f2f}
-#entry-gate p{font-size:1.3rem;max-width:720px;margin:0 0 3rem;opacity:.85;line-height:1.5;text-shadow:0 0 10px #000}
-#enter-btn{background:#000;color:#d32f2f;border:3px solid #d32f2f;padding:20px 70px;font-size:1.6rem;font-weight:700;font-family:'Roboto Condensed',sans-serif;text-transform:uppercase;letter-spacing:3px;cursor:pointer;transition:all .4s;border-radius:10px;min-width:300px;min-height:70px;box-shadow:0 0 20px rgba(211,47,47,0.4)}
-#enter-btn:hover{background:#111;transform:scale(1.08);box-shadow:0 0 40px rgba(211,47,47,0.7);color:#fff}
-.entered #entry-gate{display:none}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #212121;
+      line-height: 1.6;
+      font-size: 16px;
+    }
 
-.header{position:relative;background:#000;color:#d32f2f;padding:40px 0 15px;text-align:center;border-bottom:2px solid #222}
-.logos{display:flex;justify-content:center;align-items:center;margin-bottom:20px}
-.logo{height:90px;width:auto;filter:drop-shadow(0 0 10px #d32f2f)}
-.header h1{font-family:'Roboto Condensed',sans-serif;font-size:42px;font-weight:700;letter-spacing:5px;margin:0;text-transform:uppercase;text-shadow:0 0 15px #d32f2f}
+    /* Header */
+    .header {
+      background: #003366;
+      color: #ffffff;
+      padding: 20px 0;
+      border-bottom: 4px solid #bf0a30;
+    }
 
-.top-left-contact {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  z-index: 10;
-}
-.contact-btn {
-  background: #1a1a1a;
-  color: #d32f2f;
-  border: 2px solid #d32f2f;
-  padding: 12px 24px;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: all 0.4s;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(211,47,47,0.4);
-}
-.contact-btn:hover {
-  background: #d32f2f;
-  color: #000;
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(211,47,47,0.7);
-}
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
 
-.tabs{display:flex;justify-content:center;background:#111;border-bottom:5px solid #d32f2f;flex-wrap:wrap}
-.tab-button{background:#1a1a1a;color:#aaa;border:none;padding:20px 50px;font-size:1.4rem;font-family:'Roboto Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:3px;cursor:pointer;transition:all .3s;margin:0 8px;box-shadow:0 4px 15px rgba(0,0,0,.6)}
-.tab-button:hover{background:#222;color:#fff}
-.tab-button.active{background:#d32f2f;color:#000;border-bottom:5px solid #fff;box-shadow:0 0 25px rgba(211,47,47,0.6)}
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
-.tab-content{
-  display:none;
-  padding:40px 20px;
-  opacity:0;
-  transform:translateY(20px);
-  transition:opacity .5s ease,transform .5s ease;
-}
-.tab-content.active{
-  display:block;
-  opacity:1;
-  transform:translateY(0);
-}
+    .fbi-seal {
+      width: 80px;
+      height: 80px;
+    }
 
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
+    .fbi-seal img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
-.alert{background:rgba(211,47,47,0.1);border-left:8px solid #d32f2f;padding:25px;margin-bottom:40px;font-weight:500;color:#ffcccc;text-shadow:0 0 5px #000}
-.alert strong{color:#fff;display:block;font-size:28px;margin-bottom:10px;font-family:'Roboto Condensed',sans-serif;text-shadow:0 0 10px #d32f2f}
+    .header-title h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+    }
 
-.profile{background:#111;border-radius:12px;box-shadow:0 8px 30px rgba(211,47,47,0.2);overflow:hidden;margin-bottom:50px;border:1px solid #333}
-.photo-section{background:#000;padding:80px 30px;text-align:center}
-.photo{max-width:550px;max-height:750px;width:100%;height:auto;border:6px solid #222;box-shadow:0 15px 40px rgba(0,0,0,.8)}
+    .header-title p {
+      font-size: 14px;
+      opacity: 0.9;
+      font-weight: 400;
+    }
 
-.profile-info{padding:50px 40px}
-.name{font-family:'Roboto Condensed',sans-serif;font-size:64px;font-weight:700;color:#d32f2f;margin-bottom:15px;letter-spacing:6px;text-align:center;text-transform:uppercase;text-shadow:0 0 15px #d32f2f}
-.details{text-align:center;margin-bottom:30px;font-size:22px;color:#ccc}
-.details strong{color:#fff;font-weight:700}
-.status{color:#aaa;font-size:20px;margin-bottom:35px;text-transform:uppercase;letter-spacing:2px;text-align:center;font-weight:500}
+    .tip-line {
+      text-align: right;
+      background: #bf0a30;
+      padding: 10px 15px;
+      border-radius: 4px;
+    }
 
-.offenses h3{color:#ff5252;font-family:'Roboto Condensed',sans-serif;font-size:30px;margin-bottom:20px;font-weight:700;border-bottom:4px solid #330000;padding-bottom:12px}
-.offense{margin-bottom:18px;padding-left:28px;position:relative;font-size:19px;color:#eee}
-.offense::before{content:"•";color:#d32f2f;font-size:28px;position:absolute;left:0;top:-4px}
+    .tip-line strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 3px;
+    }
 
-.website-notice,.exploitation-notice{background:rgba(255,193,7,0.1);border-left:6px solid #ffb300;padding:28px;margin:30px 0;color:#ffe082}
-.website-notice h4,.exploitation-notice h4{color:#ffca28;margin-bottom:12px;font-size:22px;font-family:'Roboto Condensed',sans-serif}
-.url{font-family:monospace;background:#222;padding:12px 20px;border-radius:8px;color:#eee;font-size:18px;display:inline-block;text-decoration:none;border:2px solid #ffb300;transition:all .3s}
-.url:hover{background:#ffb300;color:#000}
+    .tip-line span {
+      font-size: 13px;
+    }
 
-.danger{background:rgba(211,47,47,0.15);border-top:6px solid #d32f2f;padding:28px;text-align:center;font-size:26px;font-weight:700;color:#ff8a80;margin-top:30px;text-transform:uppercase;letter-spacing:2px;font-family:'Roboto Condensed',sans-serif;text-shadow:0 0 10px #d32f2f}
+    /* Navigation Tabs */
+    .nav-tabs {
+      background: #ffffff;
+      border-bottom: 3px solid #003366;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 
-.catalogue-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-.catalog-item {
-  background: linear-gradient(135deg, #111, #0d0d0d);
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0,0,0,.7), inset 0 0 20px rgba(211,47,47,0.1);
-  overflow: hidden;
-  transition: transform 0.4s, box-shadow 0.4s;
-  border: 1px solid #222;
-}
-.catalog-item:hover {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 0 15px 50px rgba(211,47,47,0.3);
-}
-.catalog-photo {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-bottom: 5px solid #d32f2f;
-  filter: brightness(0.7) contrast(1.1);
-}
-.catalog-info {
-  padding: 25px;
-  text-align: center;
-}
-.catalog-name {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: #d32f2f;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 0 0 10px #d32f2f;
-}
-.catalog-summary {
-  font-size: 17px;
-  color: #aaa;
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-.catalog-link {
-  display: block;
-  width: 200px;
-  margin: 0 auto 10px auto;
-  background: #d32f2f;
-  color: #000;
-  padding: 14px 0;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 17px;
-  cursor: pointer;
-  transition: all 0.4s;
-  box-shadow: 0 0 15px rgba(211,47,47,0.5);
-  text-align: center;
-}
-.catalog-link:hover {
-  background: #b71c1c;
-  color: #fff;
-  transform: scale(1.05);
-}
-.coming-soon .catalog-link {
-  background: #333;
-  color: #666;
-  cursor: default;
-  box-shadow: none;
-}
-.coming-soon .catalog-link:hover {
-  background: #333;
-  transform: none;
-}
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 2px;
+    }
 
-.contact-section {
-  background: #111;
-  border-radius: 12px;
-  padding: 50px 40px;
-  box-shadow: 0 8px 30px rgba(211,47,47,0.2);
-  border: 1px solid #333;
-  max-width: 800px;
-  margin: 40px auto;
-  text-align: left;
-}
-.contact-section h2 {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 44px;
-  color: #d32f2f;
-  margin-bottom: 25px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 0 0 10px #d32f2f;
-}
-.contact-section p {
-  font-size: 18px;
-  color: #ccc;
-  margin-bottom: 20px;
-}
-.contact-email-block {
-  margin: 30px 0;
-  padding: 20px;
-  background: #1a1a1a;
-  border-left: 6px solid #d32f2f;
-  border-radius: 4px;
-}
-.contact-email-block strong {
-  color: #ffcccc;
-  font-size: 24px;
-  display: block;
-  margin-bottom: 8px;
-}
-.contact-email {
-  color: #ff8a80;
-  font-family: monospace;
-  font-size: 22px;
-  font-weight: 700;
-  word-break: break-all;
-}
-.warning-text {
-  color: #ff5252;
-  font-size: 17px;
-  margin-top: 25px;
-  font-style: italic;
-}
+    .nav-tab {
+      flex: 1;
+      background: #e8e8e8;
+      border: none;
+      padding: 15px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #003366;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
 
-.back-to-catalog, .contact-back {
-  display: inline-block;
-  margin-top: 40px;
-  background: #222;
-  color: #d32f2f;
-  padding: 16px 40px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 18px;
-  cursor: pointer;
-  transition: all 0.3s;
-  border: 2px solid #444;
-}
-.back-to-catalog:hover, .contact-back:hover {
-  background: #d32f2f;
-  color: #000;
-  border-color: #d32f2f;
-}
+    .nav-tab:hover {
+      background: #d0d0d0;
+    }
 
-.footer{text-align:center;padding:50px 0;color:#555;font-size:16px;border-top:3px solid #222}
+    .nav-tab.active {
+      background: #003366;
+      color: #ffffff;
+    }
 
-#music-lucas,#music-amaan{display:none}
+    /* Main Content */
+    .main-container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
 
-/* IMPROVED MOBILE STYLES */
-@media (max-width:768px){
-  body{font-size:16px}
-  
-  /* Entry Gate */
-  #entry-gate{padding:30px 20px}
-  #entry-gate h1{font-size:2.2rem;letter-spacing:2px;margin-bottom:1rem}
-  #entry-gate p{font-size:1.1rem;margin-bottom:2rem;padding:0 10px}
-  #enter-btn{padding:16px 40px;font-size:1.3rem;min-width:250px;min-height:60px;letter-spacing:2px}
-  
-  /* Header */
-  .header{padding:30px 15px 15px}
-  .logo{height:60px}
-  .header h1{font-size:28px;letter-spacing:3px}
-  
-  .top-left-contact {
-    position: static; 
-    margin: 15px auto; 
-    text-align: center;
-  }
-  .contact-btn{
-    padding:10px 20px;
-    font-size:1.1rem;
-    letter-spacing:1.5px;
-  }
-  
-  /* Tabs */
-  .tabs{padding:10px 5px}
-  .tab-button{
-    padding:14px 25px;
-    font-size:1.1rem;
-    margin:5px;
-    letter-spacing:2px;
-  }
-  
-  /* Container */
-  .container{padding:0 15px}
-  .tab-content{padding:30px 15px}
-  
-  /* Alert */
-  .alert{
-    padding:20px 15px;
-    margin-bottom:30px;
-  }
-  .alert strong{
-    font-size:22px;
-    margin-bottom:8px;
-  }
-  
-  /* Profile */
-  .profile{margin-bottom:40px}
-  
-  .name{
-    font-size:36px;
-    letter-spacing:3px;
-    margin-bottom:12px;
-  }
-  
-  .photo{max-width:100%;max-height:none;border-width:4px}
-  .photo-section{padding:40px 15px}
-  
-  .profile-info{padding:30px 20px}
-  
-  .details{
-    font-size:18px;
-    margin-bottom:25px;
-    line-height:1.8;
-  }
-  
-  .status{
-    font-size:17px;
-    margin-bottom:25px;
-  }
-  
-  .offenses h3{
-    font-size:24px;
-    margin-bottom:15px;
-  }
-  .offense{
-    font-size:16px;
-    margin-bottom:15px;
-    padding-left:25px;
-    line-height:1.7;
-  }
-  .offense::before{
-    font-size:24px;
-  }
-  
-  .website-notice, .exploitation-notice{
-    padding:20px 15px;
-    margin:25px 0;
-  }
-  .website-notice h4, .exploitation-notice h4{
-    font-size:19px;
-    margin-bottom:10px;
-  }
-  .website-notice p, .exploitation-notice p{
-    font-size:15px;
-  }
-  .url{
-    padding:10px 15px;
-    font-size:15px;
-    word-break:break-all;
-    display:block;
-    margin-top:10px;
-  }
-  
-  .danger{
-    padding:20px 15px;
-    font-size:18px;
-    margin-top:25px;
-    line-height:1.4;
-  }
-  
-  /* Catalogue Grid */
-  .catalogue-grid {
-    grid-template-columns: 1fr;
-    gap:25px;
-    margin-top:30px;
-  }
-  
-  .catalog-photo{
-    height:250px;
-  }
-  
-  .catalog-info{
-    padding:20px 15px;
-  }
-  
-  .catalog-name{
-    font-size:26px;
-    margin-bottom:10px;
-    letter-spacing:2px;
-  }
-  
-  .catalog-summary{
-    font-size:15px;
-    margin-bottom:15px;
-    line-height:1.7;
-  }
-  
-  .catalog-link{
-    width:180px;
-    padding:12px 0;
-    font-size:15px;
-  }
-  
-  /* Contact Section */
-  .contact-section {
-    padding:30px 20px;
-    margin:30px auto;
-  }
-  
-  .contact-section h2{
-    font-size:32px;
-    margin-bottom:20px;
-    letter-spacing:2px;
-  }
-  
-  .contact-section p{
-    font-size:16px;
-    margin-bottom:15px;
-    line-height:1.7;
-  }
-  
-  .contact-email-block{
-    padding:15px;
-    margin:25px 0;
-  }
-  
-  .contact-email-block strong{
-    font-size:20px;
-  }
-  
-  .contact-email{
-    font-size:17px;
-  }
-  
-  .warning-text{
-    font-size:15px;
-    margin-top:20px;
-    line-height:1.6;
-  }
-  
-  /* Back Buttons */
-  .back-to-catalog, .contact-back{
-    margin-top:30px;
-    padding:14px 30px;
-    font-size:16px;
-    display:block;
-    text-align:center;
-  }
-  
-  /* Footer */
-  .footer{
-    padding:40px 15px;
-    font-size:14px;
-    line-height:1.6;
-  }
-}
+    .tab-content {
+      display: none;
+    }
 
-/* Extra small devices */
-@media (max-width:480px){
-  #entry-gate h1{font-size:1.8rem}
-  #entry-gate p{font-size:1rem}
-  #enter-btn{padding:14px 30px;font-size:1.1rem;min-width:220px}
-  
-  .header h1{font-size:24px}
-  .logo{height:50px}
-  
-  .name{font-size:30px;letter-spacing:2px}
-  .details{font-size:16px}
-  .status{font-size:15px}
-  
-  .catalog-name{font-size:22px}
-  .contact-section h2{font-size:28px}
-}
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Alert Banner */
+    .alert-banner {
+      background: #fff3cd;
+      border-left: 5px solid #ffc107;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 4px;
+    }
+
+    .alert-banner h2 {
+      color: #856404;
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .alert-banner p {
+      color: #856404;
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    /* Fugitive Grid */
+    .fugitive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .fugitive-card {
+      background: #ffffff;
+      border: 2px solid #d0d0d0;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s;
+    }
+
+    .fugitive-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .fugitive-photo-container {
+      position: relative;
+      background: #000000;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fugitive-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .reward-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #bf0a30;
+      color: #ffffff;
+      padding: 8px 16px;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 3px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .fugitive-info {
+      padding: 20px;
+    }
+
+    .fugitive-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #003366;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .case-number {
+      font-size: 13px;
+      color: #666666;
+      margin-bottom: 15px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .fugitive-details {
+      font-size: 14px;
+      color: #333333;
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    .fugitive-details strong {
+      color: #003366;
+      font-weight: 600;
+    }
+
+    .charges-summary {
+      background: #f8f9fa;
+      padding: 12px;
+      border-left: 4px solid #bf0a30;
+      margin-bottom: 15px;
+      font-size: 14px;
+      color: #333333;
+    }
+
+    .view-profile-btn {
+      display: block;
+      width: 100%;
+      background: #003366;
+      color: #ffffff;
+      border: none;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .view-profile-btn:hover {
+      background: #004080;
+    }
+
+    /* Profile Page */
+    .profile-container {
+      background: #ffffff;
+      border: 2px solid #d0d0d0;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    .profile-header {
+      background: #bf0a30;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .profile-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .profile-header p {
+      font-size: 14px;
+      opacity: 0.95;
+    }
+
+    .profile-content {
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 0;
+    }
+
+    .profile-photo-section {
+      background: #000000;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-right: 2px solid #d0d0d0;
+      gap: 20px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .reward-amount {
+      background: #bf0a30;
+      color: #ffffff;
+      padding: 15px 25px;
+      text-align: center;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .reward-amount strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .reward-amount .amount {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .side-info-box {
+      background: #1a1a1a;
+      border: 2px solid #444;
+      border-radius: 4px;
+      padding: 15px;
+      width: 100%;
+      max-width: 340px;
+      color: #ffffff;
+    }
+
+    .side-info-box h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #bf0a30;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #333;
+      padding-bottom: 6px;
+    }
+
+    .side-info-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 13px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .side-info-item:last-child {
+      border-bottom: none;
+    }
+
+    .side-info-label {
+      color: #999;
+      font-weight: 500;
+    }
+
+    .side-info-value {
+      color: #ffffff;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .caution-badge {
+      background: #ffc107;
+      color: #000000;
+      padding: 12px;
+      text-align: center;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 340px;
+      border: 3px solid #ff8f00;
+      box-shadow: 0 2px 8px rgba(255, 193, 7, 0.4);
+    }
+
+    .caution-badge strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .caution-badge p {
+      font-size: 12px;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    .wanted-since {
+      background: #2a2a2a;
+      border-left: 4px solid #bf0a30;
+      padding: 10px 15px;
+      width: 100%;
+      max-width: 340px;
+      border-radius: 4px;
+    }
+
+    .wanted-since .label {
+      font-size: 11px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .wanted-since .date {
+      font-size: 16px;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .partner-agencies {
+      background: #1a1a1a;
+      border: 2px solid #444;
+      border-radius: 4px;
+      padding: 15px;
+      width: 100%;
+      max-width: 340px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .partner-agencies h4 {
+      font-size: 12px;
+      font-weight: 600;
+      color: #999;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .agency-logos {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .agency-logo {
+      flex: 1;
+      min-width: 80px;
+      max-width: 100px;
+    }
+
+    .agency-logo img {
+      width: 100%;
+      height: auto;
+      filter: brightness(0.9);
+      transition: filter 0.3s;
+    }
+
+    .agency-logo img:hover {
+      filter: brightness(1.1);
+    }
+
+    .agency-logo-label {
+      font-size: 10px;
+      color: #666;
+      margin-top: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .map-section {
+      background: #1a1a1a;
+      border: 2px solid #444;
+      border-radius: 4px;
+      padding: 15px;
+      width: 100%;
+      max-width: 340px;
+      color: #ffffff;
+    }
+
+    .map-section h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #bf0a30;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #333;
+      padding-bottom: 6px;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 200px;
+      background: #2a2a2a;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 2px solid #333;
+      position: relative;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(0.3) brightness(0.7);
+    }
+
+    .map-label {
+      font-size: 12px;
+      color: #999;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .map-label strong {
+      color: #bf0a30;
+      display: block;
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+
+    .interpol-notice {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border: 3px solid #dc3545;
+      border-radius: 4px;
+      padding: 25px;
+      margin: 30px 0;
+      box-shadow: 0 4px 12px rgba(220, 53, 69, 0.15);
+    }
+
+    .interpol-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #dc3545;
+    }
+
+    .interpol-logo-text {
+      background: #dc3545;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    .interpol-title {
+      flex: 1;
+    }
+
+    .interpol-title h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #dc3545;
+      margin: 0 0 5px 0;
+      text-transform: uppercase;
+    }
+
+    .interpol-title p {
+      font-size: 13px;
+      color: #666;
+      margin: 0;
+      font-style: italic;
+    }
+
+    .interpol-content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .interpol-field {
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 4px;
+      border-left: 4px solid #dc3545;
+    }
+
+    .interpol-field-label {
+      font-size: 11px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .interpol-field-value {
+      font-size: 15px;
+      color: #212121;
+      font-weight: 700;
+      font-family: 'Courier New', monospace;
+    }
+
+    .interpol-footer {
+      background: #fff3cd;
+      border: 2px solid #ffc107;
+      border-radius: 4px;
+      padding: 12px;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .interpol-footer p {
+      font-size: 13px;
+      color: #856404;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .interpol-footer strong {
+      color: #dc3545;
+    }
+
+    .profile-details {
+      padding: 30px;
+    }
+
+    .profile-name {
+      font-size: 32px;
+      font-weight: 700;
+      color: #003366;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      border-bottom: 3px solid #003366;
+      padding-bottom: 10px;
+    }
+
+    .profile-case-number {
+      font-size: 14px;
+      color: #666666;
+      margin-bottom: 20px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .info-section {
+      margin-bottom: 25px;
+    }
+
+    .info-section h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #003366;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 8px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 8px;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: #003366;
+      min-width: 120px;
+    }
+
+    .info-value {
+      color: #333333;
+    }
+
+    .charges-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .charge-item {
+      padding: 10px 0 10px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      position: relative;
+      font-size: 14px;
+      color: #333333;
+    }
+
+    .charge-item:before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: #bf0a30;
+      font-size: 20px;
+    }
+
+    .charge-item:last-child {
+      border-bottom: none;
+    }
+
+    .warning-box {
+      background: #fff3cd;
+      border: 2px solid #ffc107;
+      border-radius: 4px;
+      padding: 20px;
+      margin-top: 25px;
+    }
+
+    .warning-box h4 {
+      color: #856404;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .warning-box p {
+      color: #856404;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .caution-box {
+      background: #f8d7da;
+      border: 2px solid #dc3545;
+      border-radius: 4px;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .caution-box strong {
+      display: block;
+      color: #721c24;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .caution-box p {
+      color: #721c24;
+      font-size: 14px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      background: #6c757d;
+      color: #ffffff;
+      padding: 12px 30px;
+      border-radius: 3px;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+      border: none;
+      font-size: 15px;
+    }
+
+    .back-button:hover {
+      background: #5a6268;
+    }
+
+    /* Contact Page */
+    .contact-container {
+      background: #ffffff;
+      border: 2px solid #d0d0d0;
+      border-radius: 4px;
+      padding: 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-container h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #003366;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      border-bottom: 3px solid #003366;
+      padding-bottom: 12px;
+    }
+
+    .contact-container p {
+      font-size: 15px;
+      color: #333333;
+      margin-bottom: 15px;
+      line-height: 1.7;
+    }
+
+    .contact-methods {
+      margin: 30px 0;
+    }
+
+    .contact-method {
+      background: #f8f9fa;
+      border-left: 5px solid #003366;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+
+    .contact-method h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #003366;
+      margin-bottom: 10px;
+    }
+
+    .contact-method .contact-detail {
+      font-size: 20px;
+      font-weight: 700;
+      color: #bf0a30;
+      margin-bottom: 8px;
+    }
+
+    .contact-method p {
+      font-size: 14px;
+      color: #666666;
+      margin: 0;
+    }
+
+    /* Footer */
+    .footer {
+      background: #003366;
+      color: #ffffff;
+      padding: 30px 20px;
+      margin-top: 50px;
+      border-top: 4px solid #bf0a30;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 13px;
+      margin-bottom: 8px;
+      opacity: 0.9;
+    }
+
+    .footer-links {
+      margin-top: 15px;
+      font-size: 12px;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: underline;
+      margin: 0 10px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 900px) {
+      .profile-content {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-photo-section {
+        border-right: none;
+        border-bottom: 2px solid #d0d0d0;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .interpol-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 15px;
+      }
+
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
+
+      .header-left {
+        flex-direction: column;
+      }
+
+      .fbi-seal {
+        width: 70px;
+        height: 70px;
+      }
+
+      .header-title h1 {
+        font-size: 24px;
+      }
+
+      .header-title p {
+        font-size: 13px;
+      }
+
+      .tip-line {
+        text-align: center;
+        width: 100%;
+      }
+
+      .tip-line strong {
+        font-size: 16px;
+      }
+
+      .tip-line span {
+        font-size: 12px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .nav-tab {
+        border-bottom: 1px solid #d0d0d0;
+        padding: 12px 15px;
+        font-size: 14px;
+      }
+
+      .fugitive-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .fugitive-name {
+        font-size: 22px;
+      }
+
+      .fugitive-details {
+        font-size: 13px;
+      }
+
+      .charges-summary {
+        font-size: 13px;
+      }
+
+      .view-profile-btn {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .profile-name {
+        font-size: 28px;
+        letter-spacing: 2px;
+      }
+
+      .profile-case-number {
+        font-size: 13px;
+      }
+
+      .profile-header h2 {
+        font-size: 16px;
+      }
+
+      .profile-header p {
+        font-size: 13px;
+      }
+
+      .reward-amount {
+        padding: 12px 20px;
+      }
+
+      .reward-amount strong {
+        font-size: 13px;
+      }
+
+      .reward-amount .amount {
+        font-size: 24px;
+      }
+
+      .side-info-box {
+        padding: 12px;
+      }
+
+      .side-info-box h4 {
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .side-info-item {
+        font-size: 12px;
+        padding: 5px 0;
+      }
+
+      .caution-badge {
+        padding: 10px;
+      }
+
+      .caution-badge strong {
+        font-size: 14px;
+      }
+
+      .caution-badge p {
+        font-size: 11px;
+      }
+
+      .wanted-since {
+        padding: 8px 12px;
+      }
+
+      .wanted-since .label {
+        font-size: 10px;
+      }
+
+      .wanted-since .date {
+        font-size: 14px;
+      }
+
+      .map-section {
+        padding: 12px;
+      }
+
+      .map-section h4 {
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      .map-container {
+        height: 180px;
+      }
+
+      .map-label {
+        font-size: 11px;
+        margin-top: 6px;
+      }
+
+      .map-label strong {
+        font-size: 12px;
+      }
+
+      .profile-details {
+        padding: 20px 15px;
+      }
+
+      .info-section h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .info-item {
+        font-size: 13px;
+      }
+
+      .info-label {
+        min-width: 100px;
+        font-size: 12px;
+      }
+
+      .info-value {
+        font-size: 13px;
+      }
+
+      .charge-item {
+        font-size: 13px;
+        padding: 8px 0 8px 18px;
+      }
+
+      .charge-item:before {
+        font-size: 18px;
+      }
+
+      .warning-box {
+        padding: 15px;
+        margin: 20px 0;
+      }
+
+      .warning-box h4 {
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .warning-box p {
+        font-size: 13px;
+      }
+
+      .caution-box {
+        padding: 15px;
+        margin-top: 15px;
+      }
+
+      .caution-box strong {
+        font-size: 15px;
+        margin-bottom: 6px;
+      }
+
+      .caution-box p {
+        font-size: 13px;
+      }
+
+      .interpol-notice {
+        padding: 15px;
+        margin: 20px 0;
+      }
+
+      .interpol-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+      }
+
+      .interpol-logo-text {
+        padding: 8px 16px;
+        font-size: 16px;
+      }
+
+      .interpol-title h4 {
+        font-size: 18px;
+      }
+
+      .interpol-title p {
+        font-size: 12px;
+      }
+
+      .interpol-content {
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .interpol-field {
+        padding: 10px;
+      }
+
+      .interpol-field-label {
+        font-size: 10px;
+        margin-bottom: 4px;
+      }
+
+      .interpol-field-value {
+        font-size: 13px;
+      }
+
+      .interpol-footer {
+        padding: 10px;
+        margin-top: 10px;
+      }
+
+      .interpol-footer p {
+        font-size: 12px;
+      }
+
+      .back-button {
+        padding: 10px 25px;
+        font-size: 14px;
+        margin-top: 15px;
+      }
+
+      .contact-container {
+        padding: 25px 20px;
+      }
+
+      .contact-container h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+      }
+
+      .contact-container p {
+        font-size: 14px;
+        margin-bottom: 12px;
+      }
+
+      .contact-method {
+        padding: 15px;
+        margin-bottom: 15px;
+      }
+
+      .contact-method h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+
+      .contact-method .contact-detail {
+        font-size: 18px;
+        margin-bottom: 6px;
+      }
+
+      .contact-method p {
+        font-size: 13px;
+      }
+
+      .alert-banner {
+        padding: 15px;
+        margin-bottom: 25px;
+      }
+
+      .alert-banner h2 {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+
+      .alert-banner p {
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .footer {
+        padding: 30px 15px;
+      }
+
+      .footer p {
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+
+      .footer-links {
+        font-size: 11px;
+        margin-top: 12px;
+      }
+
+      .footer-links a {
+        margin: 0 8px;
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+
+      .header-title h1 {
+        font-size: 20px;
+        letter-spacing: 1px;
+      }
+
+      .header-title p {
+        font-size: 12px;
+      }
+
+      .fbi-seal {
+        width: 60px;
+        height: 60px;
+      }
+
+      .fugitive-name {
+        font-size: 20px;
+        letter-spacing: 1px;
+      }
+
+      .case-number {
+        font-size: 12px;
+      }
+
+      .reward-badge {
+        font-size: 13px;
+        padding: 6px 12px;
+        top: 10px;
+        right: 10px;
+      }
+
+      .profile-name {
+        font-size: 24px;
+        letter-spacing: 1px;
+      }
+
+      .reward-amount .amount {
+        font-size: 20px;
+      }
+
+      .interpol-logo-text {
+        font-size: 14px;
+        padding: 6px 12px;
+      }
+
+      .interpol-title h4 {
+        font-size: 16px;
+      }
+
+      .contact-container h2 {
+        font-size: 22px;
+      }
+
+      .contact-method .contact-detail {
+        font-size: 16px;
+        word-break: break-all;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Background Music -->
   <audio id="music-lucas" loop>
     <source src="https://image2url.com/r2/default/audio/1771078644500-15b79dac-91d4-47b8-aa06-6348bd433fca.mp3" type="audio/mpeg">
   </audio>
@@ -472,250 +1320,592 @@
     <source src="https://image2url.com/r2/default/audio/1771121248905-f0cb8b37-c069-4975-b53c-85b06ce7244a.mp3" type="audio/mpeg">
   </audio>
 
-  <div id="entry-gate">
-    <h1>INTERPOL – Restricted Access</h1>
-    <p>Highly classified intelligence on international fugitives. Access is monitored. Unauthorized entry is a violation of international protocols.</p>
-    <button id="enter-btn">ENTER SECURE ZONE</button>
-  </div>
-
-  <div id="main-content" style="display:none">
-    <header class="header">
-      <div class="top-left-contact">
-        <button class="contact-btn" onclick="switchToTab('contact')">Contact</button>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left">
+        <div class="fbi-seal">
+          <img src="https://i.ibb.co/rfZYgb2f/image.png" alt="FBI Seal">
+        </div>
+        <div class="header-title">
+          <h1>Federal Bureau of Investigation</h1>
+          <p>U.S. Department of Justice</p>
+        </div>
       </div>
-      <div class="logos">
-        <img src="https://i.ibb.co/rfZYgb2f/image.png" alt="FBI" class="logo">
+      <div class="tip-line">
+        <strong>1-800-CALL-FBI</strong>
+        <span>(1-800-225-5324)</span>
       </div>
-      <h1>International Most Wanted</h1>
-    </header>
-
-<div class="tabs">
-  <button class="tab-button active" data-tab="catalogue">Catalogue</button>
-</div>
-
-<div class="container">
-
-  <!-- Contact content -->
-  <div id="contact" class="tab-content">
-    <div class="alert">
-      <strong>OFFICIAL CONTACT ONLY</strong>
-      Sightings / intel drops.
     </div>
+  </header>
 
-    <div class="contact-section">
-      <h2>Contact Desk</h2>
-      <p>Use this address for verified sightings or time-sensitive info only.</p>
-      <p>Do not send junk. No replies guaranteed. Logs kept.</p>
+  <!-- Navigation -->
+  <nav class="nav-tabs">
+    <div class="nav-container">
+      <button class="nav-tab active" data-tab="most-wanted">Most Wanted</button>
+      <button class="nav-tab" data-tab="submit-tip">Submit a Tip</button>
+    </div>
+  </nav>
 
-      <div class="contact-email-block">
-        <strong>Secure drop:</strong>
-        <div class="contact-email">idf@mailum.com</div>
+  <!-- Main Content -->
+  <main class="main-container">
+
+    <!-- Most Wanted Tab -->
+    <div id="most-wanted" class="tab-content active">
+      <div class="alert-banner">
+        <h2>FBI TEN MOST WANTED FUGITIVES</h2>
+        <p><strong>NOTICE:</strong> The following individuals are wanted by the FBI for serious federal crimes.</p>
+        <p>These fugitives are considered dangerous and should not be approached by members of the public.</p>
+        <p>If you have information regarding any of these individuals, please contact your local FBI field office or call 1-800-CALL-FBI (1-800-225-5324).</p>
       </div>
 
-      <p class="warning-text">Encrypt everything. Include photo/date/location if possible. Clear subject line or it gets binned.</p>
+      <div class="fugitive-grid">
 
-      <div class="contact-back" onclick="switchToTab('catalogue')">← Back to Catalogue</div>
-    </div>
-  </div>
-
-  <!-- Catalogue -->
-  <div id="catalogue" class="tab-content active">
-    <div class="alert">
-      <strong>CLASSIFIED FUGITIVE CATALOGUE</strong>
-      Identities confirmed. Locations unknown. Approach forbidden.
-      
-      <strong>Directive:</strong> Report sightings only. Do not engage.
-    </div>
-
-    <div class="catalogue-grid">
-
-      <div class="catalog-item">
-        <img src="https://i.ibb.co/tTcrzpP4/image.png" alt="Lucas Tiger" class="catalog-photo">
-        <div class="catalog-info">
-          <div class="catalog-name">Lucas Tiger</div>
-          <div class="catalog-summary">
-            Israeli national. Age classified.
-
-            High-priority war crimes operative. Active threat level: Critical.
+        <!-- Lucas Tiger -->
+        <div class="fugitive-card">
+          <div class="fugitive-photo-container">
+            <img src="https://i.ibb.co/tTcrzpP4/image.png" alt="Lucas Tiger" class="fugitive-photo">
+            <div class="reward-badge">REWARD: $250,000</div>
           </div>
-          <div class="catalog-link" data-target="lucas-tiger">View Full Profile</div>
-        </div>
-      </div>
-
-      <div class="catalog-item">
-        <img src="https://i.ibb.co/4g7jS2y6/image.jpg" alt="Amaan Muhammad" class="catalog-photo">
-        <div class="catalog-info">
-          <div class="catalog-name">Amaan Muhammad</div>
-          <div class="catalog-summary">
-            British national. Age classified.
-
-            Serial predator & exploiter. Active digital threat vector.
+          <div class="fugitive-info">
+            <div class="fugitive-name">Lucas Tiger</div>
+            <div class="case-number">CASE #2026-IMW-047</div>
+            <div class="fugitive-details">
+              <strong>Nationality:</strong> Israeli<br>
+              <strong>Age:</strong> 35-40 (Estimated)<br>
+              <strong>Last Known Location:</strong> Unknown<br>
+              <strong>Status:</strong> Unlawful Flight to Avoid Prosecution
+            </div>
+            <div class="charges-summary">
+              <strong>Charged With:</strong> War Crimes; Crimes Against Humanity; Violations of International Humanitarian Law; Multiple Counts of Murder
+            </div>
+            <button class="view-profile-btn" onclick="showProfile('lucas-tiger')">View Full Profile</button>
           </div>
-          <div class="catalog-link" data-target="amaan-muhammad">View Full Profile</div>
         </div>
-      </div>
 
-      <div class="catalog-item coming-soon">
-        <img src="https://i.ibb.co/7XqQ8Zf/black-placeholder.jpg" alt="???" class="catalog-photo" style="filter:blur(4px) brightness(0.4);">
-        <div class="catalog-info">
-          <div class="catalog-name">???</div>
-          <div class="catalog-summary">
-            Identity redacted.
-
-            File access restricted. Coming soon.
+        <!-- Amaan Muhammad -->
+        <div class="fugitive-card">
+          <div class="fugitive-photo-container">
+            <img src="https://i.ibb.co/4g7jS2y6/image.jpg" alt="Amaan Muhammad" class="fugitive-photo">
+            <div class="reward-badge">REWARD: $100,000</div>
           </div>
-          <div class="catalog-link">Access Denied</div>
+          <div class="fugitive-info">
+            <div class="fugitive-name">Amaan Muhammad</div>
+            <div class="case-number">CASE #2026-IMW-063</div>
+            <div class="fugitive-details">
+              <strong>Nationality:</strong> British<br>
+              <strong>Age:</strong> 28-32 (Estimated)<br>
+              <strong>Known Alias:</strong> "cleaning"<br>
+              <strong>Last Known Location:</strong> Manchester, England
+            </div>
+            <div class="charges-summary">
+              <strong>Charged With:</strong> Multiple Counts Sexual Assault; Child Exploitation; Production and Distribution of CSAM; Failure to Register as Sex Offender
+            </div>
+            <button class="view-profile-btn" onclick="showProfile('amaan-muhammad')">View Full Profile</button>
+          </div>
         </div>
-      </div>
 
-    </div>
-  </div>
+        <!-- Coming Soon -->
+        <div class="fugitive-card" style="opacity: 0.6;">
+          <div class="fugitive-photo-container">
+            <img src="https://i.ibb.co/7XqQ8Zf/black-placeholder.jpg" alt="Classified" class="fugitive-photo" style="filter: blur(8px) brightness(0.3);">
+          </div>
+          <div class="fugitive-info">
+            <div class="fugitive-name">CLASSIFIED</div>
+            <div class="case-number">CASE #[REDACTED]</div>
+            <div class="fugitive-details">
+              <strong>Status:</strong> Information Sealed by Court Order
+            </div>
+            <div class="charges-summary">
+              <strong>Details:</strong> Case information restricted. Additional fugitive profiles forthcoming.
+            </div>
+            <button class="view-profile-btn" style="background: #6c757d; cursor: not-allowed;" disabled>Access Restricted</button>
+          </div>
+        </div>
 
-  <!-- Lucas Tiger Profile -->
-  <div id="lucas-tiger" class="tab-content">
-    <div class="alert">
-      <strong>DO NOT APPROACH – LETHAL THREAT</strong>
-      Immediate reporting required if sighted.
-    </div>
-    <div class="profile">
-      <div class="photo-section">
-        <img src="https://i.ibb.co/tTcrzpP4/image.png" alt="Lucas Tiger" class="photo">
-      </div>
-      <div class="profile-info">
-        <div class="name">LUCAS TIGER</div>
-        <div class="details">
-          <strong>Nationality:</strong> Israeli
-
-          <strong>Age:</strong> 35–40 (estimated)
-        </div>
-        <div class="status">Active Fugitive – High Risk</div>
-        <div class="offenses">
-          <h3>Known Offenses</h3>
-          <div class="offense">Multiple counts of war crimes and crimes against humanity</div>
-          <div class="offense">Deliberate targeting of civilians including women and children</div>
-          <div class="offense">Over 750 confirmed unlawful civilian deaths</div>
-          <div class="offense">Disregard for international humanitarian law in conflict zones</div>
-          <div class="offense">Suspected imminent operation targeting high-profile figure</div>
-        </div>
-        <div class="website-notice">
-          <h4>Associated Asset</h4>
-          <p>Operates <a href="https://mossad.club" target="_blank" class="url">https://mossad.club</a> – disinformation platform. Treat all content as propaganda.</p>
-        </div>
-        <div class="danger">EXTREME DANGER – ARMED AND DANGEROUS</div>
       </div>
     </div>
-    <div style="text-align:center">
-      <div class="back-to-catalog" onclick="switchToTab('catalogue')">← Return to Catalogue</div>
-    </div>
-  </div>
 
-  <!-- Amaan Muhammad Profile -->
-  <div id="amaan-muhammad" class="tab-content">
-    <div class="alert">
-      <strong>DO NOT APPROACH – SEXUAL PREDATOR</strong>
-      Immediate reporting required if sighted or contacted.
-    </div>
-    <div class="profile">
-      <div class="photo-section">
-        <img src="https://i.ibb.co/4g7jS2y6/image.jpg" alt="Amaan Muhammad" class="photo">
+    <!-- Lucas Tiger Profile -->
+    <div id="lucas-tiger" class="tab-content">
+      <div class="profile-container">
+        <div class="profile-header">
+          <h2>Wanted by the FBI</h2>
+          <p>Unlawful Flight to Avoid Prosecution - War Crimes, Crimes Against Humanity</p>
+        </div>
+        <div class="profile-content">
+          <div class="profile-photo-section">
+            <img src="https://i.ibb.co/tTcrzpP4/image.png" alt="Lucas Tiger" class="profile-photo">
+            
+            <div class="reward-amount">
+              <strong>REWARD</strong>
+              <div class="amount">$250,000</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Physical Description</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Sex:</span>
+                <span class="side-info-value">Male</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Height:</span>
+                <span class="side-info-value">Unknown</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Weight:</span>
+                <span class="side-info-value">Unknown</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Build:</span>
+                <span class="side-info-value">Unknown</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Hair:</span>
+                <span class="side-info-value">Unknown</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Eyes:</span>
+                <span class="side-info-value">Unknown</span>
+              </div>
+            </div>
+
+            <div class="caution-badge">
+              <strong>⚠ ARMED & DANGEROUS</strong>
+              <p>DO NOT APPROACH</p>
+            </div>
+
+            <div class="wanted-since">
+              <div class="label">Wanted Since</div>
+              <div class="date">October 2023</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Associated Locations</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Region:</span>
+                <span class="side-info-value">Middle East</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Known Activity:</span>
+                <span class="side-info-value">Conflict Zones</span>
+              </div>
+            </div>
+
+            <div class="map-section">
+              <h4>Last Known Location</h4>
+              <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172742.0063032653!2d19.040235873636203!3d47.49801025837147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741c334d1d4cfc9%3A0x400c4290c1e1160!2sBudapest%2C%20Hungary!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+              <div class="map-label">
+                <strong>Budapest, Hungary</strong>
+                Last confirmed sighting
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="profile-name">Lucas Tiger</div>
+            <div class="profile-case-number">FBI CASE #2026-IMW-047</div>
+
+            <div class="info-section">
+              <h3>Subject Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Nationality:</span>
+                  <span class="info-value">Israeli</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Age:</span>
+                  <span class="info-value">35-40 (Estimated)</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Sex:</span>
+                  <span class="info-value">Male</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Hair:</span>
+                  <span class="info-value">Unknown</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Eyes:</span>
+                  <span class="info-value">Unknown</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Scars/Marks:</span>
+                  <span class="info-value">Unknown</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h3>Charges</h3>
+              <ul class="charges-list">
+                <li class="charge-item">War Crimes - Deliberate targeting of protected civilians</li>
+                <li class="charge-item">Crimes Against Humanity - Systematic attacks against civilian populations</li>
+                <li class="charge-item">Murder (750+ counts) - Unlawful killing of civilians including women and children</li>
+                <li class="charge-item">Violations of International Humanitarian Law in armed conflict zones</li>
+                <li class="charge-item">Conspiracy to commit crimes against protected persons</li>
+              </ul>
+            </div>
+
+            <div class="warning-box">
+              <h4>Associated Online Activity</h4>
+              <p>Subject is believed to operate the website "mossad.club" which may be used for dissemination of disinformation and propaganda materials. Exercise caution when encountering content from this source.</p>
+            </div>
+
+            <div class="caution-box">
+              <strong>⚠ CAUTION - CONSIDERED ARMED AND EXTREMELY DANGEROUS</strong>
+              <p>If you have any information concerning this individual, please contact your local FBI office or the nearest U.S. Embassy or Consulate. Do not attempt to apprehend this person yourself.</p>
+            </div>
+
+            <div class="interpol-notice">
+              <div class="interpol-header">
+                <div class="interpol-logo-text">INTERPOL</div>
+                <div class="interpol-title">
+                  <h4>Red Notice Issued</h4>
+                  <p>International Criminal Police Organization</p>
+                </div>
+              </div>
+              <div class="interpol-content">
+                <div class="interpol-field">
+                  <div class="interpol-field-label">Notice Number</div>
+                  <div class="interpol-field-value">A-2047/10-2023</div>
+                </div>
+                <div class="interpol-field">
+                  <div class="interpol-field-label">Issue Date</div>
+                  <div class="interpol-field-value">October 12, 2023</div>
+                </div>
+                <div class="interpol-field">
+                  <div class="interpol-field-label">Status</div>
+                  <div class="interpol-field-value">ACTIVE</div>
+                </div>
+                <div class="interpol-field">
+                  <div class="interpol-field-label">Member Countries</div>
+                  <div class="interpol-field-value">195 Notified</div>
+                </div>
+              </div>
+              <div class="interpol-footer">
+                <p>This individual is subject to <strong>extradition proceedings</strong> in member countries. Immediate arrest and detention authorized upon identification.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="profile-info">
-        <div class="name">AMAAN MUHAMMAD</div>
-        <div class="details">
-          <strong>Nationality:</strong> British
+      <button class="back-button" onclick="showTab('most-wanted')">← Return to Most Wanted List</button>
+    </div>
 
-          <strong>Age:</strong> 28–32 (estimated)
+    <!-- Amaan Muhammad Profile -->
+    <div id="amaan-muhammad" class="tab-content">
+      <div class="profile-container">
+        <div class="profile-header">
+          <h2>Wanted by the FBI</h2>
+          <p>Sexual Exploitation of Children, Production of CSAM, Failure to Register</p>
+        </div>
+        <div class="profile-content">
+          <div class="profile-photo-section">
+            <img src="https://i.ibb.co/4g7jS2y6/image.jpg" alt="Amaan Muhammad" class="profile-photo">
+            
+            <div class="reward-amount">
+              <strong>REWARD</strong>
+              <div class="amount">$100,000</div>
+            </div>
 
-          <strong>Known Alias:</strong> cleaning
+            <div class="side-info-box">
+              <h4>Physical Description</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Sex:</span>
+                <span class="side-info-value">Male</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Height:</span>
+                <span class="side-info-value">Unknown</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Weight:</span>
+                <span class="side-info-value">Unknown</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Build:</span>
+                <span class="side-info-value">Unknown</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Hair:</span>
+                <span class="side-info-value">Dark</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Eyes:</span>
+                <span class="side-info-value">Brown</span>
+              </div>
+            </div>
 
-          <strong>Last Known Location:</strong> Manchester area
+            <div class="caution-badge">
+              <strong>⚠ SEX OFFENDER</strong>
+              <p>TARGETS MINORS</p>
+            </div>
+
+            <div class="wanted-since">
+              <div class="label">Wanted Since</div>
+              <div class="date">January 2024</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Known Online Activity</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Alias:</span>
+                <span class="side-info-value">"cleaning"</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Platform:</span>
+                <span class="side-info-value">bouncy.ai</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Languages:</span>
+                <span class="side-info-value">English</span>
+              </div>
+            </div>
+
+            <div class="map-section">
+              <h4>Last Known Location</h4>
+              <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d76039.82503518378!2d-2.2743975773925785!3d53.48095799999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a4d4c5226f5db%3A0xd9be143804fe6baa!2sManchester%2C%20UK!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+              <div class="map-label">
+                <strong>Manchester, England, UK</strong>
+                Last confirmed sighting
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="profile-name">Amaan Muhammad</div>
+            <div class="profile-case-number">FBI CASE #2026-IMW-063</div>
+
+            <div class="info-section">
+              <h3>Subject Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Nationality:</span>
+                  <span class="info-value">British</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Age:</span>
+                  <span class="info-value">28-32 (Estimated)</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Sex:</span>
+                  <span class="info-value">Male</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Known Aliases:</span>
+                  <span class="info-value">"cleaning"</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Last Known Location:</span>
+                  <span class="info-value">Manchester, England</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Languages:</span>
+                  <span class="info-value">English</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h3>Charges</h3>
+              <ul class="charges-list">
+                <li class="charge-item">Sexual Assault - Multiple counts involving adult victims</li>
+                <li class="charge-item">Sexual Exploitation of Minors - Pattern of predatory behavior toward victims under 16 years of age</li>
+                <li class="charge-item">Production of Child Sexual Abuse Material (CSAM)</li>
+                <li class="charge-item">Distribution of Child Sexual Abuse Material (CSAM)</li>
+                <li class="charge-item">Online Enticement of a Minor - Using alias "cleaning" to contact and groom victims</li>
+                <li class="charge-item">Failure to Register as a Sex Offender - Violation of federal registration requirements</li>
+                <li class="charge-item">Unlawful Flight to Avoid Prosecution</li>
+              </ul>
+            </div>
+
+            <div class="warning-box">
+              <h4>Digital Threat Assessment</h4>
+              <p>Subject is known to use online platforms for victim identification and grooming. Subject operates or is associated with the website "bouncy.ai" which may be utilized for link obfuscation, victim contact, and other exploitation-related activities. Parents and guardians should be vigilant regarding online communications.</p>
+            </div>
+
+            <div class="caution-box">
+              <strong>⚠ CAUTION - KNOWN SEX OFFENDER - TARGETS VULNERABLE INDIVIDUALS</strong>
+              <p>This individual poses a significant threat to public safety, particularly to minors. If you have any information concerning this person, please contact your local FBI office immediately. Do not attempt to confront this individual.</p>
+            </div>
+
+            <div class="interpol-notice">
+              <div class="interpol-header">
+                <div class="interpol-logo-text">INTERPOL</div>
+                <div class="interpol-title">
+                  <h4>Red Notice Issued</h4>
+                  <p>International Criminal Police Organization</p>
+                </div>
+              </div>
+              <div class="interpol-content">
+                <div class="interpol-field">
+                  <div class="interpol-field-label">Notice Number</div>
+                  <div class="interpol-field-value">A-2063/1-2024</div>
+                </div>
+                <div class="interpol-field">
+                  <div class="interpol-field-label">Issue Date</div>
+                  <div class="interpol-field-value">January 18, 2024</div>
+                </div>
+                <div class="interpol-field">
+                  <div class="interpol-field-label">Status</div>
+                  <div class="interpol-field-value">ACTIVE</div>
+                </div>
+                <div class="interpol-field">
+                  <div class="interpol-field-label">Member Countries</div>
+                  <div class="interpol-field-value">195 Notified</div>
+                </div>
+              </div>
+              <div class="interpol-footer">
+                <p>This individual is subject to <strong>extradition proceedings</strong> in member countries. Immediate arrest and detention authorized upon identification.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="status">Active Fugitive – Sexual Offender Network</div>
-        <div class="offenses">
-          <h3>Known Offenses</h3>
-          <div class="offense">Multiple forcible rapes of women and minors</div>
-          <div class="offense">Online grooming using alias "cleaning"</div>
-          <div class="offense">Sexual exploitation and assault of children under 16</div>
-          <div class="offense">Possession and distribution of CSAM</div>
-          <div class="offense">Failure to register as sex offender – currently evading authorities</div>
+      </div>
+      <button class="back-button" onclick="showTab('most-wanted')">← Return to Most Wanted List</button>
+    </div>
+
+    <!-- Submit Tip Tab -->
+    <div id="submit-tip" class="tab-content">
+      <div class="alert-banner">
+        <h2>Submit Information to the FBI</h2>
+        <p>Your information could be critical in the apprehension of these fugitives.</p>
+      </div>
+
+      <div class="contact-container">
+        <h2>Report Sightings or Information</h2>
+        <p>If you have information about any individual listed on this page, please contact us using the secure email address below.</p>
+        
+        <p><strong>All tips will be investigated.</strong> Include as much detail as possible for the best results.</p>
+
+        <div class="contact-methods">
+          <div class="contact-method">
+            <h3>📧 Secure Contact</h3>
+            <div class="contact-detail">idf@mailum.com</div>
+            <p>Send detailed information including case number, photos, dates, and locations if available.</p>
+          </div>
         </div>
-        <div class="exploitation-notice">
-          <h4>Digital Threat Warning</h4>
-          <p>Operates <a href="https://bouncy.ai" target="_blank" class="url">https://bouncy.ai</a> – used for link masking, victim luring, and exploitation. Report all interactions immediately.</p>
+
+        <div class="warning-box" style="margin-top: 30px;">
+          <h4>What to Include in Your Report</h4>
+          <p>• Case number of the fugitive (if known)</p>
+          <p>• Detailed description of sighting or information</p>
+          <p>• Date, time, and specific location</p>
+          <p>• Photographs or documentation if available</p>
+          <p>• Vehicle descriptions, license plates, or identifying information</p>
+          <p>• Contact information if you wish to be contacted (optional)</p>
+          <p><br><strong>IMPORTANT:</strong> Do not confront or attempt to apprehend any fugitive yourself. These individuals are considered dangerous.</p>
         </div>
-        <div class="danger">EXTREME DANGER – TARGETS VULNERABLE INDIVIDUALS</div>
       </div>
     </div>
-    <div style="text-align:center">
-      <div class="back-to-catalog" onclick="switchToTab('catalogue')">← Return to Catalogue</div>
-    </div>
-  </div>
 
-  <div class="footer">
-    <p>Information current as of February 15, 2026 | Restricted Distribution – FBI © 2026</p>
-  </div>
-</div>  </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p><strong>Federal Bureau of Investigation</strong></p>
+      <p>U.S. Department of Justice | Washington, D.C. 20535</p>
+      <p>Information current as of February 15, 2026</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a> | 
+        <a href="#">Legal Notices</a> | 
+        <a href="#">Accessibility</a> | 
+        <a href="#">FOIA</a> | 
+        <a href="#">No FEAR Act</a> | 
+        <a href="#">USA.gov</a>
+      </div>
+      <p style="margin-top: 15px; font-size: 11px; opacity: 0.8;">
+        This is an official U.S. Government website. Use of this site constitutes acceptance of our terms and conditions.
+      </p>
+    </div>
+  </footer>
 
   <script>
-    const musicL = document.getElementById('music-lucas');
-    const musicA = document.getElementById('music-amaan');
-    musicL.volume = musicA.volume = 0.4;
+    // Music elements
+    const musicLucas = document.getElementById('music-lucas');
+    const musicAmaan = document.getElementById('music-amaan');
+    
+    if (musicLucas) musicLucas.volume = 0.4;
+    if (musicAmaan) musicAmaan.volume = 0.4;
 
-    document.getElementById('enter-btn').onclick = () => {
-      document.body.classList.add('entered');
-      document.getElementById('main-content').style.display = 'block';
-      // No music on entry anymore
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    function showTab(tabId) {
+      // Hide all tabs
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
 
-    function switchToTab(tabId) {
-      const prev = document.querySelector('.tab-content.active');
-      if (prev) prev.classList.remove('active');
+      // Remove active class from all nav buttons
+      document.querySelectorAll('.nav-tab').forEach(btn => {
+        btn.classList.remove('active');
+      });
 
-      document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-      const btn = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
-      if (btn) btn.classList.add('active');
-
-      const target = document.getElementById(tabId);
-      if (!target) return;
-
-      target.classList.add('active');
-      target.style.opacity = '0';
-      target.style.transform = 'translateY(30px)';
-
-      setTimeout(() => {
-        target.style.opacity = '1';
-        target.style.transform = 'translateY(0)';
-      }, 50);
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-
-      // Music only starts/restarts when entering a profile
-      if (tabId === 'lucas-tiger') {
-        musicA.pause();
-        musicA.currentTime = 0;
-        musicL.currentTime = 0;
-        musicL.play().catch(() => {});
-      } else if (tabId === 'amaan-muhammad') {
-        musicL.pause();
-        musicL.currentTime = 0;
-        musicA.currentTime = 0;
-        musicA.play().catch(() => {});
-      } else {
-        // Catalogue / Contact / anywhere else → stop and reset both
-        musicL.pause();
-        musicL.currentTime = 0;
-        musicA.pause();
-        musicA.currentTime = 0;
+      // Show selected tab
+      const selectedTab = document.getElementById(tabId);
+      if (selectedTab) {
+        selectedTab.classList.add('active');
       }
+
+      // Activate corresponding nav button
+      const navButton = document.querySelector(`[data-tab="${tabId}"]`);
+      if (navButton) {
+        navButton.classList.add('active');
+      }
+
+      // Handle music based on which profile is shown
+      if (tabId === 'lucas-tiger') {
+        // Stop Amaan's music
+        if (musicAmaan) {
+          musicAmaan.pause();
+          musicAmaan.currentTime = 0;
+        }
+        // Play Lucas's music
+        if (musicLucas) {
+          musicLucas.currentTime = 0;
+          musicLucas.play().catch(() => {});
+        }
+      } else if (tabId === 'amaan-muhammad') {
+        // Stop Lucas's music
+        if (musicLucas) {
+          musicLucas.pause();
+          musicLucas.currentTime = 0;
+        }
+        // Play Amaan's music
+        if (musicAmaan) {
+          musicAmaan.currentTime = 0;
+          musicAmaan.play().catch(() => {});
+        }
+      } else {
+        // Stop both when not on a profile page
+        if (musicLucas) {
+          musicLucas.pause();
+          musicLucas.currentTime = 0;
+        }
+        if (musicAmaan) {
+          musicAmaan.pause();
+          musicAmaan.currentTime = 0;
+        }
+      }
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    document.querySelectorAll('.catalog-link[data-target]').forEach(link => {
-      link.onclick = () => {
-        const target = link.getAttribute('data-target');
-        if (target) switchToTab(target);
-      };
+    function showProfile(profileId) {
+      showTab(profileId);
+    }
+
+    // Nav button click handlers
+    document.querySelectorAll('.nav-tab').forEach(button => {
+      button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        showTab(tabId);
+      });
     });
   </script>
+
 </body>
 </html>
