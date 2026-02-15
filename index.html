@@ -6,11 +6,7 @@
     <title>International Most Wanted</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Roboto', Arial, sans-serif;
             background: #f5f5f5;
@@ -19,8 +15,6 @@
             font-size: 18px;
             font-weight: 400;
         }
-
-        /* Interpol Entry Gate */
         #entry-gate {
             position: fixed;
             inset: 0;
@@ -69,43 +63,48 @@
             transform: scale(1.05);
             box-shadow: 0 8px 25px rgba(0,0,0,0.6);
         }
-
-        .entered #entry-gate {
-            display: none;
-        }
-
+        .entered #entry-gate { display: none; }
         .header {
             background: #0f0f0f;
             color: white;
-            padding: 40px 0 25px;
+            padding: 30px 0 10px;
             text-align: center;
         }
-        .logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .logo {
-            height: 100px;
-            width: auto;
-        }
-        .logo-fbi {
-            height: 100px;
-        }
+        .logos { display: flex; justify-content: center; align-items: center; margin-bottom: 15px; }
+        .logo { height: 80px; width: auto; }
         .header h1 {
             font-family: 'Roboto Condensed', sans-serif;
-            font-size: 38px;
+            font-size: 36px;
             font-weight: 700;
             letter-spacing: 3px;
-            margin: 0;
+            margin: 0 0 20px;
             text-transform: uppercase;
         }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 15px;
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background: #111;
+            border-bottom: 4px solid #d32f2f;
         }
+        .tab-button {
+            background: #222;
+            color: #ddd;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.3rem;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0 5px;
+        }
+        .tab-button:hover { background: #333; color: white; }
+        .tab-button.active { background: #d32f2f; color: white; border-bottom: 4px solid #fff; }
+        .tab-content { display: none; padding: 30px 15px; }
+        .tab-content.active { display: block; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px 15px; }
         .alert {
             background: #ffebee;
             border-left: 6px solid #d32f2f;
@@ -127,11 +126,7 @@
             overflow: hidden;
             margin-bottom: 40px;
         }
-        .photo-section {
-            background: #000;
-            padding: 60px 20px;
-            text-align: center;
-        }
+        .photo-section { background: #000; padding: 60px 20px; text-align: center; }
         .photo {
             max-width: 500px;
             max-height: 700px;
@@ -140,9 +135,7 @@
             border: 5px solid #fff;
             box-shadow: 0 10px 35px rgba(0,0,0,0.6);
         }
-        .profile-info {
-            padding: 45px 30px;
-        }
+        .profile-info { padding: 45px 30px; }
         .name {
             font-family: 'Roboto Condensed', sans-serif;
             font-size: 58px;
@@ -153,16 +146,8 @@
             text-align: center;
             text-transform: uppercase;
         }
-        .details {
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 20px;
-            color: #444;
-        }
-        .details strong {
-            color: #000;
-            font-weight: 700;
-        }
+        .details { text-align: center; margin-bottom: 25px; font-size: 20px; color: #444; }
+        .details strong { color: #000; font-weight: 700; }
         .status {
             color: #555;
             font-size: 19px;
@@ -195,13 +180,13 @@
             left: 0;
             top: -3px;
         }
-        .website-notice {
+        .website-notice, .exploitation-notice {
             background: #fff8e1;
             border-left: 5px solid #ffb300;
             padding: 22px;
             margin: 25px 0;
         }
-        .website-notice h4 {
+        .website-notice h4, .exploitation-notice h4 {
             color: #ef6c00;
             margin-bottom: 10px;
             font-size: 20px;
@@ -243,111 +228,141 @@
             font-size: 15px;
             border-top: 2px solid #ddd;
         }
-
-        #bg-music {
-            display: none;
-        }
-
+        #bg-music { display: none; }
         @media (max-width: 768px) {
             .name { font-size: 42px; letter-spacing: 3px; }
             .photo { max-width: 90%; max-height: none; }
             .photo-section { padding: 40px 15px; }
-            .logo-fbi { height: 80px; }
+            .logo { height: 70px; }
             .header h1 { font-size: 28px; }
-            .container { padding: 25px 12px; }
-            .profile-info { padding: 30px 20px; }
-            #entry-gate h1 { font-size: 2.4rem; }
-            #entry-gate p { font-size: 1.1rem; }
-            #enter-btn { padding: 16px 50px; font-size: 1.35rem; min-width: 260px; }
-            .details { font-size: 18px; }
-        }
-
-        @media (max-width: 480px) {
-            #entry-gate h1 { font-size: 2rem; }
-            #entry-gate p { font-size: 1rem; padding: 0 10px; }
-            #enter-btn { padding: 14px 40px; font-size: 1.2rem; min-width: 240px; }
+            .tab-button { padding: 14px 25px; font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hidden background music -->
     <audio id="bg-music" loop>
         <source src="https://image2url.com/r2/default/audio/1771078644500-15b79dac-91d4-47b8-aa06-6348bd433fca.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
-    <!-- Interpol Click-to-Enter Gate -->
     <div id="entry-gate">
         <h1>INTERPOL – Restricted Access</h1>
         <p>This site contains sensitive information related to international fugitives. Unauthorized access is prohibited under international law.</p>
         <button id="enter-btn">Click to Enter</button>
     </div>
 
-    <header class="header">
-        <div class="logos">
-            <img src="https://i.ibb.co/rfZYgb2f/image.png" alt="FBI" class="logo logo-fbi">
-        </div>
-        <h1>International Most Wanted</h1>
-    </header>
-
-    <div class="container">
-        <div class="alert">
-            <strong>DO NOT APPROACH</strong>
-            Contact local authorities immediately if sighted
-        </div>
-
-        <div class="profile">
-            <div class="photo-section">
-                <img src="https://i.ibb.co/tTcrzpP4/image.png" alt="Lucas Tiger" class="photo">
+    <div id="main-content" style="display: none;">
+        <header class="header">
+            <div class="logos">
+                <img src="https://i.ibb.co/rfZYgb2f/image.png" alt="FBI" class="logo">
             </div>
-            
-            <div class="profile-info">
-                <div class="name">LUCAS TIGER</div>
-                
-                <div class="details">
-                    <strong>Nationality:</strong> Israeli<br>
-                    <strong>Age:</strong> 35–40
-                </div>
+            <h1>International Most Wanted</h1>
+        </header>
 
-                <div class="status">Active Fugitive</div>
-
-                <div class="offenses">
-                    <h3>Offenses</h3>
-                    <div class="offense">Multiple counts of war crimes and crimes against humanity</div>
-                    <div class="offense">Deliberately targeting and killing innocent civilians, including women and children, during operations in and around Palestine</div>
-                    <div class="offense">Over 750 confirmed unlawful killings of Palestinian civilians during active duty in intelligence and covert operations</div>
-                    <div class="offense">Operated in high-stakes conflict zones with no regard for international humanitarian law or the lives of non-combatants</div>
-                    <div class="offense">Known to harbor intense hatred toward Benjamin Netanyahu and is believed to be actively plotting an imminent operation or action</div>
-                </div>
-
-                <div class="website-notice">
-                    <h4>Associated Website</h4>
-                    <p>This subject operates <a href="https://mossad.club" target="_blank" class="url">https://mossad.club</a> which contains false claims intended to justify criminal activity. All content on this site should be considered propaganda.</p>
-                </div>
-
-                <div class="danger">
-                    Subject is considered extremely dangerous
-                </div>
-            </div>
+        <div class="tabs">
+            <button class="tab-button active" data-tab="lucas-tiger">Lucas Tiger</button>
+            <button class="tab-button" data-tab="amaan-muhammad">Amaan Muhammad</button>
         </div>
 
-        <div class="footer">
-            <p>Information current as of February 14, 2026 | FBI © 2026</p>
+        <div class="container">
+            <div id="lucas-tiger" class="tab-content active">
+                <div class="alert">
+                    <strong>DO NOT APPROACH</strong>
+                    Contact local authorities immediately if sighted
+                </div>
+                <div class="profile">
+                    <div class="photo-section">
+                        <img src="https://i.ibb.co/tTcrzpP4/image.png" alt="Lucas Tiger" class="photo">
+                    </div>
+                    <div class="profile-info">
+                        <div class="name">LUCAS TIGER</div>
+                        <div class="details">
+                            <strong>Nationality:</strong> Israeli<br>
+                            <strong>Age:</strong> 35–40
+                        </div>
+                        <div class="status">Active Fugitive</div>
+                        <div class="offenses">
+                            <h3>Offenses</h3>
+                            <div class="offense">Multiple counts of war crimes and crimes against humanity</div>
+                            <div class="offense">Deliberately targeting and killing innocent civilians, including women and children, during operations in and around Palestine</div>
+                            <div class="offense">Over 750 confirmed unlawful killings of Palestinian civilians during active duty in intelligence and covert operations</div>
+                            <div class="offense">Operated in high-stakes conflict zones with no regard for international humanitarian law or the lives of non-combatants</div>
+                            <div class="offense">Known to harbor intense hatred toward Benjamin Netanyahu and is believed to be actively plotting an imminent operation or action</div>
+                        </div>
+
+                        <!-- Yellow notice box for Lucas Tiger -->
+                        <div class="website-notice">
+                            <h4>Associated Website</h4>
+                            <p>This subject operates <a href="https://mossad.club" target="_blank" class="url">https://mossad.club</a> which contains false claims intended to justify criminal activity. All content on this site should be considered propaganda.</p>
+                        </div>
+
+                        <div class="danger">Subject is considered extremely dangerous</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="amaan-muhammad" class="tab-content">
+                <div class="alert">
+                    <strong>DO NOT APPROACH</strong>
+                    Contact local authorities immediately if sighted
+                </div>
+                <div class="profile">
+                    <div class="photo-section">
+                        <img src="https://i.ibb.co/4g7jS2y6/image.jpg" alt="Amaan Muhammad" class="photo">
+                    </div>
+                    <div class="profile-info">
+                        <div class="name">AMAAN MUHAMMAD</div>
+                        <div class="details">
+                            <strong>Nationality:</strong> British<br>
+                            <strong>Age:</strong> 28–32<br>
+                            <strong>Background:</strong> Grew up in Burnley, Muslim<br>
+                            <strong>Online Alias:</strong> cleaning<br>
+                            <strong>Known Location:</strong> Deansgate East Tower apartment, Manchester<br>
+                            <strong>Associated Site:</strong> Owns bouncy.ai (used to mask links and lure victims online)
+                        </div>
+                        <div class="status">Active Fugitive – Serial Sexual Predator & Exploiter</div>
+                        <div class="offenses">
+                            <h3>Offenses</h3>
+                            <div class="offense">Convicted rapist – multiple counts of forcible rape against women and teenage girls</div>
+                            <div class="offense">Uses online alias "cleaning" on social media and apps to groom and lure young girls/women to his Deansgate East Tower apartment in Manchester for rape and sexual assault</div>
+                            <div class="offense">Sexual assault and grooming of minors under the age of 16, including repeated predatory behavior targeting vulnerable children</div>
+                            <div class="offense">Possession and distribution of child sexual abuse material (CSAM), including images and videos of pedophilic content</div>
+                            <div class="offense">Indecent assault on children in community settings, exploiting trust within local religious and social circles</div>
+                            <div class="offense">Failure to comply with sex offender registration requirements after prior convictions, going underground to evade justice while operating bouncy.ai to facilitate anonymous online luring</div>
+                        </div>
+
+                        <div class="exploitation-notice">
+                            <h4>Exploitation Warning</h4>
+                            <p>This subject operates <a href="https://bouncy.ai" target="_blank" class="url">https://bouncy.ai</a> — a platform he uses not only to mask predatory links but also to exploit and force lured young girls into working for him for less than minimum wage under coercive and abusive conditions. All activity associated with this site should be treated with extreme caution and reported immediately.</p>
+                        </div>
+
+                        <div class="danger">Subject is considered extremely dangerous – known to target, exploit, and abuse vulnerable young people online and in person</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>Information current as of February 15, 2026 | FBI © 2026</p>
+            </div>
         </div>
     </div>
 
-    <!-- JavaScript: hide gate + start music on button click -->
     <script>
         document.getElementById('enter-btn').addEventListener('click', function() {
-            // Hide entry screen
             document.body.classList.add('entered');
-
-            // Start music (browsers allow this after user click)
+            document.getElementById('main-content').style.display = 'block';
             const audio = document.getElementById('bg-music');
-            audio.play().catch(function(error) {
-                console.log("Audio playback failed:", error);
-                // If it fails (e.g. file gone or blocked), it just stays silent – no crash
+            audio.play().catch(function(error) { console.log("Audio playback failed:", error); });
+        });
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                button.classList.add('active');
+                document.getElementById(button.dataset.tab).classList.add('active');
             });
         });
     </script>
