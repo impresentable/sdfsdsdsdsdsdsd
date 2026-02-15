@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FBI Most Wanted - Fugitives</title>
+  <title>The Coms Most Wanted - Fugitives</title>
   <style>
     * {
       margin: 0;
@@ -82,6 +82,42 @@
 
     .tip-line span {
       font-size: 13px;
+    }
+
+    .live-clock {
+      background: #000000;
+      border: 1px solid #333;
+      padding: 8px 12px;
+      border-radius: 2px;
+      text-align: left;
+      min-width: 180px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .live-clock .clock-label {
+      font-size: 9px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 3px;
+      font-weight: 400;
+    }
+
+    .live-clock .clock-time {
+      font-size: 20px;
+      font-weight: 400;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 1px;
+      text-shadow: 0 0 2px rgba(0, 255, 0, 0.3);
+    }
+
+    .live-clock .clock-date {
+      font-size: 10px;
+      color: #888;
+      margin-top: 2px;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.5px;
     }
 
     /* Navigation Tabs */
@@ -205,6 +241,31 @@
       font-size: 14px;
       border-radius: 3px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .updated-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #ff6b00;
+      color: #ffffff;
+      padding: 6px 12px;
+      font-weight: 700;
+      font-size: 12px;
+      border-radius: 3px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      }
+      50% {
+        box-shadow: 0 2px 4px rgba(255,107,0,0.6), 0 0 15px rgba(255,107,0,0.4);
+      }
     }
 
     .fugitive-info {
@@ -884,6 +945,8 @@
       .profile-photo-section {
         border-right: none;
         border-bottom: 2px solid #d0d0d0;
+        background: #1a1a1a !important;
+        padding: 40px 20px !important;
       }
 
       .info-grid {
@@ -900,14 +963,20 @@
         font-size: 15px;
       }
 
+      .header {
+        padding: 25px 0 15px;
+      }
+
       .header-container {
         flex-direction: column;
         text-align: center;
         gap: 15px;
+        padding: 0 15px;
       }
 
       .header-left {
         flex-direction: column;
+        gap: 12px;
       }
 
       .fbi-seal {
@@ -936,57 +1005,117 @@
         font-size: 12px;
       }
 
+      .live-clock {
+        width: 100%;
+        order: -1;
+        text-align: center;
+      }
+
+      .live-clock .clock-time {
+        font-size: 18px;
+      }
+
+      .live-clock .clock-date {
+        font-size: 9px;
+      }
+
       .nav-container {
         flex-direction: column;
       }
 
       .nav-tab {
         border-bottom: 1px solid #d0d0d0;
-        padding: 12px 15px;
+        padding: 15px 20px;
         font-size: 14px;
+      }
+
+      .main-container {
+        padding: 0 15px;
+        margin: 25px auto;
       }
 
       .fugitive-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 25px;
+        margin-top: 25px;
+      }
+
+      .fugitive-card {
+        margin-bottom: 10px;
+      }
+
+      .fugitive-photo-container {
+        height: 350px;
+      }
+
+      .fugitive-info {
+        padding: 20px 18px;
       }
 
       .fugitive-name {
         font-size: 22px;
+        margin-bottom: 12px;
+      }
+
+      .case-number {
+        font-size: 12px;
+        margin-bottom: 12px;
       }
 
       .fugitive-details {
-        font-size: 13px;
+        font-size: 14px;
+        margin-bottom: 14px;
+        line-height: 1.9;
       }
 
       .charges-summary {
         font-size: 13px;
+        padding: 14px;
+        margin-bottom: 16px;
       }
 
       .view-profile-btn {
         font-size: 14px;
-        padding: 10px;
+        padding: 13px;
+      }
+
+      .profile-container {
+        margin-bottom: 25px;
       }
 
       .profile-name {
         font-size: 28px;
         letter-spacing: 2px;
+        margin-bottom: 12px;
+        padding-bottom: 12px;
       }
 
       .profile-case-number {
         font-size: 13px;
+        margin-bottom: 18px;
       }
 
       .profile-header h2 {
         font-size: 16px;
+        margin-bottom: 6px;
       }
 
       .profile-header p {
         font-size: 13px;
       }
 
+      .profile-photo-section {
+        padding: 35px 20px !important;
+        background: #1a1a1a !important;
+      }
+
+      .profile-photo {
+        max-width: 100%;
+        margin-bottom: 0;
+      }
+
       .reward-amount {
-        padding: 12px 20px;
+        padding: 14px 22px;
       }
 
       .reward-amount strong {
@@ -998,21 +1127,22 @@
       }
 
       .side-info-box {
-        padding: 12px;
+        padding: 15px;
       }
 
       .side-info-box h4 {
         font-size: 13px;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
       }
 
       .side-info-item {
-        font-size: 12px;
-        padding: 5px 0;
+        font-size: 13px;
+        padding: 7px 0;
       }
 
       .caution-badge {
-        padding: 10px;
+        padding: 12px;
       }
 
       .caution-badge strong {
@@ -1024,7 +1154,7 @@
       }
 
       .wanted-since {
-        padding: 8px 12px;
+        padding: 10px 14px;
       }
 
       .wanted-since .label {
@@ -1032,38 +1162,49 @@
       }
 
       .wanted-since .date {
-        font-size: 14px;
+        font-size: 15px;
       }
 
       .map-section {
-        padding: 12px;
+        padding: 15px;
       }
 
       .map-section h4 {
         font-size: 13px;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
       }
 
       .map-container {
-        height: 180px;
+        height: 200px;
       }
 
       .map-label {
-        font-size: 11px;
-        margin-top: 6px;
+        font-size: 12px;
+        margin-top: 8px;
       }
 
       .map-label strong {
-        font-size: 12px;
+        font-size: 13px;
+        margin-bottom: 4px;
       }
 
       .profile-details {
-        padding: 20px 15px;
+        padding: 25px 18px;
+      }
+
+      .info-section {
+        margin-bottom: 22px;
       }
 
       .info-section h3 {
-        font-size: 16px;
-        margin-bottom: 10px;
+        font-size: 17px;
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+      }
+
+      .info-grid {
+        gap: 14px;
       }
 
       .info-item {
@@ -1071,17 +1212,23 @@
       }
 
       .info-label {
-        min-width: 100px;
-        font-size: 12px;
+        min-width: 110px;
+        font-size: 13px;
       }
 
       .info-value {
         font-size: 13px;
       }
 
+      .charges-list {
+        padding: 0;
+      }
+
       .charge-item {
         font-size: 13px;
-        padding: 8px 0 8px 18px;
+        padding: 10px 0 10px 22px;
+        margin-bottom: 4px;
+        line-height: 1.7;
       }
 
       .charge-item:before {
@@ -1089,48 +1236,50 @@
       }
 
       .warning-box {
-        padding: 15px;
-        margin: 20px 0;
+        padding: 18px;
+        margin: 22px 0;
       }
 
       .warning-box h4 {
-        font-size: 14px;
-        margin-bottom: 8px;
+        font-size: 15px;
+        margin-bottom: 10px;
       }
 
       .warning-box p {
-        font-size: 13px;
+        font-size: 14px;
+        line-height: 1.7;
       }
 
       .caution-box {
-        padding: 15px;
-        margin-top: 15px;
+        padding: 18px;
+        margin-top: 20px;
       }
 
       .caution-box strong {
-        font-size: 15px;
-        margin-bottom: 6px;
+        font-size: 16px;
+        margin-bottom: 8px;
       }
 
       .caution-box p {
         font-size: 13px;
+        line-height: 1.6;
       }
 
       .interpol-notice {
-        padding: 15px;
-        margin: 20px 0;
+        padding: 18px;
+        margin: 22px 0;
       }
 
       .interpol-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
-        margin-bottom: 15px;
-        padding-bottom: 12px;
+        gap: 12px;
+        margin-bottom: 18px;
+        padding-bottom: 14px;
       }
 
       .interpol-logo-text {
-        padding: 8px 16px;
+        padding: 9px 18px;
         font-size: 16px;
       }
 
@@ -1143,105 +1292,115 @@
       }
 
       .interpol-content {
-        gap: 10px;
-        margin-bottom: 10px;
+        gap: 12px;
+        margin-bottom: 12px;
       }
 
       .interpol-field {
-        padding: 10px;
+        padding: 12px;
       }
 
       .interpol-field-label {
         font-size: 10px;
-        margin-bottom: 4px;
+        margin-bottom: 5px;
       }
 
       .interpol-field-value {
-        font-size: 13px;
+        font-size: 14px;
       }
 
       .interpol-footer {
-        padding: 10px;
-        margin-top: 10px;
+        padding: 12px;
+        margin-top: 12px;
       }
 
       .interpol-footer p {
         font-size: 12px;
+        line-height: 1.6;
       }
 
       .back-button {
-        padding: 10px 25px;
-        font-size: 14px;
-        margin-top: 15px;
+        padding: 12px 28px;
+        font-size: 15px;
+        margin-top: 20px;
       }
 
       .contact-container {
-        padding: 25px 20px;
+        padding: 30px 20px;
+        margin: 25px auto;
       }
 
       .contact-container h2 {
-        font-size: 24px;
-        margin-bottom: 15px;
-        padding-bottom: 10px;
+        font-size: 26px;
+        margin-bottom: 18px;
+        padding-bottom: 12px;
       }
 
       .contact-container p {
-        font-size: 14px;
-        margin-bottom: 12px;
+        font-size: 15px;
+        margin-bottom: 14px;
+        line-height: 1.7;
+      }
+
+      .contact-methods {
+        margin: 25px 0;
       }
 
       .contact-method {
-        padding: 15px;
-        margin-bottom: 15px;
+        padding: 18px;
+        margin-bottom: 18px;
       }
 
       .contact-method h3 {
-        font-size: 16px;
-        margin-bottom: 8px;
+        font-size: 17px;
+        margin-bottom: 10px;
       }
 
       .contact-method .contact-detail {
-        font-size: 18px;
-        margin-bottom: 6px;
+        font-size: 19px;
+        margin-bottom: 8px;
       }
 
       .contact-method p {
-        font-size: 13px;
+        font-size: 14px;
+        line-height: 1.6;
       }
 
       .alert-banner {
-        padding: 15px;
-        margin-bottom: 25px;
+        padding: 18px;
+        margin-bottom: 28px;
       }
 
       .alert-banner h2 {
-        font-size: 18px;
-        margin-bottom: 8px;
+        font-size: 19px;
+        margin-bottom: 10px;
       }
 
       .alert-banner p {
         font-size: 14px;
-        margin-bottom: 4px;
+        margin-bottom: 6px;
+        line-height: 1.6;
       }
 
       .footer {
-        padding: 30px 15px;
+        padding: 35px 18px;
+        margin-top: 40px;
       }
 
       .footer p {
         font-size: 12px;
-        margin-bottom: 6px;
+        margin-bottom: 8px;
       }
 
       .footer-links {
         font-size: 11px;
-        margin-top: 12px;
+        margin-top: 14px;
       }
 
       .footer-links a {
         margin: 0 8px;
         display: inline-block;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
       }
     }
 
@@ -1251,7 +1410,7 @@
       }
 
       .header-title h1 {
-        font-size: 20px;
+        font-size: 21px;
         letter-spacing: 1px;
       }
 
@@ -1264,17 +1423,30 @@
         height: 60px;
       }
 
+      .tip-line strong {
+        font-size: 15px;
+      }
+
+      .nav-tab {
+        padding: 13px 15px;
+        font-size: 13px;
+      }
+
       .fugitive-name {
         font-size: 20px;
         letter-spacing: 1px;
       }
 
       .case-number {
-        font-size: 12px;
+        font-size: 11px;
+      }
+
+      .fugitive-details {
+        font-size: 13px;
       }
 
       .reward-badge {
-        font-size: 13px;
+        font-size: 12px;
         padding: 6px 12px;
         top: 10px;
         right: 10px;
@@ -1286,24 +1458,42 @@
       }
 
       .reward-amount .amount {
-        font-size: 20px;
-      }
-
-      .interpol-logo-text {
-        font-size: 14px;
-        padding: 6px 12px;
-      }
-
-      .interpol-title h4 {
-        font-size: 16px;
-      }
-
-      .contact-container h2 {
         font-size: 22px;
       }
 
+      .reward-badge {
+        font-size: 11px;
+        padding: 5px 10px;
+        top: 10px;
+        right: 10px;
+      }
+
+      .updated-badge {
+        font-size: 10px;
+        padding: 4px 8px;
+        top: 10px;
+        left: 10px;
+      }
+
+      .profile-details {
+        padding: 20px 15px;
+      }
+
+      .interpol-logo-text {
+        font-size: 15px;
+        padding: 8px 14px;
+      }
+
+      .interpol-title h4 {
+        font-size: 17px;
+      }
+
+      .contact-container h2 {
+        font-size: 23px;
+      }
+
       .contact-method .contact-detail {
-        font-size: 16px;
+        font-size: 17px;
         word-break: break-all;
       }
     }
@@ -1328,7 +1518,7 @@
           <img src="https://i.ibb.co/rfZYgb2f/image.png" alt="FBI Seal">
         </div>
         <div class="header-title">
-          <h1>Federal Bureau of Investigation</h1>
+          <h1>The Coms Most Wanted</h1>
           <p>U.S. Department of Justice</p>
         </div>
       </div>
@@ -1353,45 +1543,22 @@
     <!-- Most Wanted Tab -->
     <div id="most-wanted" class="tab-content active">
       <div class="alert-banner">
-        <h2>FBI TEN MOST WANTED FUGITIVES</h2>
-        <p><strong>NOTICE:</strong> The following individuals are wanted by the FBI for serious federal crimes.</p>
+        <h2>THE COMS TEN MOST WANTED FUGITIVES</h2>
+        <p><strong>NOTICE:</strong> The following individuals are wanted by The Coms for serious federal crimes.</p>
         <p>These fugitives are considered dangerous and should not be approached by members of the public.</p>
-        <p>If you have information regarding any of these individuals, please contact your local FBI field office or call 1-800-CALL-FBI (1-800-225-5324).</p>
+        <p>If you have information regarding any of these individuals, please contact your local field office or call 1-800-CALL-FBI (1-800-225-5324).</p>
       </div>
 
       <div class="fugitive-grid">
 
-        <!-- Lucas Tiger -->
-        <div class="fugitive-card">
-          <div class="fugitive-photo-container">
-            <img src="https://i.ibb.co/tTcrzpP4/image.png" alt="Lucas Tiger" class="fugitive-photo">
-            <div class="reward-badge">REWARD: $250,000</div>
-          </div>
-          <div class="fugitive-info">
-            <div class="fugitive-name">Lucas Tiger</div>
-            <div class="case-number">CASE #2026-IMW-047</div>
-            <div class="fugitive-details">
-              <strong>Nationality:</strong> Israeli<br>
-              <strong>Age:</strong> 35-40 (Estimated)<br>
-              <strong>Last Known Location:</strong> Unknown<br>
-              <strong>Status:</strong> Unlawful Flight to Avoid Prosecution
-            </div>
-            <div class="charges-summary">
-              <strong>Charged With:</strong> War Crimes; Crimes Against Humanity; Violations of International Humanitarian Law; Multiple Counts of Murder
-            </div>
-            <button class="view-profile-btn" onclick="showProfile('lucas-tiger')">View Full Profile</button>
-          </div>
-        </div>
-
-        <!-- Amaan Muhammad -->
-        <div class="fugitive-card">
+        <!-- Amaan Muhammad - TOP PRIORITY -->
+        <div class="fugitive-card" style="order: -1;">
           <div class="fugitive-photo-container">
             <img src="https://i.ibb.co/4g7jS2y6/image.jpg" alt="Amaan Muhammad" class="fugitive-photo">
-            <div class="reward-badge">REWARD: $100,000</div>
           </div>
           <div class="fugitive-info">
             <div class="fugitive-name">Amaan Muhammad</div>
-            <div class="case-number">CASE #2026-IMW-063</div>
+            <div class="case-number">CASE #2026-IMW-063 • TOP PRIORITY</div>
             <div class="fugitive-details">
               <strong>Nationality:</strong> British<br>
               <strong>Age:</strong> 28-32 (Estimated)<br>
@@ -1402,6 +1569,69 @@
               <strong>Charged With:</strong> Multiple Counts Sexual Assault; Child Exploitation; Production and Distribution of CSAM; Failure to Register as Sex Offender
             </div>
             <button class="view-profile-btn" onclick="showProfile('amaan-muhammad')">View Full Profile</button>
+          </div>
+        </div>
+
+        <!-- Marcus Chen -->
+        <div class="fugitive-card">
+          <div class="fugitive-photo-container">
+            <img src="https://i.ibb.co/SXDnJ8Jb/image.jpg" alt="Marcus Chen" class="fugitive-photo">
+          </div>
+          <div class="fugitive-info">
+            <div class="fugitive-name">Marcus Chen</div>
+            <div class="case-number">CASE #2025-IMW-091</div>
+            <div class="fugitive-details">
+              <strong>Nationality:</strong> American<br>
+              <strong>Age:</strong> 42-46 (Estimated)<br>
+              <strong>Last Known Location:</strong> Seattle, WA<br>
+              <strong>Status:</strong> Unlawful Flight to Avoid Prosecution
+            </div>
+            <div class="charges-summary">
+              <strong>Charged With:</strong> Wire Fraud; Money Laundering; Securities Fraud; Conspiracy to Defraud Investors ($127 Million)
+            </div>
+            <button class="view-profile-btn" onclick="showProfile('marcus-chen')">View Full Profile</button>
+          </div>
+        </div>
+
+        <!-- Sarah Martinez -->
+        <div class="fugitive-card">
+          <div class="fugitive-photo-container">
+            <img src="https://i.ibb.co/FkWGQ3kf/image.jpg" alt="Sarah Martinez" class="fugitive-photo">
+          </div>
+          <div class="fugitive-info">
+            <div class="fugitive-name">Sarah Martinez</div>
+            <div class="case-number">CASE #2025-IMW-118</div>
+            <div class="fugitive-details">
+              <strong>Nationality:</strong> American<br>
+              <strong>Age:</strong> 34-38 (Estimated)<br>
+              <strong>Known Alias:</strong> "Dr. Sarah M."<br>
+              <strong>Last Known Location:</strong> Phoenix, AZ
+            </div>
+            <div class="charges-summary">
+              <strong>Charged With:</strong> Healthcare Fraud; Distribution of Controlled Substances; Falsifying Medical Records; Racketeering ($43 Million Scheme)
+            </div>
+            <button class="view-profile-btn" onclick="showProfile('sarah-martinez')">View Full Profile</button>
+          </div>
+        </div>
+
+        <!-- Devon Wright -->
+        <div class="fugitive-card">
+          <div class="fugitive-photo-container">
+            <img src="https://i.ibb.co/XfQNbFbW/image.jpg" alt="Devon Wright" class="fugitive-photo">
+          </div>
+          <div class="fugitive-info">
+            <div class="fugitive-name">Devon Wright</div>
+            <div class="case-number">CASE #2024-IMW-204</div>
+            <div class="fugitive-details">
+              <strong>Nationality:</strong> American<br>
+              <strong>Age:</strong> 38-42 (Estimated)<br>
+              <strong>Last Known Location:</strong> Miami, FL<br>
+              <strong>Status:</strong> Armed Robbery - Interstate Flight
+            </div>
+            <div class="charges-summary">
+              <strong>Charged With:</strong> Armed Bank Robbery (3 Counts); Assault with Deadly Weapon; Kidnapping; Unlawful Flight to Avoid Prosecution
+            </div>
+            <button class="view-profile-btn" onclick="showProfile('devon-wright')">View Full Profile</button>
           </div>
         </div>
 
@@ -1426,179 +1656,11 @@
       </div>
     </div>
 
-    <!-- Lucas Tiger Profile -->
-    <div id="lucas-tiger" class="tab-content">
-      <div class="profile-container">
-        <div class="profile-header">
-          <h2>Wanted by the FBI</h2>
-          <p>Unlawful Flight to Avoid Prosecution - War Crimes, Crimes Against Humanity</p>
-        </div>
-        <div class="profile-content">
-          <div class="profile-photo-section">
-            <img src="https://i.ibb.co/tTcrzpP4/image.png" alt="Lucas Tiger" class="profile-photo">
-            
-            <div class="reward-amount">
-              <strong>REWARD</strong>
-              <div class="amount">$250,000</div>
-            </div>
-
-            <div class="side-info-box">
-              <h4>Physical Description</h4>
-              <div class="side-info-item">
-                <span class="side-info-label">Sex:</span>
-                <span class="side-info-value">Male</span>
-              </div>
-              <div class="side-info-item">
-                <span class="side-info-label">Height:</span>
-                <span class="side-info-value">Unknown</span>
-              </div>
-              <div class="side-info-item">
-                <span class="side-info-label">Weight:</span>
-                <span class="side-info-value">Unknown</span>
-              </div>
-              <div class="side-info-item">
-                <span class="side-info-label">Build:</span>
-                <span class="side-info-value">Unknown</span>
-              </div>
-              <div class="side-info-item">
-                <span class="side-info-label">Hair:</span>
-                <span class="side-info-value">Unknown</span>
-              </div>
-              <div class="side-info-item">
-                <span class="side-info-label">Eyes:</span>
-                <span class="side-info-value">Unknown</span>
-              </div>
-            </div>
-
-            <div class="caution-badge">
-              <strong>⚠ ARMED & DANGEROUS</strong>
-              <p>DO NOT APPROACH</p>
-            </div>
-
-            <div class="wanted-since">
-              <div class="label">Wanted Since</div>
-              <div class="date">October 2023</div>
-            </div>
-
-            <div class="side-info-box">
-              <h4>Associated Locations</h4>
-              <div class="side-info-item">
-                <span class="side-info-label">Region:</span>
-                <span class="side-info-value">Middle East</span>
-              </div>
-              <div class="side-info-item">
-                <span class="side-info-label">Known Activity:</span>
-                <span class="side-info-value">Conflict Zones</span>
-              </div>
-            </div>
-
-            <div class="map-section">
-              <h4>Last Known Location</h4>
-              <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172742.0063032653!2d19.040235873636203!3d47.49801025837147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741c334d1d4cfc9%3A0x400c4290c1e1160!2sBudapest%2C%20Hungary!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
-              </div>
-              <div class="map-label">
-                <strong>Budapest, Hungary</strong>
-                Last confirmed sighting
-              </div>
-            </div>
-          </div>
-          <div class="profile-details">
-            <div class="profile-name">Lucas Tiger</div>
-            <div class="profile-case-number">FBI CASE #2026-IMW-047</div>
-
-            <div class="info-section">
-              <h3>Subject Information</h3>
-              <div class="info-grid">
-                <div class="info-item">
-                  <span class="info-label">Nationality:</span>
-                  <span class="info-value">Israeli</span>
-                </div>
-                <div class="info-item">
-                  <span class="info-label">Age:</span>
-                  <span class="info-value">35-40 (Estimated)</span>
-                </div>
-                <div class="info-item">
-                  <span class="info-label">Sex:</span>
-                  <span class="info-value">Male</span>
-                </div>
-                <div class="info-item">
-                  <span class="info-label">Hair:</span>
-                  <span class="info-value">Unknown</span>
-                </div>
-                <div class="info-item">
-                  <span class="info-label">Eyes:</span>
-                  <span class="info-value">Unknown</span>
-                </div>
-                <div class="info-item">
-                  <span class="info-label">Scars/Marks:</span>
-                  <span class="info-value">Unknown</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="info-section">
-              <h3>Charges</h3>
-              <ul class="charges-list">
-                <li class="charge-item">War Crimes - Deliberate targeting of protected civilians</li>
-                <li class="charge-item">Crimes Against Humanity - Systematic attacks against civilian populations</li>
-                <li class="charge-item">Murder (750+ counts) - Unlawful killing of civilians including women and children</li>
-                <li class="charge-item">Violations of International Humanitarian Law in armed conflict zones</li>
-                <li class="charge-item">Conspiracy to commit crimes against protected persons</li>
-              </ul>
-            </div>
-
-            <div class="warning-box">
-              <h4>Associated Online Activity</h4>
-              <p>Subject is believed to operate the website "mossad.club" which may be used for dissemination of disinformation and propaganda materials. Exercise caution when encountering content from this source.</p>
-            </div>
-
-            <div class="caution-box">
-              <strong>⚠ CAUTION - CONSIDERED ARMED AND EXTREMELY DANGEROUS</strong>
-              <p>If you have any information concerning this individual, please contact your local FBI office or the nearest U.S. Embassy or Consulate. Do not attempt to apprehend this person yourself.</p>
-            </div>
-
-            <div class="interpol-notice">
-              <div class="interpol-header">
-                <div class="interpol-logo-text">INTERPOL</div>
-                <div class="interpol-title">
-                  <h4>Red Notice Issued</h4>
-                  <p>International Criminal Police Organization</p>
-                </div>
-              </div>
-              <div class="interpol-content">
-                <div class="interpol-field">
-                  <div class="interpol-field-label">Notice Number</div>
-                  <div class="interpol-field-value">A-2047/10-2023</div>
-                </div>
-                <div class="interpol-field">
-                  <div class="interpol-field-label">Issue Date</div>
-                  <div class="interpol-field-value">October 12, 2023</div>
-                </div>
-                <div class="interpol-field">
-                  <div class="interpol-field-label">Status</div>
-                  <div class="interpol-field-value">ACTIVE</div>
-                </div>
-                <div class="interpol-field">
-                  <div class="interpol-field-label">Member Countries</div>
-                  <div class="interpol-field-value">195 Notified</div>
-                </div>
-              </div>
-              <div class="interpol-footer">
-                <p>This individual is subject to <strong>extradition proceedings</strong> in member countries. Immediate arrest and detention authorized upon identification.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="back-button" onclick="showTab('most-wanted')">← Return to Most Wanted List</button>
-    </div>
-
     <!-- Amaan Muhammad Profile -->
     <div id="amaan-muhammad" class="tab-content">
       <div class="profile-container">
         <div class="profile-header">
-          <h2>Wanted by the FBI</h2>
+          <h2>FBI Most Wanted</h2>
           <p>Sexual Exploitation of Children, Production of CSAM, Failure to Register</p>
         </div>
         <div class="profile-content">
@@ -1608,34 +1670,6 @@
             <div class="reward-amount">
               <strong>REWARD</strong>
               <div class="amount">$100,000</div>
-            </div>
-
-            <div class="side-info-box">
-              <h4>Physical Description</h4>
-              <div class="side-info-item">
-                <span class="side-info-label">Sex:</span>
-                <span class="side-info-value">Male</span>
-              </div>
-              <div class="side-info-item">
-                <span class="side-info-label">Height:</span>
-                <span class="side-info-value">Unknown</span>
-              </div>
-              <div class="side-info-item">
-                <span class="side-info-label">Weight:</span>
-                <span class="side-info-value">Unknown</span>
-              </div>
-              <div class="side-info-item">
-                <span class="side-info-label">Build:</span>
-                <span class="side-info-value">Unknown</span>
-              </div>
-              <div class="side-info-item">
-                <span class="side-info-label">Hair:</span>
-                <span class="side-info-value">Dark</span>
-              </div>
-              <div class="side-info-item">
-                <span class="side-info-label">Eyes:</span>
-                <span class="side-info-value">Brown</span>
-              </div>
             </div>
 
             <div class="caution-badge">
@@ -1731,36 +1765,290 @@
               <strong>⚠ CAUTION - KNOWN SEX OFFENDER - TARGETS VULNERABLE INDIVIDUALS</strong>
               <p>This individual poses a significant threat to public safety, particularly to minors. If you have any information concerning this person, please contact your local FBI office immediately. Do not attempt to confront this individual.</p>
             </div>
+          </div>
+        </div>
+      </div>
+      <button class="back-button" onclick="showTab('most-wanted')">← Return to Most Wanted List</button>
+    </div>
 
-            <div class="interpol-notice">
-              <div class="interpol-header">
-                <div class="interpol-logo-text">INTERPOL</div>
-                <div class="interpol-title">
-                  <h4>Red Notice Issued</h4>
-                  <p>International Criminal Police Organization</p>
+    <!-- Marcus Chen Profile -->
+    <div id="marcus-chen" class="tab-content">
+      <div class="profile-container">
+        <div class="profile-header">
+          <h2>FBI Most Wanted</h2>
+          <p>Unlawful Flight to Avoid Prosecution - Wire Fraud, Money Laundering</p>
+        </div>
+        <div class="profile-content">
+          <div class="profile-photo-section">
+            <img src="https://i.ibb.co/SXDnJ8Jb/image.jpg" alt="Marcus Chen" class="profile-photo">
+            
+            <div class="reward-amount">
+              <strong>REWARD</strong>
+              <div class="amount">$50,000</div>
+            </div>
+
+            <div class="caution-badge">
+              <strong>⚠ FINANCIAL CRIMES</strong>
+              <p>DO NOT ALERT SUBJECT</p>
+            </div>
+
+            <div class="wanted-since">
+              <div class="label">Wanted Since</div>
+              <div class="date">March 2025</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Known Activity</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Expertise:</span>
+                <span class="side-info-value">Tech / Finance</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Patterns:</span>
+                <span class="side-info-value">Offshore Accounts</span>
+              </div>
+            </div>
+
+            <div class="map-section">
+              <h4>Last Known Location</h4>
+              <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172231.22761441744!2d-122.51385095!3d47.60621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490102c93e83355%3A0x102565466944d59a!2sSeattle%2C%20WA!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+              <div class="map-label">
+                <strong>Seattle, Washington</strong>
+                Last confirmed sighting
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="profile-name">Marcus Chen</div>
+            <div class="profile-case-number">FBI CASE #2025-IMW-091</div>
+
+            <div class="info-section">
+              <h3>Subject Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Nationality:</span>
+                  <span class="info-value">American</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Age:</span>
+                  <span class="info-value">42-46 (Estimated)</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Sex:</span>
+                  <span class="info-value">Male</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Occupation:</span>
+                  <span class="info-value">Former Tech Executive</span>
                 </div>
               </div>
-              <div class="interpol-content">
-                <div class="interpol-field">
-                  <div class="interpol-field-label">Notice Number</div>
-                  <div class="interpol-field-value">A-2063/1-2024</div>
+            </div>
+
+            <div class="info-section">
+              <h3>Charges</h3>
+              <ul class="charges-list">
+                <li class="charge-item">Wire Fraud - Multiple interstate transactions totaling $127 million</li>
+                <li class="charge-item">Money Laundering - Concealment of fraudulently obtained funds</li>
+                <li class="charge-item">Securities Fraud - Misrepresentation to investors</li>
+                <li class="charge-item">Conspiracy to Defraud - Organized scheme with co-conspirators</li>
+              </ul>
+            </div>
+
+            <div class="caution-box">
+              <strong>⚠ CAUTION - MAY ATTEMPT TO FLEE COUNTRY</strong>
+              <p>Subject has significant financial resources and international connections. If you have any information concerning this individual, please contact your local FBI office immediately.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="back-button" onclick="showTab('most-wanted')">← Return to Most Wanted List</button>
+    </div>
+
+    <!-- Sarah Martinez Profile -->
+    <div id="sarah-martinez" class="tab-content">
+      <div class="profile-container">
+        <div class="profile-header">
+          <h2>FBI Most Wanted</h2>
+          <p>Healthcare Fraud, Distribution of Controlled Substances</p>
+        </div>
+        <div class="profile-content">
+          <div class="profile-photo-section">
+            <img src="https://i.ibb.co/FkWGQ3kf/image.jpg" alt="Sarah Martinez" class="profile-photo">
+            
+            <div class="reward-amount">
+              <strong>REWARD</strong>
+              <div class="amount">$75,000</div>
+            </div>
+
+            <div class="caution-badge">
+              <strong>⚠ MEDICAL FRAUD</strong>
+              <p>KNOWN TO USE ALIASES</p>
+            </div>
+
+            <div class="wanted-since">
+              <div class="label">Wanted Since</div>
+              <div class="date">July 2025</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Known Aliases</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Primary:</span>
+                <span class="side-info-value">"Dr. Sarah M."</span>
+              </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Field:</span>
+                <span class="side-info-value">Healthcare</span>
+              </div>
+            </div>
+
+            <div class="map-section">
+              <h4>Last Known Location</h4>
+              <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d424144.41508214273!2d-112.07708155!3d33.44838365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b12ed50a179cb%3A0x8c69c7f8354a1bac!2sPhoenix%2C%20AZ!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+              <div class="map-label">
+                <strong>Phoenix, Arizona</strong>
+                Last confirmed sighting
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="profile-name">Sarah Martinez</div>
+            <div class="profile-case-number">FBI CASE #2025-IMW-118</div>
+
+            <div class="info-section">
+              <h3>Subject Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Nationality:</span>
+                  <span class="info-value">American</span>
                 </div>
-                <div class="interpol-field">
-                  <div class="interpol-field-label">Issue Date</div>
-                  <div class="interpol-field-value">January 18, 2024</div>
+                <div class="info-item">
+                  <span class="info-label">Age:</span>
+                  <span class="info-value">34-38 (Estimated)</span>
                 </div>
-                <div class="interpol-field">
-                  <div class="interpol-field-label">Status</div>
-                  <div class="interpol-field-value">ACTIVE</div>
+                <div class="info-item">
+                  <span class="info-label">Sex:</span>
+                  <span class="info-value">Female</span>
                 </div>
-                <div class="interpol-field">
-                  <div class="interpol-field-label">Member Countries</div>
-                  <div class="interpol-field-value">195 Notified</div>
+                <div class="info-item">
+                  <span class="info-label">Known Aliases:</span>
+                  <span class="info-value">"Dr. Sarah M."</span>
                 </div>
               </div>
-              <div class="interpol-footer">
-                <p>This individual is subject to <strong>extradition proceedings</strong> in member countries. Immediate arrest and detention authorized upon identification.</p>
+            </div>
+
+            <div class="info-section">
+              <h3>Charges</h3>
+              <ul class="charges-list">
+                <li class="charge-item">Healthcare Fraud - Billing for services not rendered ($43 million scheme)</li>
+                <li class="charge-item">Distribution of Controlled Substances - Illegal prescription practices</li>
+                <li class="charge-item">Falsifying Medical Records - Systematic document manipulation</li>
+                <li class="charge-item">Racketeering - Operation of fraudulent medical enterprise</li>
+              </ul>
+            </div>
+
+            <div class="caution-box">
+              <strong>⚠ CAUTION - MAY BE PRACTICING MEDICINE UNDER FALSE CREDENTIALS</strong>
+              <p>Subject poses potential danger to public health. If you have any information concerning this individual, please contact your local FBI office immediately.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="back-button" onclick="showTab('most-wanted')">← Return to Most Wanted List</button>
+    </div>
+
+    <!-- Devon Wright Profile -->
+    <div id="devon-wright" class="tab-content">
+      <div class="profile-container">
+        <div class="profile-header">
+          <h2>FBI Most Wanted</h2>
+          <p>Armed Bank Robbery, Assault with Deadly Weapon, Kidnapping</p>
+        </div>
+        <div class="profile-content">
+          <div class="profile-photo-section">
+            <img src="https://i.ibb.co/XfQNbFbW/image.jpg" alt="Devon Wright" class="profile-photo">
+            
+            <div class="reward-amount">
+              <strong>REWARD</strong>
+              <div class="amount">$100,000</div>
+            </div>
+
+            <div class="caution-badge">
+              <strong>⚠ ARMED & DANGEROUS</strong>
+              <p>VIOLENT CRIMINAL HISTORY</p>
+            </div>
+
+            <div class="wanted-since">
+              <div class="label">Wanted Since</div>
+              <div class="date">November 2024</div>
+            </div>
+
+            <div class="side-info-box">
+              <h4>Threat Assessment</h4>
+              <div class="side-info-item">
+                <span class="side-info-label">Level:</span>
+                <span class="side-info-value">HIGH RISK</span>
               </div>
+              <div class="side-info-item">
+                <span class="side-info-label">Weapons:</span>
+                <span class="side-info-value">Firearms</span>
+              </div>
+            </div>
+
+            <div class="map-section">
+              <h4>Last Known Location</h4>
+              <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230013.42314398658!2d-80.30867825!3d25.78199635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b0a20ec8c111%3A0xff96f271ddad4f65!2sMiami%2C%20FL!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+              <div class="map-label">
+                <strong>Miami, Florida</strong>
+                Last confirmed sighting
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <div class="profile-name">Devon Wright</div>
+            <div class="profile-case-number">FBI CASE #2024-IMW-204</div>
+
+            <div class="info-section">
+              <h3>Subject Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <span class="info-label">Nationality:</span>
+                  <span class="info-value">American</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Age:</span>
+                  <span class="info-value">38-42 (Estimated)</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Sex:</span>
+                  <span class="info-value">Male</span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Distinguishing:</span>
+                  <span class="info-value">Prior Convictions</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h3>Charges</h3>
+              <ul class="charges-list">
+                <li class="charge-item">Armed Bank Robbery (3 Counts) - Multiple institutions across state lines</li>
+                <li class="charge-item">Assault with Deadly Weapon - Use of firearm during commission of felony</li>
+                <li class="charge-item">Kidnapping - Unlawful detention of bank employees</li>
+                <li class="charge-item">Unlawful Flight to Avoid Prosecution - Interstate flight</li>
+              </ul>
+            </div>
+
+            <div class="caution-box">
+              <strong>⚠ CAUTION - CONSIDERED ARMED AND EXTREMELY DANGEROUS</strong>
+              <p>Subject has history of violent confrontations with law enforcement. Do NOT approach. If you have any information concerning this individual, please contact your local FBI office immediately.</p>
             </div>
           </div>
         </div>
@@ -1771,7 +2059,7 @@
     <!-- Submit Tip Tab -->
     <div id="submit-tip" class="tab-content">
       <div class="alert-banner">
-        <h2>Submit Information to the FBI</h2>
+        <h2>Submit Information to The Coms</h2>
         <p>Your information could be critical in the apprehension of these fugitives.</p>
       </div>
 
@@ -1807,7 +2095,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">
-      <p><strong>Federal Bureau of Investigation</strong></p>
+      <p><strong>The Coms - Most Wanted Division</strong></p>
       <p>U.S. Department of Justice | Washington, D.C. 20535</p>
       <p>Information current as of February 15, 2026</p>
       <div class="footer-links">
