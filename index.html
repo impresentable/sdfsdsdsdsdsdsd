@@ -520,6 +520,156 @@
       transform: rotate(360deg);
     }
 
+    /* Investigation Board Styles */
+    .investigation-board {
+      background: linear-gradient(135deg, #d4a574 0%, #c49865 100%);
+      border: 15px solid #8B4513;
+      border-radius: 8px;
+      padding: 40px;
+      position: relative;
+      min-height: 800px;
+      box-shadow: inset 0 0 50px rgba(0,0,0,0.2), 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .board-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: #8B0000;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .board-canvas {
+      position: relative;
+      min-height: 700px;
+    }
+
+    .team-card {
+      position: absolute;
+      background: #ffffff;
+      border: 3px solid #333;
+      padding: 15px;
+      width: 180px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      transform: rotate(-2deg);
+    }
+
+    .team-card:hover {
+      transform: rotate(0deg) scale(1.05);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+      z-index: 100;
+    }
+
+    .team-card.active {
+      border-color: #bf0a30;
+      box-shadow: 0 0 20px rgba(191, 10, 48, 0.6);
+    }
+
+    .team-photo {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border: 2px solid #333;
+      margin-bottom: 10px;
+    }
+
+    .team-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    .team-role {
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .pin {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      background: radial-gradient(circle, #ff0000 0%, #cc0000 100%);
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .pin::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    .connection-line {
+      position: absolute;
+      height: 2px;
+      background: #8B0000;
+      transform-origin: left center;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .info-panel {
+      background: #fff;
+      border: 3px solid #333;
+      padding: 20px;
+      margin-top: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      min-height: 150px;
+    }
+
+    .info-panel h3 {
+      color: #003366;
+      margin-bottom: 15px;
+      font-size: 20px;
+      border-bottom: 2px solid #003366;
+      padding-bottom: 10px;
+    }
+
+    .info-panel p {
+      color: #333;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+
+    .info-panel ul {
+      margin-left: 20px;
+      color: #333;
+    }
+
+    .info-panel li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .sticky-note {
+      position: absolute;
+      background: #ffd700;
+      padding: 10px;
+      font-size: 11px;
+      transform: rotate(3deg);
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      font-family: 'Courier New', monospace;
+      max-width: 100px;
+    }
+
     .fugitive-name {
       font-size: 24px;
       font-weight: 700;
@@ -1743,8 +1893,8 @@
 <body>
 
   <!-- Background Music -->
-  <audio id="music-lucas" loop>
-    <source src="https://image2url.com/r2/default/audio/1771078644500-15b79dac-91d4-47b8-aa06-6348bd433fca.mp3" type="audio/mpeg">
+  <audio id="music-dante" loop>
+    <source src="https://image2url.com/r2/default/audio/1771173466286-4c5114ed-f70f-49d4-8672-04a32274a598.mp3" type="audio/mpeg">
   </audio>
 
   <audio id="music-amaan" loop>
@@ -1794,7 +1944,7 @@
             <div class="team-directors">
               <span class="director">Director Cunch</span>
               <span class="director-separator">•</span>
-              <span class="director">Director David</span>
+              <span class="director">Director Donald</span>
             </div>
           </div>
         </div>
@@ -1850,24 +2000,24 @@
           </div>
         </div>
 
-        <!-- Lucas Tiger -->
+        <!-- Dante -->
         <div class="fugitive-card">
           <div class="fugitive-photo-container">
-            <img src="https://i.ibb.co/Ps4xSb6L/image.jpg" alt="Lucas Tiger" class="fugitive-photo">
+            <img src="https://i.postimg.cc/KYgSHqPL/GTR2Lzd-X0AAz7nk.jpg" alt="Dante" class="fugitive-photo">
           </div>
           <div class="fugitive-info">
-            <div class="fugitive-name">Lucas Tiger</div>
-            <div class="case-number">CASE #2025-IMW-044</div>
+            <div class="fugitive-name">Dante</div>
+            <div class="case-number">CASE #2026-IMW-095</div>
             <div class="fugitive-details">
-              <strong>Nationality:</strong> Israeli<br>
-              <strong>Age:</strong> 36-40 (Estimated)<br>
-              <strong>Last Known Location:</strong> Zurich, Switzerland<br>
-              <strong>Status:</strong> International Cybercrime Fugitive
+              <strong>Age:</strong> 20<br>
+              <strong>Last Known Location:</strong> Miami, Florida<br>
+              <strong>Status:</strong> Armed & Dangerous<br>
+              <strong>Reward:</strong> $500,000
             </div>
             <div class="charges-summary">
-              <strong>Charged With:</strong> Cryptocurrency Theft; Identity Fraud; Money Laundering; International Conspiracy ($250 Million Scheme)
+              <strong>Charged With:</strong> Wire Fraud; Fraud; Illegal Possession of Firearms; Discharging Firearm in Miami, Florida
             </div>
-            <button class="view-profile-btn" onclick="showProfile('lucas-tiger')">View Full Profile</button>
+            <button class="view-profile-btn" onclick="showProfile('dante')">View Full Profile</button>
           </div>
         </div>
 
@@ -2189,77 +2339,66 @@
       <button class="back-button" onclick="showTab('most-wanted')">← Return to Most Wanted List</button>
     </div>
 
-    <!-- Lucas Tiger Profile -->
-    <div id="lucas-tiger" class="tab-content">
+    <!-- Dante Profile -->
+    <div id="dante" class="tab-content">
       <div class="profile-container">
         <div class="profile-header">
           <h2>FBI Most Wanted</h2>
-          <p>International Cybercrime, Cryptocurrency Theft, Money Laundering</p>
+          <p>Wire Fraud, Fraud, Illegal Firearms, Discharging Firearm in Miami</p>
         </div>
         <div class="profile-content">
           <div class="profile-photo-section">
-            <img src="https://i.ibb.co/Ps4xSb6L/image.jpg" alt="Lucas Tiger" class="profile-photo">
+            <img src="https://i.postimg.cc/KYgSHqPL/GTR2Lzd-X0AAz7nk.jpg" alt="Dante" class="profile-photo">
             
             <div class="reward-amount">
               <strong>REWARD</strong>
-              <div class="amount">$150,000</div>
+              <div class="amount">$500,000</div>
             </div>
 
             <div class="caution-badge">
-              <strong>⚠ CYBER CRIMINAL</strong>
-              <p>INTERNATIONAL THREAT</p>
+              <strong>⚠ ARMED & DANGEROUS</strong>
+              <p>FIREARMS OFFENDER</p>
             </div>
 
             <div class="wanted-since">
               <div class="label">Wanted Since</div>
-              <div class="date">August 2025</div>
+              <div class="date">January 2026</div>
             </div>
 
             <div class="side-info-box">
-              <h4>Known Activity</h4>
+              <h4>Known Information</h4>
               <div class="side-info-item">
-                <span class="side-info-label">Background:</span>
-                <span class="side-info-value">Ex-IDF Cyber Unit</span>
+                <span class="side-info-label">Age:</span>
+                <span class="side-info-value">20</span>
               </div>
               <div class="side-info-item">
-                <span class="side-info-label">Operations:</span>
-                <span class="side-info-value">International</span>
-              </div>
-            </div>
-
-            <div class="map-section">
-              <h4>Last Known Location</h4>
-              <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d86899.67890!2d8.5417!3d47.3769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900a08cc0e6e41%3A0xf5c698b7fb9581f!2sZurich%2C%20Switzerland!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
-              </div>
-              <div class="map-label">
-                <strong>Zurich, Switzerland</strong>
-                Last confirmed sighting
+                <span class="side-info-label">Status:</span>
+                <span class="side-info-value">Armed & Dangerous</span>
               </div>
             </div>
           </div>
           <div class="profile-details">
-            <div class="profile-name">Lucas Tiger</div>
-            <div class="profile-case-number">FBI CASE #2025-IMW-044</div>
+            <div class="profile-name">Dante</div>
+            <div class="profile-case-number">FBI CASE #2026-IMW-095</div>
 
             <div class="info-section">
               <h3>Subject Information</h3>
               <div class="info-grid">
                 <div class="info-item">
-                  <span class="info-label">Nationality:</span>
-                  <span class="info-value">Israeli</span>
+                  <span class="info-label">Name:</span>
+                  <span class="info-value">Dante</span>
                 </div>
                 <div class="info-item">
                   <span class="info-label">Age:</span>
-                  <span class="info-value">36-40 (Estimated)</span>
+                  <span class="info-value">20</span>
                 </div>
                 <div class="info-item">
                   <span class="info-label">Sex:</span>
                   <span class="info-value">Male</span>
                 </div>
                 <div class="info-item">
-                  <span class="info-label">Occupation:</span>
-                  <span class="info-value">Former IDF Cyber Specialist</span>
+                  <span class="info-label">Status:</span>
+                  <span class="info-value">Armed & Dangerous</span>
                 </div>
               </div>
             </div>
@@ -2267,24 +2406,24 @@
             <div class="info-section">
               <h3>Charges</h3>
               <ul class="charges-list">
-                <li class="charge-item">Cryptocurrency Theft - Orchestrated theft of digital assets valued at $250 million using advanced cyber warfare techniques learned in IDF cyber unit</li>
-                <li class="charge-item">Identity Fraud - Created and used false identities across multiple jurisdictions</li>
-                <li class="charge-item">Money Laundering - International laundering operation using shell corporations</li>
-                <li class="charge-item">Computer Fraud - Unauthorized access to financial systems and cryptocurrency exchanges</li>
-                <li class="charge-item">Wire Fraud - Interstate and international electronic fraud</li>
-                <li class="charge-item">Conspiracy - Organized criminal enterprise with international co-conspirators</li>
-                <li class="charge-item">Unauthorized Use of Military Training - Exploitation of classified cyber warfare methods for criminal purposes</li>
+                <li class="charge-item">Wire Fraud - Use of electronic communications to perpetrate fraudulent schemes</li>
+                <li class="charge-item">Fraud - Multiple instances of fraudulent financial activities and schemes</li>
+                <li class="charge-item">Illegal Possession of Firearms - Unlawful possession and trafficking of illegal firearms</li>
+                <li class="charge-item">Discharging a Firearm in Miami, Florida - Unlawful discharge of a firearm within city limits causing public endangerment</li>
+                <li class="charge-item">Conspiracy to Commit Fraud - Organized fraudulent activity with intent to defraud victims</li>
+                <li class="charge-item">Interstate Transportation of Stolen Property</li>
+                <li class="charge-item">Unlawful Flight to Avoid Prosecution</li>
               </ul>
             </div>
 
             <div class="warning-box">
-              <h4>Operational Profile</h4>
-              <p>Subject is highly sophisticated in cybersecurity and cryptocurrency operations. Former IDF cyber warfare specialist who went rogue and turned to cybercrime. Known to use advanced military-grade encryption, multiple VPNs, and frequently changes locations across international borders. Has demonstrated ability to create convincing false identities and corporate structures using skills obtained during military service.</p>
+              <h4>Threat Assessment</h4>
+              <p>Subject is 20 years old and considered armed and extremely dangerous. Known to be involved in wire fraud and various fraudulent schemes. Subject has illegally discharged a firearm in Miami, Florida, demonstrating willingness to use weapons in public. Has illegal possession of firearms and should be approached with extreme caution. Demonstrates pattern of fraudulent behavior combined with violent weapons offenses. Do not attempt to apprehend.</p>
             </div>
 
             <div class="caution-box">
-              <strong>⚠ CAUTION - INTERNATIONAL FLIGHT RISK</strong>
-              <p>Subject has significant technical expertise and financial resources. Believed to be operating from multiple countries. If you have any information concerning this individual, please contact your local FBI office immediately.</p>
+              <strong>⚠ CAUTION - ARMED AND DANGEROUS</strong>
+              <p>This individual is armed with illegal firearms and has a history of fraud. If you have any information concerning this person, please contact your local FBI office immediately. Do not attempt to approach or confront this individual.</p>
             </div>
           </div>
         </div>
@@ -2534,27 +2673,6 @@
               <strong>Details:</strong> Information being compiled. Please provide any details you have about this individual.
             </div>
             <button class="view-profile-btn" onclick="showProfile('jamesjan25-missing')">View Details</button>
-          </div>
-        </div>
-
-        <!-- White Armel - Missing Person -->
-        <div class="fugitive-card">
-          <div class="fugitive-photo-container">
-            <img src="https://i.ibb.co/7XqQ8Zf/black-placeholder.jpg" alt="White Armel" class="fugitive-photo" style="filter: brightness(0.5);">
-          </div>
-          <div class="fugitive-info">
-            <div class="fugitive-name">White Armel</div>
-            <div class="case-number">CASE #[PENDING] • MISSING PERSON</div>
-            <div class="fugitive-details">
-              <strong>Status:</strong> Missing<br>
-              <strong>Age:</strong> 18<br>
-              <strong>Height:</strong> 6'2"<br>
-              <strong>Last Seen:</strong> Ireland
-            </div>
-            <div class="charges-summary">
-              <strong>Details:</strong> Known for drinking piss. Information being compiled. Please provide any details you have about this individual.
-            </div>
-            <button class="view-profile-btn" onclick="showProfile('whitearmel-missing')">View Details</button>
           </div>
         </div>
 
@@ -3333,7 +3451,7 @@
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Music elements
-    const musicLucas = document.getElementById('music-lucas');
+    const musicDante = document.getElementById('music-dante');
     const musicAmaan = document.getElementById('music-amaan');
     const musicKyle = document.getElementById('music-kyle');
     const musicCbtv = document.getElementById('music-cbtv');
@@ -3341,9 +3459,8 @@
     const musicBmontana = document.getElementById('music-bmontana');
     const musicJoshlee = document.getElementById('music-joshlee');
     const musicThetruthuk = document.getElementById('music-thetruthuk');
-    const musicWhitearmel = document.getElementById('music-whitearmel');
     
-    if (musicLucas) musicLucas.volume = 0.4;
+    if (musicDante) musicDante.volume = 0.4;
     if (musicAmaan) musicAmaan.volume = 0.4;
     if (musicKyle) musicKyle.volume = 0.4;
     if (musicCbtv) musicCbtv.volume = 0.4;
@@ -3351,7 +3468,6 @@
     if (musicBmontana) musicBmontana.volume = 0.4;
     if (musicJoshlee) musicJoshlee.volume = 0.4;
     if (musicThetruthuk) musicThetruthuk.volume = 0.4;
-    if (musicWhitearmel) musicWhitearmel.volume = 0.4;
 
     function showTab(tabId) {
       // Hide all tabs
@@ -3377,7 +3493,7 @@
       }
 
       // Handle music based on which profile is shown
-      if (tabId === 'lucas-tiger') {
+      if (tabId === 'dante') {
         // Stop other music
         if (musicAmaan) {
           musicAmaan.pause();
@@ -3408,15 +3524,15 @@
           musicJoshlee.currentTime = 0;
         }
         // Play Lucas's music
-        if (musicLucas) {
-          musicLucas.currentTime = 0;
-          musicLucas.play().catch(() => {});
+        if (musicDante) {
+          musicDante.currentTime = 0;
+          musicDante.play().catch(() => {});
         }
       } else if (tabId === 'amaan-muhammad') {
         // Stop other music
-        if (musicLucas) {
-          musicLucas.pause();
-          musicLucas.currentTime = 0;
+        if (musicDante) {
+          musicDante.pause();
+          musicDante.currentTime = 0;
         }
         if (musicKyle) {
           musicKyle.pause();
@@ -3449,9 +3565,9 @@
         }
       } else if (tabId === 'fakemodeen') {
         // Stop other music
-        if (musicLucas) {
-          musicLucas.pause();
-          musicLucas.currentTime = 0;
+        if (musicDante) {
+          musicDante.pause();
+          musicDante.currentTime = 0;
         }
         if (musicAmaan) {
           musicAmaan.pause();
@@ -3484,9 +3600,9 @@
         }
       } else if (tabId === 'cbtv-missing') {
         // Stop other music
-        if (musicLucas) {
-          musicLucas.pause();
-          musicLucas.currentTime = 0;
+        if (musicDante) {
+          musicDante.pause();
+          musicDante.currentTime = 0;
         }
         if (musicAmaan) {
           musicAmaan.pause();
@@ -3519,9 +3635,9 @@
         }
       } else if (tabId === 'jamesjan25-missing') {
         // Stop other music
-        if (musicLucas) {
-          musicLucas.pause();
-          musicLucas.currentTime = 0;
+        if (musicDante) {
+          musicDante.pause();
+          musicDante.currentTime = 0;
         }
         if (musicAmaan) {
           musicAmaan.pause();
@@ -3554,9 +3670,9 @@
         }
       } else if (tabId === 'bmontana-missing') {
         // Stop other music
-        if (musicLucas) {
-          musicLucas.pause();
-          musicLucas.currentTime = 0;
+        if (musicDante) {
+          musicDante.pause();
+          musicDante.currentTime = 0;
         }
         if (musicAmaan) {
           musicAmaan.pause();
@@ -3589,9 +3705,9 @@
         }
       } else if (tabId === 'josh-lee') {
         // Stop other music
-        if (musicLucas) {
-          musicLucas.pause();
-          musicLucas.currentTime = 0;
+        if (musicDante) {
+          musicDante.pause();
+          musicDante.currentTime = 0;
         }
         if (musicAmaan) {
           musicAmaan.pause();
@@ -3628,9 +3744,9 @@
         }
       } else if (tabId === 'thetruthuk') {
         // Stop other music
-        if (musicLucas) {
-          musicLucas.pause();
-          musicLucas.currentTime = 0;
+        if (musicDante) {
+          musicDante.pause();
+          musicDante.currentTime = 0;
         }
         if (musicAmaan) {
           musicAmaan.pause();
@@ -3667,9 +3783,9 @@
         }
       } else if (tabId === 'whitearmel-missing') {
         // Stop other music
-        if (musicLucas) {
-          musicLucas.pause();
-          musicLucas.currentTime = 0;
+        if (musicDante) {
+          musicDante.pause();
+          musicDante.currentTime = 0;
         }
         if (musicAmaan) {
           musicAmaan.pause();
@@ -3706,9 +3822,9 @@
         }
       } else {
         // Stop all music when not on a profile page
-        if (musicLucas) {
-          musicLucas.pause();
-          musicLucas.currentTime = 0;
+        if (musicDante) {
+          musicDante.pause();
+          musicDante.currentTime = 0;
         }
         if (musicAmaan) {
           musicAmaan.pause();
